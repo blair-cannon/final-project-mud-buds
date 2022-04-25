@@ -1,35 +1,22 @@
-import './App.css';
-import {Outlet} from 'react-router-dom';
-import {Nav, Navbar, Container, Offcanvas} from 'react-bootstrap';
-
+import Feed from './components/feed';
+import Notifications from './components/notifications';
+import Profile from './components/profile';
+import Login from './components/login';
+import Navigation from './components/navigation';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
-  return (
-    <div className="App">
-      <Navbar bg="light" expand={false}>
-        <Container fluid>
-          <Navbar.Brand href="#">LOGO</Navbar.Brand>
-          <Nav.Link href="#">Log In</Nav.Link>
-          <Navbar.Toggle aria-controls="offcanvasNavbar" />
-          <Navbar.Offcanvas
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel"
-            placement="end">
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title id="offcanvasNavbarLabel">Resources</Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Nav.Link href="#action1">New Client Info</Nav.Link>
-                <Nav.Link href="#action2">Safety</Nav.Link>
-                <Nav.Link href="#action3">Create Account</Nav.Link>
-              </Nav>
-            </Offcanvas.Body>
-          </Navbar.Offcanvas>
-        </Container>
-      </Navbar>
-      <Outlet />
-    </div>
-  );
+return (
+<div className="App">
+<Router>
+  <Navigation></Navigation>
+  <Routes>
+      <Route path="/feed" element={<Feed />}></Route>
+      <Route path="/notifications" element={<Notifications />}></Route>
+      <Route path="/profile" element={<Profile />}></Route>
+      <Route path="/login" element={<Login />}></Route>
+  </Routes>
+</Router>
+</div>
+);
 }
-
 export default App;
