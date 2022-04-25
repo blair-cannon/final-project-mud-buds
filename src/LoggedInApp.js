@@ -2,13 +2,15 @@ import './App.css';
 import {Outlet} from 'react-router-dom';
 import {Nav, Navbar, Container, Offcanvas} from 'react-bootstrap';
 
-function App() {
+function LoggedInApp() {
   return (
     <div className="App">
       <Navbar bg="light" expand={false}>
         <Container fluid>
           <Navbar.Brand href="#">LOGO</Navbar.Brand>
-          <Nav.Link href="#">Log In</Nav.Link>
+          <Nav.Link href="#">Feed</Nav.Link>
+          <Nav.Link href="#">Notifications</Nav.Link>
+          <Nav.Link href="#">Profile</Nav.Link>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
           <Navbar.Offcanvas
             id="offcanvasNavbar"
@@ -22,6 +24,7 @@ function App() {
                 <Nav.Link href="#action1">New Client Info</Nav.Link>
                 <Nav.Link href="#action2">Safety</Nav.Link>
                 <Nav.Link href="#action3">Create Account</Nav.Link>
+                <Nav.Link href="#action3">Log Out</Nav.Link>
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
@@ -32,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export default LoggedInApp;
