@@ -1,7 +1,7 @@
-import Feed from './components/feed';
-import Notifications from './components/notifications';
-import Profile from './components/profile';
-import Login from './components/login';
+import Feed from './routes/feed';
+import Notifications from './routes/notifications';
+import Profile from './routes/profile';
+import Login from './routes/login';
 import Navigation from './components/navigation';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
