@@ -1,0 +1,13 @@
+.contentCol {
+    border: solid 2px black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.messageCol {
+    border: solid 2px black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
