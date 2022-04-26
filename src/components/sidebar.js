@@ -1,7 +1,43 @@
-import React from 'react'
+import 'react-bootstrap-drawer/lib/style.css';
+    import React, { useState } from 'react';
+    import {
+        Col,
+        Collapse,
+        Container,
+        Row,
+    } from 'react-bootstrap';
+    import { Drawer, } from 'react-bootstrap-drawer';
 
-export default function Sidebar() {
+function SidebarSetUp() {
+    const [open, setOpen] = useState(false);
+    const handleToggle = () => setOpen(!open);
   return (
-    <div>Sidebar</div>
-  )
-}
+    <div>
+            <Drawer { ...props }>
+                <Drawer.Toggle onClick={ handleToggle } />
+                <Collapse in={ open }>
+                    <Drawer.Overflow>
+                        <Drawer.ToC>
+                            <Drawer.Header href="/">Application</Drawer.Header>
+                            <Drawer.Nav>
+                                <Drawer.Item href="/settings">Settings</Drawer.Item>
+                            </Drawer.Nav>
+                        </Drawer.ToC>
+                    </Drawer.Overflow>
+                </Collapse>
+            </Drawer>
+    </div>
+        )
+};
+
+    
+export default function SideBar(props) {
+        return (
+            <Container fluid>
+                <Row className="flex-xl-nowrap">
+                    <Col as={ SidebarSetUp } xs={ 12 } md={ 3 } lg={ 2 } />
+                    <Col xs={ 12 } md={ 9 } lg={ 10 }>{ props.children }</Col>
+                </Row>
+            </Container>
+        );
+    };
