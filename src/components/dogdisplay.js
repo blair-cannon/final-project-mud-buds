@@ -36,9 +36,9 @@ const IndividualDog = ({ dog }) => {
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        {/* <ListGroupItem>{dog.tag}</ListGroupItem>
-        <ListGroupItem>{dog.tag[0]}</ListGroupItem>
-        <ListGroupItem>{dog.tag[0]}</ListGroupItem> */}
+        <ListGroupItem>
+          {dog.tags.map((tag) => tag).join(', ')}
+        </ListGroupItem>
       </ListGroup>
       <Card.Body>
         <Card.Link href="#">connect</Card.Link>
