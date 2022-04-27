@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getData } from '../data.js'; 
+import { Row } from 'react-bootstrap';
+import ConversationPreview from './conversationpreview';
 
 export default function Convos() {
   const URL = 'https://8000-blairpresto-finalprojec-zz9g3tdguv4.ws-us42.gitpod.io/conversations';
@@ -21,10 +23,9 @@ export default function Convos() {
 
 const IndividualConvo = ({ convo }) => {
   return (
-    <div className="conversationRow">
-        <p>From: {convo.dog_creator}</p>
-        <p>To: {convo.dog_other}</p>
-        <p>Subject: { convo.subject }</p>
-    </div>
+    <Row className="conversationRow">
+      <ConversationPreview convo={convo}>
+      </ConversationPreview>
+    </Row>
   )
 }
