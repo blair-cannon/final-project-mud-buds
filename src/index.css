@@ -1,13 +1,24 @@
 .contentCol {
     border: solid 2px black;
     height: 100vh;
-    display: flex;
-    justify-content: center;
 }
 
 .messageCol {
     border: solid 2px black;
     height: 100vh;
+}
+
+.messageRow {
+    height: 5rem;
+    border-bottom: solid 2px black;
+}
+
+.messageHeader {
+    border-bottom: solid 2px black;
+}
+
+.center {
     display: flex;
+    align-items: center;
     justify-content: center;
 }
