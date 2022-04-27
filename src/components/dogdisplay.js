@@ -23,6 +23,7 @@ export default function Dogdisplay() {
 const IndividualDog = ({ dog }) => {
   return (
     <div>
+      {console.log(dog)}
     <h2>Let's find your furry friend a furry friend!</h2>
     <Card style={{ width: '18rem' }}>
       <Card.Body>
@@ -35,9 +36,9 @@ const IndividualDog = ({ dog }) => {
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
+        {/* <ListGroupItem>{dog.tag}</ListGroupItem>
         <ListGroupItem>{dog.tag[0]}</ListGroupItem>
-        <ListGroupItem>{dog.tag[0]}</ListGroupItem>
-        <ListGroupItem>{dog.tag[0]}</ListGroupItem>
+        <ListGroupItem>{dog.tag[0]}</ListGroupItem> */}
       </ListGroup>
       <Card.Body>
         <Card.Link href="#">connect</Card.Link>
