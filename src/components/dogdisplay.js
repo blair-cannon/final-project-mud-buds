@@ -4,6 +4,7 @@ import {Card, ListGroup, ListGroupItem} from 'react-bootstrap';
 export default function Dogdisplay() {
   return (
     <div>
+      <h2>Let's find your furry friend a furry friend!</h2>
       <Card style={{ width: '18rem' }}>
         <Card.Body>
           <Card.Img src="https://www.bil-jac.com/Images/DogPlaceholder.svg" alt="Card image" />
