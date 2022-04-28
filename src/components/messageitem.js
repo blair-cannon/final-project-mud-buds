@@ -11,7 +11,7 @@ export default function Message({ convo }) {
       .then((data) => {
         setMessages(data)
       })
-  }, []);
+  }, [URL]);
 
   return (
     <div>

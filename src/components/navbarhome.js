@@ -8,8 +8,11 @@ export default function NavBarHome(props) {
         <Container fluid>
           <Navbar.Brand href="#">LOGO</Navbar.Brand>
           <LinkContainer to="/login">
-              <Nav.Link>Log In</Nav.Link>
-            </LinkContainer>
+            <Nav.Link>Log In</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/register">
+            <Nav.Link>Create Account</Nav.Link>
+          </LinkContainer>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
           <Navbar.Offcanvas
             id="offcanvasNavbar"
@@ -22,7 +25,9 @@ export default function NavBarHome(props) {
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Nav.Link href="#action1">New Client Info</Nav.Link>
                 <Nav.Link href="#action2">Safety</Nav.Link>
-                <Nav.Link href="#action3">Create Account</Nav.Link>
+                <LinkContainer to="/register">
+                  <Nav.Link>Create Account</Nav.Link>
+                </LinkContainer>
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
