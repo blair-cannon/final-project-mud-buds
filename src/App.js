@@ -1,5 +1,6 @@
 import Feed from './routes/feed';
 import Notifications from './routes/notifications';
+import Home from './routes/home';
 import Profile from './routes/profile';
 import Login from './routes/login';
 import Register from './routes/register';
@@ -14,6 +15,7 @@ return (
   <Router>
     <Navigation></Navigation>
     <Routes>
+        <Route path="/" element={<Home />}></Route>
         <Route path="/feed" element={<Feed />}></Route>
         <Route path="/notifications" element={<Notifications />}></Route>
         <Route path="/profile" element={<Profile />}></Route>

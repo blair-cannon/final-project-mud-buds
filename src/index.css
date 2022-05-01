@@ -1,3 +1,15 @@
+:root {
+    --blue: #335C67;
+    --yellow: #fff3b0;
+    --orange: #e09f3e;
+    --red: #9e2a2b;
+    --darkred: #540b0e;
+  }
+
+.pageContainer {
+    margin-top: 5rem;
+}
+
 .contentCol {
     border: solid 2px black;
     height: 100vh;
@@ -24,4 +36,83 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.nav {
+    background-color: white;
+    color: black;
+    height: 4rem;
+}
+
+a.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: black;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: var(--blue);
+    font-weight: bold;
+    /* transition: border 2s; */
+    transition-timing-function: ease-in;
+}
+
+a.nav-link:hover {
+    border-bottom: 4px solid var(--blue);
+    border-right: 4px solid var(--blue);
+    border-top: 4px solid var(--orange);
+    border-left: 4px solid var(--orange);
+    color: var(--blue) !important;
+}
+
+a.nav-link:active {
+    color: black !important;
+}
+
+a.nav-link:focus {
+    border-bottom: 4px solid var(--blue);
+    border-right: 4px solid var(--blue);
+    border-top: 4px solid var(--orange);
+    border-left: 4px solid var(--orange);
+    color: var(--blue);
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+.navbar-toggler-icon {
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.logo {
+    height: 7rem;
+    width: 12rem;
+    margin: 0.3rem;
+    margin-left: 2rem;
+}
+
+.figure-img {
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    margin-top: 4rem;
+}
+
+.card {
+    position: relative;
+    height: 12rem;
+    width: 80rem;
+    display: flex;
+    flex-direction: row !important;
+    margin: 3rem;
+}
+
+.card img {
+    width: 30%;
+}
+
+h2 {
+    color: var(--darkred);
+    margin-right: auto;
+    margin-left: auto;
 }

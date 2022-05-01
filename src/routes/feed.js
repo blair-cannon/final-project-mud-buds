@@ -5,7 +5,7 @@ import DogDisplay from '../components/dogdisplay';
 
 export default function Feed() {
   return (
-    <Container fluid>
+    <Container className="pageContainer" fluid>
       <Row className="flex-xl-nowrap">
         <SideBar />
         <Col className="contentCol" align="center" lg={ 9 } >

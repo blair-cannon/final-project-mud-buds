@@ -1,17 +1,18 @@
 import React from 'react';
 import { Navbar, Nav, Container, Offcanvas } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import Logo from '../images/doglogo.png'
 
 export default function NavBarLoggedIn(props) {
     return (
-        <Navbar bg="light" expand={false}>
+        <Navbar className="nav" expand={false}>
           <Container fluid>
-            <Navbar.Brand href="#">LOGO</Navbar.Brand>
+              <img className="logo" src={Logo} />
             <LinkContainer to="/feed">
-              <Nav.Link>Feed</Nav.Link>
+              <Nav.Link className="navlink">Feed</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/notifications">
-              <Nav.Link>Notifications</Nav.Link>
+              <Nav.Link className="navlink">Notifications</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/profile">
               <Nav.Link>Profile</Nav.Link>

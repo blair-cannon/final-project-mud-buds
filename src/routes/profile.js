@@ -8,12 +8,12 @@ const Profile = () => {
   const [ state, dispatch ] = useGlobalState();
 
   return (
-    <Container fluid>
+    <Container className="pageContainer" fluid>
       <Row className="flex-xl-nowrap">
         <SideBar />
         <Col className="contentCol" align="center" lg={ 9 } >
           profile content
-          <h1>{state.currentUser.user_id}</h1>
+          {/* <h1>{state.currentUser.user_id}</h1> */}
           <ToggleDog />
 
         </Col>
