@@ -3,7 +3,8 @@ import { getData } from '../data.js';
 import { Row } from 'react-bootstrap'
 
 export default function Message({ convo }) {
-    const URL = `https://8000-blairpresto-finalprojec-khbsmmpuzia.ws-us43.gitpod.io/messages/?conversation=${convo.id}/`;
+    const URL = `https://8000-blairpresto-finalprojec-khbsmmpuzia.ws-us43.gitpod.io/messages/?conversation=${convo.id}`;
+    // no slash on the end, /messages/?conversation=${convo.id} with back-ticks
     const [messages, setMessages] = useState([]);
   
     useEffect(() => {
