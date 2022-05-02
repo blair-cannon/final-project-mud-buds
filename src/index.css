@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Dokdo&display=swap');
+
 :root {
     --blue: #335C67;
     --yellow: #fff3b0;
@@ -52,7 +54,6 @@ a.nav-link {
     font-size: 1.3rem;
     color: var(--blue);
     font-weight: bold;
-    /* transition: border 2s; */
     transition-timing-function: ease-in;
 }
 
@@ -98,21 +99,69 @@ a.nav-link:focus {
     margin-top: 4rem;
 }
 
-.card {
+.walkthroughCard {
     position: relative;
-    height: 12rem;
+    height: 13rem;
     width: 80rem;
     display: flex;
     flex-direction: row !important;
+    margin-bottom: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    text-align: center;
+}
+
+.walkthroughImage {
+    width: 30% !important;
+}
+
+.walkthroughHeader {
+    color: var(--darkred);
+    text-align: center;
+    font-size: 4rem !important;
+    font-weight: bold !important;
+    margin-top: 5rem !important;
+    margin-bottom: 2rem !important;
+    font-family: Cutive Mono;
+    font-weight: bolder;
+}
+
+.walkthroughCardText {
+    font-size: 1.5rem !important;
+    color: black;
+}
+
+.walkthroughCardTitle {
+    margin-bottom: 0.5rem !important;
+    font-size: 2rem !important;
+    font-weight: bold !important;
+    color: var(--blue) !important;
+    font-family: Dokdo;
+}
+
+.createAccount {
+    background-color: var(--orange) !important;
+    border-color: var(--orange) !important;
+    font-family: Dokdo;
+    width: 13rem;
+    font-size: 1.4rem !important;
+}
+
+.testimonialCard {
+    height: 20rem;
+    width: 15rem;
     margin: 3rem;
 }
 
-.card img {
-    width: 30%;
+.darkredContainer {
+    height: 30rem;
+    background-color: var(--darkred);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-h2 {
-    color: var(--darkred);
-    margin-right: auto;
-    margin-left: auto;
+.footerContainer {
+    background-color: var(--yellow);
+    height: 15rem;
 }

@@ -5,33 +5,33 @@ import Placeholder from '../images/placeholder.png'
 export default function Walkthroughsteps() {
   return (
     <div>
-        <h2>How does it work?</h2>
-        <Card >
-            <Card.Img variant="left" src={Placeholder} />
+        <h2 className="walkthroughHeader">How does it work?</h2>
+        <Card className="walkthroughCard">
+            <Card.Img className="walkthroughImage" src={Placeholder} alt="walkthroughImage" />
             <Card.Body>
-            <Card.Title>Step 1</Card.Title>
-            <Card.Text>
-                Sign up with some quick information about you and your dog!
+            <Card.Title className="walkthroughCardTitle">Step 1</Card.Title>
+            <Card.Text className="walkthroughCardText">
+                Sign up by answering some quick questions about you and your dog!
             </Card.Text>
             </Card.Body>
         </Card>
-        <Card >
+        <Card className="walkthroughCard" >
             <Card.Body>
-            <Card.Title>Step 2</Card.Title>
-            <Card.Text>
+            <Card.Title className="walkthroughCardTitle">Step 2</Card.Title>
+            <Card.Text className="walkthroughCardText">
                 Discover dogs in your area on your feed! Use the buttons to decide what happens next!
             </Card.Text>
             </Card.Body>
-            <Card.Img variant="left" src={Placeholder} />
+            <Card.Img className="walkthroughImage" src={Placeholder} alt="walkthroughImage" />
         </Card>
-        <Card >
-            <Card.Img variant="left" src={Placeholder} />
+        <Card className="walkthroughCard">
+            <Card.Img className="walkthroughImage" src={Placeholder} alt="walkthroughImage"/>
             <Card.Body>
-            <Card.Title>Step 3</Card.Title>
-            <Card.Text>
+            <Card.Title className="walkthroughCardTitle">Step 3</Card.Title>
+            <Card.Text className="walkthroughCardText">
                 Connect with people, go on Puppy Playdates, and make long lasting friends for you and your pup!
             </Card.Text>
-            <Button variant="primary">Create my Account Now!</Button>
+            <Button className="createAccount">Create Account!</Button>
             </Card.Body>
         </Card>
   </div>
