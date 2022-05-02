@@ -1,8 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import AuthService from "../services/auth.service";
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from "../context/GlobalState";
 import jwtDecode from "jwt-decode";
+import CurrentDogs from "../context/CurrentDogs"
 
 const Login = () => {
   let navigate = useNavigate();
@@ -11,6 +12,8 @@ const Login = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  // const [userDogs, setCurrentUserDogs] = useState([]);
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -21,12 +24,28 @@ const Login = () => {
         let data = jwtDecode(resp.access)
         await dispatch({
           currentUserToken: resp.access,
-          currentUser: data
+          currentUser: data,
+          currentUserDogs: {CurrentDogs},
         })
         navigate('/feed')
       });
   }
 
+//   const getUserDogs = () => {  
+//     useEffect(() => {
+//       async function getDogs() {
+//         let options = {
+//           url: `/dogs/?name=&breed__name=&size__label=&gender__label=&user=${state.currentUser.user_id}`,
+//           method: 'GET',
+//         } 
+//         let resp = await request(options)
+//         setCurrentUserDogs(resp.data)
+//       }
+  
+//       getDogs()
+//     }, []);
+//   }
+// {console.log(userDogs)}
   return (
     <div className="c-form">
       <form onSubmit={handleLogin}>

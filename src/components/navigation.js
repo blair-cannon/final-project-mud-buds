@@ -14,7 +14,7 @@ function NavBar(props) {
 function Navigation() {
   return (
     <div >
-      <NavBar isLoggedIn={true} />
+      <NavBar isLoggedIn={false} />
     </div>
   );
 }
