@@ -20,7 +20,6 @@ export default function NavBarHome(props) {
             aria-labelledby="offcanvasNavbarLabel"
             placement="end">
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title id="offcanvasNavbarLabel">Resources</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
