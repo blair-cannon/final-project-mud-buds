@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import {Card, ListGroup, ListGroupItem} from 'react-bootstrap';
-import { getData } from '../data.js'; 
-import ExampleDogImage from '../images/luka.jpeg'
+import ExampleDogImage from '../images/luka.jpeg';
+import request from '../services/api.requests.js';
 
 export default function Dogdisplay() {
-  const URL = 'https://8000-blairpresto-finalprojec-khbsmmpuzia.ws-us43.gitpod.io/dogs';
   const [feed, setFeed] = useState([]);
 
   useEffect(() => {
-    getData(URL)
-    .then((data) => {
-      setFeed(data)
-    })
+    async function getFeed() {
+      let options = {
+        url: '/dogs',
+        method: 'GET',
+      } 
+      let resp = await request(options)
+      setFeed(resp.data)
+    }
+
+    getFeed()
 }, []);
 
   return (

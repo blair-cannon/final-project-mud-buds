@@ -100,6 +100,7 @@ a.nav-link:focus {
     margin-bottom: 0.5rem;
     line-height: 1;
     margin-top: 4rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .walkthroughCard {
@@ -140,6 +141,7 @@ a.nav-link:focus {
     font-weight: bold !important;
     color: var(--blue) !important;
     font-family: Dokdo;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .createAccount {
@@ -154,6 +156,7 @@ a.nav-link:focus {
     height: 20rem;
     width: 15rem;
     margin: 3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .darkredContainer {
@@ -201,4 +204,5 @@ a.nav-link:focus {
 .dogCard {
     width: 18rem;
     height: 38rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
