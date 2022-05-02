@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import SideBar from '../components/sidebar';
 import ToggleDog from '../components/toggledogprofile';
 import { useGlobalState } from "../context/GlobalState";
+import CurrentDogs from '../context/CurrentDogs';
 
 const Profile = () => {
   const [ state, dispatch ] = useGlobalState();
@@ -15,6 +16,7 @@ const Profile = () => {
           profile content
           {/* <h1>{state.currentUser.user_id}</h1> */}
           <ToggleDog />
+          <CurrentDogs />
 
         </Col>
       </Row>
