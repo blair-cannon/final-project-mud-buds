@@ -1,7 +1,8 @@
 import React from 'react';
 import { Navbar, Nav, Container, Offcanvas } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import Logo from '../images/doglogo.png'
+import Logo from '../images/doglogo.png';
+import AuthService from '../services/auth.service';
 
 export default function NavBarLoggedIn(props) {
     return (
@@ -28,7 +29,9 @@ export default function NavBarLoggedIn(props) {
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="#action1">New Client Info</Nav.Link>
                   <Nav.Link href="#action2">Safety</Nav.Link>
-                  <Nav.Link href="#action3">Log Out</Nav.Link>
+                  <LinkContainer to="/">
+                    <Nav.Link onClick={AuthService.logout}>Log Out</Nav.Link>
+                  </LinkContainer>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

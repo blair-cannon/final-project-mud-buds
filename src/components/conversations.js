@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Row } from 'react-bootstrap';
 import ConversationPreview from './conversationpreview';
 import request from '../services/api.requests.js';
+import { useGlobalState } from "../../context/GlobalState";
 
 export default function Convos() {
+  const [ state, dispatch ] = useGlobalState();
   const [conversations, setConversations] = useState([]);
 
   useEffect(() => {

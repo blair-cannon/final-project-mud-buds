@@ -23,7 +23,7 @@ const Login = () => {
           currentUserToken: resp.access,
           currentUser: data
         })
-        navigate('../routes/feed')
+        navigate('/feed')
       });
   }
 
