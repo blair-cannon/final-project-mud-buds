@@ -4,7 +4,7 @@ import { Row } from 'react-bootstrap';
 import ConversationPreview from './conversationpreview';
 
 export default function Convos() {
-  const URL = 'https://8000-blairpresto-finalprojec-khbsmmpuzia.ws-us43.gitpod.io/conversations/';
+  const URL = 'https://8000-blairpresto-finalprojec-khbsmmpuzia.ws-us43.gitpod.io/conversations';
   const [conversations, setConversations] = useState([]);
 
   useEffect(() => {

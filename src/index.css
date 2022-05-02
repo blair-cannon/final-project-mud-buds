@@ -18,6 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--blue);
 }
 
 .messageCol {
@@ -32,6 +33,8 @@
 
 .messageHeader {
     border-bottom: solid 2px black;
+    color: var(--blue);
+    font-family: Dokdo;
 }
 
 .center {
@@ -164,4 +167,38 @@ a.nav-link:focus {
 .footerContainer {
     background-color: var(--yellow);
     height: 15rem;
+}
+
+.dogdisplayHeader {
+    color: var(--yellow);
+    font-family: Cutive Mono;
+    font-weight: bold;
+    margin-bottom: 4rem;
+}
+
+.dogTitle {
+    color: var(--darkred);
+    font-weight: bold !important;
+    position: absolute;
+    bottom: 240px;
+    left: 25px;
+    font-family: 'Dokdo';
+    font-size: 1.7rem !important;
+    background-color: white;
+}
+
+.genderAndbreed {
+    margin-top: 1rem;
+}
+
+.dogTags {
+    font-family: Dokdo;
+    color: var(--darkred) !important;
+    font-weight: bold;
+    font-size: 1.4rem !important;
+}
+
+.dogCard {
+    width: 18rem;
+    height: 38rem;
 }
