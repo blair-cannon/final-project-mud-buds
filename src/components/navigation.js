@@ -1,10 +1,12 @@
 import React from 'react';
 import NavBarLoggedIn from './navbarloggedin';
 import NavBarHome from './navbarhome';
+import { useGlobalState } from "../context/GlobalState";
 
 function NavBar(props) {
-  const isLoggedIn = props.isLoggedIn;
-  if (isLoggedIn) {
+  // const isLoggedIn = props.isLoggedIn;
+  const [ state, dispatch ] = useGlobalState();
+  if (state.currentUser) {
     return <NavBarLoggedIn />;
   } else {
   return <NavBarHome />;
@@ -14,7 +16,7 @@ function NavBar(props) {
 function Navigation() {
   return (
     <div >
-      <NavBar isLoggedIn={false} />
+      <NavBar />
     </div>
   );
 }

@@ -27,7 +27,7 @@ const Login = () => {
           currentUser: data,
           currentUserDogs: {CurrentDogs},
         })
-        navigate('/feed')
+        navigate('/')
       });
   }
 
