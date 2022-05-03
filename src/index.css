@@ -11,8 +11,8 @@
     height: 100vh;
 }
 
-.messageRow {
-    height: 5rem;
+.conversationRow {
+    height: max-content;
     border-bottom: solid 2px black;
 }
 

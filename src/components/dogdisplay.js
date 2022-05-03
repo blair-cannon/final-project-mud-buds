@@ -3,7 +3,7 @@ import {Card, ListGroup, ListGroupItem} from 'react-bootstrap';
 import { getData } from '../data.js'; 
 
 export default function Dogdisplay() {
-  const URL = 'https://8000-blairpresto-finalprojec-zz9g3tdguv4.ws-us42.gitpod.io/dogs/';
+  const URL = 'https://8000-blairpresto-finalprojec-zz9g3tdguv4.ws-us43.gitpod.io/dogs/';
   const [feed, setFeed] = useState([]);
 
   useEffect(() => {
