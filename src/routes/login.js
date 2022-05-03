@@ -32,7 +32,7 @@ const Login = () => {
           currentUser: data,
           dogs
         })
-
+        localStorage.setItem('mydogs', JSON.stringify(dogs));
         navigate('/')
       });
   }

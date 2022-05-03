@@ -31,8 +31,21 @@ export default function Convos() {
 const Notification = ({ notification }) => {
     return (
         <div>
-            <p>{notification.dog_initializer.name}</p>
+            <li>
+                {notification.dog_initializer.name}
+                <button onClick={() => {AcceptConnection({ notification })}}>check</button>
+                <button>X</button>
+            </li>
         </div>
       )
     }
-    
+   
+async function AcceptConnection({ notification }) {
+    // let options = {
+    //     url: `/connections/${notification.id}`,
+    //     method: 'PATCH',
+    // } 
+    // let resp = await request(options)
+    // setConversations(resp.data)
+    // update boolean is_accepted to true ?
+}
