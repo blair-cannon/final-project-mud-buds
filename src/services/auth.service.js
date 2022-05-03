@@ -3,7 +3,6 @@ import {
     REFRESH_ENDPOINT,
     REGISTER_ENDPOINT,
   } from './auth.constants'
-  import { useNavigate } from 'react-router-dom';
   import request from "./api.requests";
   
   class AuthService {
@@ -28,7 +27,6 @@ import {
   
     logout() {
       localStorage.removeItem("user");
-      useNavigate('/');
     }
   
     async register({

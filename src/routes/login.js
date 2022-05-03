@@ -3,10 +3,10 @@ import AuthService from "../services/auth.service";
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from "../context/GlobalState";
 import jwtDecode from "jwt-decode";
-import CurrentDogs from "../context/CurrentDogs";
 import TestimonialContainer from "../components/testimonialContainer";
 import FooterContainer from "../components/footerContainer";
 import LoginImage from "../images/loginImage.png";
+import request from "../services/api.requests";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -15,7 +15,6 @@ const Login = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // const [userDogs, setCurrentUserDogs] = useState([]);
 
 
   const handleLogin = (e) => {
@@ -25,30 +24,30 @@ const Login = () => {
       .login(username, password)
       .then(async (resp) => {
         let data = jwtDecode(resp.access)
+        let dogs = await getUserDogs(data.user_id)
+
+        // Update the state globally for all expected values, in GlobalState.js -> initialState
         await dispatch({
           currentUserToken: resp.access,
           currentUser: data,
-          currentUserDogs: {CurrentDogs},
+          dogs
         })
+
         navigate('/')
       });
   }
 
-//   const getUserDogs = () => {  
-//     useEffect(() => {
-//       async function getDogs() {
-//         let options = {
-//           url: `/dogs/?name=&breed__name=&size__label=&gender__label=&user=${state.currentUser.user_id}`,
-//           method: 'GET',
-//         } 
-//         let resp = await request(options)
-//         setCurrentUserDogs(resp.data)
-//       }
-  
-//       getDogs()
-//     }, []);
-//   }
+  const getUserDogs = async (id) => {  
+    let options = {
+      url: `/dogs/?user=${id}`,
+      method: 'GET',
+    }
+
+    let resp = await request(options)
+    return resp.data
+  }
 // {console.log(userDogs)}
+
   return (
     <div>
       <form className="loginBox" onSubmit={handleLogin}>

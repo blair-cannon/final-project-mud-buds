@@ -1,10 +1,12 @@
 import React from 'react';
 import { Navbar, Nav, Container, Offcanvas } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../images/doglogo.png';
 import AuthService from '../services/auth.service';
 
 export default function NavBarLoggedIn(props) {
+    let navigate = useNavigate()
     return (
         <Navbar className="nav" expand={false}>
           <Container fluid>
@@ -30,7 +32,11 @@ export default function NavBarLoggedIn(props) {
                   <Nav.Link href="#action1">New Client Info</Nav.Link>
                   <Nav.Link href="#action2">Safety</Nav.Link>
                   <LinkContainer to="/">
-                    <Nav.Link onClick={AuthService.logout}>Log Out</Nav.Link>
+                    <Nav.Link onClick={() => {
+                      AuthService.logout()
+                      navigate('/')
+                      window.location.reload()
+                    }}>Log Out</Nav.Link>
                   </LinkContainer>
                 </Nav>
               </Offcanvas.Body>

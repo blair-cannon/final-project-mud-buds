@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import {Card, ListGroup, ListGroupItem} from 'react-bootstrap';
 import ExampleDogImage from '../images/luka.jpeg';
 import request from '../services/api.requests.js';
+import { useGlobalState } from "../context/GlobalState";
+
 
 export default function Dogdisplay() {
+  const [ state, dispatch ] = useGlobalState();
   const [feed, setFeed] = useState([]);
 
   useEffect(() => {
@@ -18,11 +21,10 @@ export default function Dogdisplay() {
 
     getFeed()
 }, []);
-
-  return (
-    <div>
-    {feed.filter((dog) => dog.breed === 'Australian Shepherd').map((dog) => <IndividualDog key={dog.id} dog={dog} />)}
-   
+return (
+  <div>
+      {/* filter for all dogs that aren't owned by the logged in user */}
+    {feed.filter((dog) => dog.user.id !== state.currentUser.user_id).map((dog) => <IndividualDog key={dog.id} dog={dog} />)}
     </div>
   )
 }
@@ -30,8 +32,6 @@ export default function Dogdisplay() {
 const IndividualDog = ({ dog }) => {
   return (
     <div>
-      {console.log(dog)}
-      <h2 className="dogdisplayHeader">Let's find your furry friend <br/> a furry friend!</h2>
     <Card className="dogCard">
       <Card.Body>
         <Card.Img src={ExampleDogImage} alt="Card image" />
@@ -40,6 +40,8 @@ const IndividualDog = ({ dog }) => {
         </Card.ImgOverlay>
         <Card.Text className="genderAndbreed">
           {dog.gender}, {dog.breed}
+          <br />
+          Owner:{dog.user.first_name}
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">

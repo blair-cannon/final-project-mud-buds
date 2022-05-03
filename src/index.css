@@ -12,10 +12,15 @@
     margin-top: 5rem;
 }
 
+.dogHeroImage {
+    margin: auto;
+}
+
 .contentCol {
     border: solid 2px black;
-    height: 100vh;
+    height: max-content;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: var(--blue);
@@ -185,6 +190,7 @@ a.nav-link:focus {
     font-family: Cutive Mono;
     font-weight: bold;
     margin-bottom: 4rem;
+    margin-top: 4rem;
 }
 
 .dogTitle {
@@ -213,6 +219,7 @@ a.nav-link:focus {
     width: 18rem;
     height: 38rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 3rem;
 }
 
 .loginBox {

@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <Figure>
-        <Figure.Image src={HeroImage}/>
+        <Figure.Image className="dogHeroImage" src={HeroImage}/>
       </Figure>
       <Walkthrough />
       <TestimonialContainer />

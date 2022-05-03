@@ -11,10 +11,8 @@ import React, {
   const initialState = {
     currentUser: user ? jwtDecode(user.access) : null,
     currentUserToken: user ? user.access : null,
-    
+    dogs: []
   }
-  const givenName = initialState.currentUser;
-  {console.log('this' + JSON.stringify(givenName))}
   
   const GlobalStateContext = createContext(initialState);
   const DispatchStateContext = createContext(undefined)
