@@ -290,3 +290,19 @@ a.nav-link:focus {
 .conversationDate {
     float: right;
 }
+
+.dropdown-toggle {
+    background-color: var(--yellow) !important;
+    color: var(--darkred) !important;
+    margin-bottom: 5rem !important;
+    margin-top: 3rem !important;
+    border: none !important;
+    font-weight: bold !important;
+}
+
+/* .show>.btn-secondary.dropdown-toggle {
+    background-color: var(--yellow);
+    color: var(--darkred);
+    margin-bottom: 8rem;
+    margin-top: 3rem;
+} */

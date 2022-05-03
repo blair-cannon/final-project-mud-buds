@@ -46,7 +46,7 @@ const Login = () => {
     let resp = await request(options)
     return resp.data
   }
-// {console.log(userDogs)}
+
 
   return (
     <div>

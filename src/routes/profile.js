@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import SideBar from '../components/sidebar';
 import ToggleDog from '../components/toggledogprofile';
 import { useGlobalState } from "../context/GlobalState";
+import MyDog from '../components/myDog';
 
 const Profile = () => {
   const [ state, dispatch ] = useGlobalState();
@@ -12,10 +13,8 @@ const Profile = () => {
       <Row className="flex-xl-nowrap">
         <SideBar />
         <Col className="contentCol" align="center" lg={ 9 } >
-          profile content
-          {/* <h1>{state.currentUser.user_id}</h1> */}
           <ToggleDog />
-
+          <MyDog />
         </Col>
       </Row>
     </Container>

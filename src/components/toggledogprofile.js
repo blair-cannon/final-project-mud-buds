@@ -4,11 +4,11 @@ import { Dropdown } from 'react-bootstrap';
 export default function Toggledogprofile() {
   return (
     <div>  
-        <Dropdown>
-            <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
+        <Dropdown id="dropdownButton" >
+            <Dropdown.Toggle>
                 Current Dog Profile
             </Dropdown.Toggle>
-            <Dropdown.Menu variant="dark">
+            <Dropdown.Menu >
                 <Dropdown.Item href="#/action-1" active>
                     switch to Dog2 profile
                 </Dropdown.Item>
