@@ -1,27 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {Card, ListGroup, ListGroupItem} from 'react-bootstrap';
+import { getData } from '../data.js'; 
 
 export default function Dogdisplay() {
+  const URL = 'https://8000-blairpresto-finalprojec-zz9g3tdguv4.ws-us42.gitpod.io/dogs/';
+  const [feed, setFeed] = useState([]);
+
+  useEffect(() => {
+    getData(URL)
+    .then((data) => {
+      setFeed(data)
+    })
+}, []);
+
   return (
     <div>
+    {feed.filter((dog) => dog.breed === 'Australian Shepherd').map((dog) => <IndividualDog key={dog.id} dog={dog} />)}
+    </div>
+  )
+}
+
+const IndividualDog = ({ dog }) => {
+  return (
+    <div>
+      {console.log(dog)}
+    <h2>Let's find your furry friend a furry friend!</h2>
     <Card style={{ width: '18rem' }}>
-    <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-    <Card.Body>
-      <Card.Title>Card Title</Card.Title>
-      <Card.Text>
-        Some quick example text to build on the card title and make up the bulk of
-        the card's content.
-      </Card.Text>
-    </Card.Body>
-    <ListGroup className="list-group-flush">
-      <ListGroupItem>Cras justo odio</ListGroupItem>
-      <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-      <ListGroupItem>Vestibulum at eros</ListGroupItem>
-    </ListGroup>
-    <Card.Body>
-      <Card.Link href="#">Card Link</Card.Link>
-      <Card.Link href="#">Another Link</Card.Link>
-    </Card.Body>
-  </Card></div>
+      <Card.Body>
+        <Card.Img src="https://www.bil-jac.com/Images/DogPlaceholder.svg" alt="Card image" />
+        <Card.ImgOverlay>
+          <Card.Title>{dog.name}, {dog.age}</Card.Title>
+        </Card.ImgOverlay>
+        <Card.Text>
+          {dog.about_me}
+        </Card.Text>
+      </Card.Body>
+      <ListGroup className="list-group-flush">
+        <ListGroupItem>
+          {dog.tags.map((tag) => tag).join(', ')}
+        </ListGroupItem>
+      </ListGroup>
+      <Card.Body>
+        <Card.Link href="#">connect</Card.Link>
+        <Card.Link href="#">skip</Card.Link>
+        <Card.Link href="#">message</Card.Link>
+      </Card.Body>
+    </Card>
+  </div>
   )
 }
