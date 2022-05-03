@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Row } from 'react-bootstrap';
 import ConversationPreview from './conversationpreview';
 import request from '../services/api.requests.js';
-import { useGlobalState } from "../../context/GlobalState";
+import { useGlobalState } from "../context/GlobalState";
+
 
 export default function Convos() {
   const [ state, dispatch ] = useGlobalState();
@@ -11,24 +12,33 @@ export default function Convos() {
   useEffect(() => {
     async function getConvos() {
       let options = {
-        url: '/conversations',
+        url: `/conversations/?dog_creator__user_id=${state.currentUser.user_id}`,
         method: 'GET',
       } 
       let resp = await request(options)
       setConversations(resp.data)
     }
-
+    async function getOtherConvos() {
+      let options = {
+        url: `/conversations/?dog_other__user_id=${state.currentUser.user_id}`,
+        method: 'GET',
+      } 
+      let resp = await request(options)
+      setConversations(...resp.data)
+    }
     getConvos()
+    console.log(conversations)
+    // getOtherConvos()
   }, []);
   
-  console.log({conversations})
+  // if (state.dogs !== []) {
   return (
-    <div>
-    {conversations.filter((convo) => convo.dog_creator === 'Luka' || convo.dog_other === 'Luka').map((convo) => <IndividualConvo key={convo.id} convo={convo} />)}
+    <div>  
+    {conversations.map((convo) => <IndividualConvo key={convo.id} convo={convo} />)}
     </div>
   )
   }
-
+// }
 const IndividualConvo = ({ convo }) => {
   return (
     <Row className="conversationRow">

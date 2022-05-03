@@ -1,8 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import AuthService from "../services/auth.service";
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from "../context/GlobalState";
 import jwtDecode from "jwt-decode";
+import TestimonialContainer from "../components/testimonialContainer";
+import FooterContainer from "../components/footerContainer";
+import LoginImage from "../images/loginImage.png";
+import request from "../services/api.requests";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -12,6 +16,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -19,19 +24,36 @@ const Login = () => {
       .login(username, password)
       .then(async (resp) => {
         let data = jwtDecode(resp.access)
+        let dogs = await getUserDogs(data.user_id)
+
+        // Update the state globally for all expected values, in GlobalState.js -> initialState
         await dispatch({
           currentUserToken: resp.access,
-          currentUser: data
+          currentUser: data,
+          dogs
         })
-        navigate('/feed')
+
+        navigate('/')
       });
   }
 
+  const getUserDogs = async (id) => {  
+    let options = {
+      url: `/dogs/?user=${id}`,
+      method: 'GET',
+    }
+
+    let resp = await request(options)
+    return resp.data
+  }
+// {console.log(userDogs)}
+
   return (
-    <div className="c-form">
-      <form onSubmit={handleLogin}>
+    <div>
+      <form className="loginBox" onSubmit={handleLogin}>
+      <img className="loginImage" src={LoginImage} alt="log in dog image" ></img>
         <div>
-          <label htmlFor="username">Username:</label>
+          <label className="loginWords" htmlFor="username">Username: </label>
           <input
             type="text"
             id="username"
@@ -41,7 +63,7 @@ const Login = () => {
           />
         </div>
         <div>
-          <label htmlFor="pass">Password</label>
+          <label className="loginWords" htmlFor="pass">Password: </label>
           <input
             type="password"
             id="pass"
@@ -52,10 +74,13 @@ const Login = () => {
           />
         </div>
         <input
+          className="loginButton"
           type="submit"
-          value="Sign in"
+          value="Let's play!"
         />
       </form>
+      <TestimonialContainer />
+      <FooterContainer />
     </div>
   )
 

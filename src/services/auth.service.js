@@ -3,7 +3,6 @@ import {
     REFRESH_ENDPOINT,
     REGISTER_ENDPOINT,
   } from './auth.constants'
-  
   import request from "./api.requests";
   
   class AuthService {

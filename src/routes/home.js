@@ -1,24 +1,19 @@
 import React from 'react';
-import TestimonyCard from '../components/testimonycard'
 import HeroImage from '../images/dog_hero.png'
 import {Figure, Container} from 'react-bootstrap';
 import Walkthrough from '../components/walkthroughsteps';
+import TestimonialContainer from '../components/testimonialContainer';
+import FooterContainer from '../components/footerContainer';
 
 export default function Home() {
   return (
     <div>
       <Figure>
-        <Figure.Image src={HeroImage}/>
+        <Figure.Image className="dogHeroImage" src={HeroImage}/>
       </Figure>
       <Walkthrough />
-      <Container fluid className="darkredContainer">
-        <TestimonyCard />
-        <TestimonyCard />
-        <TestimonyCard />
-      </Container>
-      <Container fluid className="footerContainer">
-        footer info
-      </Container>
+      <TestimonialContainer />
+      <FooterContainer />
     </div>
   )
 }

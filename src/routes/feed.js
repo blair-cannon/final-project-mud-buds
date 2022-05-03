@@ -8,7 +8,8 @@ export default function Feed() {
     <Container className="pageContainer" fluid>
       <Row className="flex-xl-nowrap">
         <SideBar />
-        <Col className="contentCol" align="center" lg={ 9 } >
+        <Col className="contentCol" lg={ 9 } >
+        <h2 className="dogdisplayHeader">Let's find your furry friend <br/> a furry friend!</h2>
           <DogDisplay />
         </Col>
       </Row>
