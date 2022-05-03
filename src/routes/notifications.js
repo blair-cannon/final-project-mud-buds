@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import SideBar from '../components/sidebar';
+import NotificationData from '../components/notificationData';
 
 export default function Notifications() {
   return (
@@ -8,7 +9,7 @@ export default function Notifications() {
     <Row className="flex-xl-nowrap">
       <SideBar />
       <Col className="contentCol" align="center" lg={ 9 } >
-        notification content
+        <NotificationData/>
       </Col>
     </Row>
   </Container>
