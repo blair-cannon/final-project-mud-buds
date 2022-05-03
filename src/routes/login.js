@@ -3,7 +3,10 @@ import AuthService from "../services/auth.service";
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from "../context/GlobalState";
 import jwtDecode from "jwt-decode";
-import CurrentDogs from "../context/CurrentDogs"
+import CurrentDogs from "../context/CurrentDogs";
+import TestimonialContainer from "../components/testimonialContainer";
+import FooterContainer from "../components/footerContainer";
+import LoginImage from "../images/loginImage.png";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -47,10 +50,11 @@ const Login = () => {
 //   }
 // {console.log(userDogs)}
   return (
-    <div className="c-form">
-      <form onSubmit={handleLogin}>
+    <div>
+      <form className="loginBox" onSubmit={handleLogin}>
+      <img className="loginImage" src={LoginImage} alt="log in dog image" ></img>
         <div>
-          <label htmlFor="username">Username:</label>
+          <label className="loginWords" htmlFor="username">Username: </label>
           <input
             type="text"
             id="username"
@@ -60,7 +64,7 @@ const Login = () => {
           />
         </div>
         <div>
-          <label htmlFor="pass">Password</label>
+          <label className="loginWords" htmlFor="pass">Password: </label>
           <input
             type="password"
             id="pass"
@@ -71,10 +75,13 @@ const Login = () => {
           />
         </div>
         <input
+          className="loginButton"
           type="submit"
-          value="Sign in"
+          value="Let's play!"
         />
       </form>
+      <TestimonialContainer />
+      <FooterContainer />
     </div>
   )
 

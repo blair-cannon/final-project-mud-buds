@@ -7,10 +7,9 @@ export default function ConversationPreview({ convo }) {
     return (
       <>
         <div variant="primary" onClick={() => setModalShow(true)}>
-          <p>{convo.created_at}</p>
-          <p>From: {convo.dog_creator}</p>
-          <p>To: {convo.dog_other}</p>
-          <p>Subject: {convo.subject}</p>
+          <p className="conversationDate">{convo.created_at}</p>
+          <p className="conversationSubject">{convo.subject}</p>
+          <p className="conversationText">{convo.dog_creator} --> {convo.dog_other}</p>
         </div>
         <MessageModal convo={convo} show={modalShow} onHide={() => setModalShow(false)} />
       </>
