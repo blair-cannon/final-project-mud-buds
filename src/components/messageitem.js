@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { getData } from '../data.js'; 
-import { Row } from 'react-bootstrap'
+import { Row } from 'react-bootstrap';
+import request from '../services/api.requests.js';
 
 export default function Message({ convo }) {
-    const URL = `https://8000-blairpresto-finalprojec-zz9g3tdguv4.ws-us43.gitpod.io/messages/?conversation=${convo.id}`;
-    const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([]);
   
-    useEffect(() => {
-      getData(URL)
-      .then((data) => {
-        setMessages(data)
-      })
+  useEffect(() => {
+    async function getMessages() {
+      let options = {
+        url: `/messages/?conversation=${convo.id}`,
+        method: 'GET',
+      } 
+      let resp = await request(options)
+      setMessages(resp.data)
+    }
+  
+    getMessages()
   }, []);
 
   return (

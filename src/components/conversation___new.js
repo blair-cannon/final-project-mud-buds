@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { getData } from '../data.js'; 
 import { Row } from 'react-bootstrap';
 import ConversationPreview from './conversationpreview';
 import request from '../services/api.requests.js';
-import { useGlobalState } from "../../context/GlobalState";
 
 export default function Convos() {
-  const [ state, dispatch ] = useGlobalState();
+  const URL = 'https://8000-blairpresto-finalprojec-khbsmmpuzia.ws-us43.gitpod.io/conversations';
   const [conversations, setConversations] = useState([]);
 
   useEffect(() => {
-    async function getConvos() {
+    async function getConvos( ) {
       let options = {
-        url: '/conversations',
+        url: '/conversations/',
         method: 'GET',
       } 
       let resp = await request(options)

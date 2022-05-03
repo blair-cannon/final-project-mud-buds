@@ -4,7 +4,7 @@ import SideBar from '../components/sidebar';
 
 export default function Notifications() {
   return (
-    <Container fluid>
+    <Container className="pageContainer" fluid>
     <Row className="flex-xl-nowrap">
       <SideBar />
       <Col className="contentCol" align="center" lg={ 9 } >

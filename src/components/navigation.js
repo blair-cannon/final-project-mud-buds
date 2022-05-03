@@ -13,8 +13,8 @@ function NavBar(props) {
 
 function Navigation() {
   return (
-    <div className="App">
-      <NavBar isLoggedIn={false} />
+    <div >
+      <NavBar isLoggedIn={true} />
     </div>
   );
 }

@@ -1,9 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Dokdo&display=swap');
+
+:root {
+    --blue: #335C67;
+    --yellow: #fff3b0;
+    --orange: #e09f3e;
+    --red: #9e2a2b;
+    --darkred: #540b0e;
+  }
+
+.pageContainer {
+    margin-top: 5rem;
+}
+
 .contentCol {
     border: solid 2px black;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--blue);
 }
 
 .messageCol {
@@ -18,10 +33,176 @@
 
 .messageHeader {
     border-bottom: solid 2px black;
+    color: var(--blue);
+    font-family: Dokdo;
 }
 
 .center {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.nav {
+    background-color: white;
+    color: black;
+    height: 4rem;
+}
+
+a.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: black;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: var(--blue);
+    font-weight: bold;
+    transition-timing-function: ease-in;
+}
+
+a.nav-link:hover {
+    border-bottom: 4px solid var(--blue);
+    border-right: 4px solid var(--blue);
+    border-top: 4px solid var(--orange);
+    border-left: 4px solid var(--orange);
+    color: var(--blue) !important;
+}
+
+a.nav-link:active {
+    color: black !important;
+}
+
+a.nav-link:focus {
+    border-bottom: 4px solid var(--blue);
+    border-right: 4px solid var(--blue);
+    border-top: 4px solid var(--orange);
+    border-left: 4px solid var(--orange);
+    color: var(--blue);
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+.navbar-toggler-icon {
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.logo {
+    height: 7rem;
+    width: 12rem;
+    margin: 0.3rem;
+    margin-left: 2rem;
+}
+
+.figure-img {
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    margin-top: 4rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.walkthroughCard {
+    position: relative;
+    height: 13rem;
+    width: 80rem;
+    display: flex;
+    flex-direction: row !important;
+    margin-bottom: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    text-align: center;
+}
+
+.walkthroughImage {
+    width: 30% !important;
+}
+
+.walkthroughHeader {
+    color: var(--darkred);
+    text-align: center;
+    font-size: 4rem !important;
+    font-weight: bold !important;
+    margin-top: 5rem !important;
+    margin-bottom: 2rem !important;
+    font-family: Cutive Mono;
+    font-weight: bolder;
+}
+
+.walkthroughCardText {
+    font-size: 1.5rem !important;
+    color: black;
+}
+
+.walkthroughCardTitle {
+    margin-bottom: 0.5rem !important;
+    font-size: 2rem !important;
+    font-weight: bold !important;
+    color: var(--blue) !important;
+    font-family: Dokdo;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.createAccount {
+    background-color: var(--orange) !important;
+    border-color: var(--orange) !important;
+    font-family: Dokdo;
+    width: 13rem;
+    font-size: 1.4rem !important;
+}
+
+.testimonialCard {
+    height: 20rem;
+    width: 15rem;
+    margin: 3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.darkredContainer {
+    height: 30rem;
+    background-color: var(--darkred);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerContainer {
+    background-color: var(--yellow);
+    height: 15rem;
+}
+
+.dogdisplayHeader {
+    color: var(--yellow);
+    font-family: Cutive Mono;
+    font-weight: bold;
+    margin-bottom: 4rem;
+}
+
+.dogTitle {
+    color: var(--darkred);
+    font-weight: bold !important;
+    position: absolute;
+    bottom: 240px;
+    left: 25px;
+    font-family: 'Dokdo';
+    font-size: 1.7rem !important;
+    background-color: white;
+}
+
+.genderAndbreed {
+    margin-top: 1rem;
+}
+
+.dogTags {
+    font-family: Dokdo;
+    color: var(--darkred) !important;
+    font-weight: bold;
+    font-size: 1.4rem !important;
+}
+
+.dogCard {
+    width: 18rem;
+    height: 38rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

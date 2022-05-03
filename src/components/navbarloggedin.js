@@ -1,17 +1,19 @@
 import React from 'react';
 import { Navbar, Nav, Container, Offcanvas } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import Logo from '../images/doglogo.png';
+import AuthService from '../services/auth.service';
 
 export default function NavBarLoggedIn(props) {
     return (
-        <Navbar bg="light" expand={false}>
+        <Navbar className="nav" expand={false}>
           <Container fluid>
-            <Navbar.Brand href="#">LOGO</Navbar.Brand>
+              <img className="logo" src={Logo} />
             <LinkContainer to="/feed">
-              <Nav.Link>Feed</Nav.Link>
+              <Nav.Link className="navlink">Feed</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/notifications">
-              <Nav.Link>Notifications</Nav.Link>
+              <Nav.Link className="navlink">Notifications</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/profile">
               <Nav.Link>Profile</Nav.Link>
@@ -22,14 +24,14 @@ export default function NavBarLoggedIn(props) {
               aria-labelledby="offcanvasNavbarLabel"
               placement="end">
               <Offcanvas.Header closeButton>
-                <Offcanvas.Title id="offcanvasNavbarLabel">Resources</Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="#action1">New Client Info</Nav.Link>
                   <Nav.Link href="#action2">Safety</Nav.Link>
-                  <Nav.Link href="#action3">Create Account</Nav.Link>
-                  <Nav.Link href="#action3">Log Out</Nav.Link>
+                  <LinkContainer to="/">
+                    <Nav.Link onClick={AuthService.logout}>Log Out</Nav.Link>
+                  </LinkContainer>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
