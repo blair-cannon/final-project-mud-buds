@@ -1,26 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Dropdown } from 'react-bootstrap';
 import request from '../services/api.requests.js';
 import { useGlobalState } from "../context/GlobalState";
 
 async function acceptConnection({ notification }) {
-    let options = {
+  const params = new URLSearchParams();
+  // update boolean is_accepted to true 
+  params.append('is_accepted', 'true');  
+  // will send the data as formData
+  let options = {
         url: `/connections/${notification.id}/`,
         method: 'PATCH',
-        body: JSON.stringify({"is_accepted": true})
+        data: params
       } 
       let variable = await request(options)
-      // .then(response => { console.log(response.status);
-      //   return response.json();  })  
-      // .then(data => console.log(data));
-
-    // update boolean is_accepted to true ?
   }
 
 export default function Convos() {
   const [ state, dispatch ] = useGlobalState();
   const [connections, setConnections] = useState([]);
-
+  
   useEffect(() => {
     async function getConnections() {
       let options = {
@@ -33,6 +31,12 @@ export default function Convos() {
     getConnections()
   }, []);
   
+  
+  function deleteRequest({ notification }) {
+    // filter to remove the 'deleted' notification
+    let newConnections = connections.filter((connection) => connection.id !== notification.id)
+    setConnections(newConnections)
+      }
 
   return (
     <div>  
@@ -47,7 +51,7 @@ const Notification = ({ notification }) => {
             <li>
                 {notification.dog_initializer.name}
                 <button onClick={() => {acceptConnection({ notification })}}>check</button>
-                <button>X</button>
+                <button onClick={() => {deleteRequest({ notification })}}>X</button>
             </li>
         </div>
       )
