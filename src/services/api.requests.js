@@ -7,7 +7,6 @@ import { API_URL, REFRESH_ENDPOINT } from './auth.constants';
  */
 const client = axios.create({
   baseURL: API_URL,
-  headers: authHeader(),
 });
 
 client.interceptors.response.use(
@@ -16,12 +15,12 @@ client.interceptors.response.use(
     const originalRequest = error.config;
 
     // Prevent infinite loops
-    if (error.response.status.code === 401 && originalRequest.url === API_URL + REFRESH_ENDPOINT) {
+    if (error.response.status === 401 && originalRequest.url === API_URL + REFRESH_ENDPOINT) {
       window.location.href = '/login/';
       return Promise.reject(error);
     }
 
-    if (error.response.data === "token_not_valid" &&
+    if (error.response.data.code === "token_not_valid" &&
       error.response.status === 401 &&
       error.response.statusText === "Unauthorized") {
       const user = localStorage.getItem('user');
@@ -68,7 +67,12 @@ client.interceptors.response.use(
 /**
  * Request Wrapper with default success/error actions
  */
-const request = async (options) => {
+const request = async (opts) => {
+  let options = {
+    ...opts,
+    headers: authHeader(),
+  }
+  
   const onSuccess = (response) => {
     console.debug('Request Successful!', response);
     return response;

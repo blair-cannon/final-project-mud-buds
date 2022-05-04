@@ -27,6 +27,7 @@ import {
   
     logout() {
       localStorage.removeItem("user");
+      localStorage.removeItem("mydogs");
     }
   
     async register({
