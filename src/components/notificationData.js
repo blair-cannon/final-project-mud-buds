@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import request from '../services/api.requests.js';
+import request from '../services/api.requests';
 import { useGlobalState } from "../context/GlobalState";
 
 
@@ -34,18 +34,24 @@ export default function Convos() {
   
   async function acceptConnection({ notification }) {
     // update boolean is_accepted to true to accept connection
+    // headers: { "Content-Type": "multipart/form-data" }, try adding this and seeing if it works
     const params = new URLSearchParams();
     // will send the data as type: formData
-    params.append('is_accepted', 'true');  
-    let options = {
-      url: `/connections/${notification.id}/`,
-      method: 'PATCH',
-      data: params
+    params.append('is_accepted', 'true');
+    try {  
+      let options = {
+        url: `/connections/${notification.id}/`,
+        method: 'PATCH',
+        data: params
+      } 
+      let variable = await request(options)
+      // filter to removed 'accepted' notification from UI
+      let newConnections = connections.filter((connection) => connection.id !== notification.id)
+      setConnections(newConnections)
     } 
-    let variable = await request(options)
-    // filter to removed 'accepted' notification from UI
-    let newConnections = connections.filter((connection) => connection.id !== notification.id)
-    setConnections(newConnections)
+    catch(error) {
+        console.log(error)
+    }
   }
   
   return (
