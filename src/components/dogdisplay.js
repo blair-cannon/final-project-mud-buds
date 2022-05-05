@@ -32,6 +32,7 @@ return (
 const IndividualDog = ({ dog }) => {
   return (
     <div>
+      {/* {console.log(dog)} */}
     <Card className="dogCard">
       <Card.Body>
         <Card.Img src={ExampleDogImage} alt="Card image" />
@@ -39,7 +40,7 @@ const IndividualDog = ({ dog }) => {
           <Card.Title className="dogTitle">{dog.name}, {dog.age}</Card.Title>
         </Card.ImgOverlay>
         <Card.Text className="genderAndbreed">
-          {dog.gender}, {dog.breed}
+          {dog.gender.label}, {dog.breed.name}
           <br />
           Owner:{dog.user.first_name}
         </Card.Text>

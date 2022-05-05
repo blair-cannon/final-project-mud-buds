@@ -28,7 +28,8 @@ export default function Message({ convo }) {
 const MessageItem = ({ message }) => {
   return (
     <div>
-        <Row>{message.dog_sent}</Row>
+      {/* {console.log(message)} */}
+        <Row>{message.dog_sent.name}</Row>
         <Row>{message.sent_at}</Row>
         <Row>{message.content}</Row>
     </div>
