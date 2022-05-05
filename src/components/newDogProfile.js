@@ -1,4 +1,5 @@
 import { useState, Component } from "react";
+import { Navigate } from "react-router-dom";
 import { useGlobalState } from '../context/GlobalState'
 import request from '../services/api.requests';
 
@@ -38,13 +39,22 @@ const optionsPark = [
     {value:2, label:"Lake Reba Park"}
 ]
 
+// const optionsTags = [
+//     {value:"Hyper", label:"Hyper"},
+//     {value:"Swimmer", label:"Swimmer"},
+//     {value:"Kid-friendly", label:"Kid-friendly"},
+//     {value:"Fast", label:"Fast"},
+//     {value:"WallLeaner", label:"WallLeaner"},
+// ]
+
 const optionsTags = [
-    {value:"Hyper", label:"Hyper"},
-    {value:"Swimmer", label:"Swimmer"},
-    {value:"Kid-friendly", label:"Kid-friendly"},
-    {value:"Fast", label:"Fast"},
-    {value:"WallLeaner", label:"WallLeaner"},
+    {value:"1", label:"Hyper"},
+    {value:"2", label:"Swimmer"},
+    {value:"3", label:"Kid-friendly"},
+    {value:"4", label:"Fast"},
+    {value:"5", label:"WallLeaner"},
 ]
+
 
 
 export default function AddDogForm() {
@@ -73,18 +83,20 @@ export default function AddDogForm() {
         console.log('target', event.target.name)
         console.log('value', event.target.value)
         console.log('1', newDog.tags)
-        if ([event.target.name] === "tags") {
-            setNewDog(
-                console.log('i am in it'),
-               { ...newDog, 
-                tags: newDog.tags.push(event.target.value)
-            });
-        }
-        else {
-            setNewDog({
-                ...newDog,
-                [event.target.name]: event.target.value
-            });
+        if ([event.target.name] == "tags") {
+                setNewDog(
+                       { ...newDog, 
+                        tags: [...newDog.tags, parseInt(event.target.value)]
+                        // tags: newDog.tags.push(event.target.value)
+                        // [event.target.name]: newDog.tags.push("hey")
+                    });
+                }
+                else {
+                    setNewDog({
+                        ...newDog,
+                        [event.target.name]: event.target.value,
+                    });
+                    console.log('object', newDog)
         }
     }
     
@@ -116,6 +128,7 @@ export default function AddDogForm() {
               headers: { "Content-Type": "multipart/form-data" },
             }
             let resp = await request(options)
+            Navigate('/profile')
         } catch(error) {
             console.log(error)
         }
