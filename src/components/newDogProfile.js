@@ -1,42 +1,49 @@
 import { useState, Component } from "react";
 import { useGlobalState } from '../context/GlobalState'
 import request from '../services/api.requests';
-import Select from 'react-select';
 
 const optionsAggressionSocialization = [
-    {value:"1", label:"High"},
-    {value:"2", label:"Medium"},
-    {value:"3", label:"Low"}
+    {value:1, label:"High"},
+    {value:2, label:"Medium"},
+    {value:3, label:"Low"}
 ]
 
 const optionsBoolean = [
-    {value:"true", label:"Yes"},
-    {value:"false", label:"No"}
+    {value:true, label:"Yes"},
+    {value:false, label:"No"}
 ]
 
 const optionsGender = [
-    {value:"1", label:"Female"},
-    {value:"2", label:"Male"}
+    {value:1, label:"Female"},
+    {value:2, label:"Male"}
 ]
 
 const optionsSize = [
-    {value:"1", label:"Small"},
-    {value:"2", label:"Medium"},
-    {value:"3", label:"Large"},
-    {value:"4", label:"Extra Large"},
-    {value:"5", label:"Extra Small"}
+    {value:1, label:"Small"},
+    {value:2, label:"Medium"},
+    {value:3, label:"Large"},
+    {value:4, label:"Extra Large"},
+    {value:5, label:"Extra Small"}
 ]
 
 const optionsBreed = [
-    {value:"1", label:"German Shepherd"},
-    {value:"2", label:"Beagle"},
-    {value:"3", label:"Australian Shepherd"},
-    {value:"4", label:"Huskey"}
+    {value:1, label:"German Shepherd"},
+    {value:2, label:"Beagle"},
+    {value:3, label:"Australian Shepherd"},
+    {value:4, label:"Huskey"}
 ]
 
 const optionsPark = [
-    {value:"1", label:"Jacobson Park"},
-    {value:"2", label:"Lake Reba Park"}
+    {value:1, label:"Jacobson Park"},
+    {value:2, label:"Lake Reba Park"}
+]
+
+const optionsTags = [
+    {value:"Hyper", label:"Hyper"},
+    {value:"Swimmer", label:"Swimmer"},
+    {value:"Kid-friendly", label:"Kid-friendly"},
+    {value:"Fast", label:"Fast"},
+    {value:"WallLeaner", label:"WallLeaner"},
 ]
 
 
@@ -47,41 +54,58 @@ export default function AddDogForm() {
     age: "",
     birthday: "",
     about_me: "",
-    is_fixed: "",
-    has_bitten: "",
-    aggression: "",
-    breed: "",
-    favorite_park: "",
-    gender: "",
-    size: "",
-    socialization: "",
-    user: `${state.currentUser.user_id}`
+    is_fixed: null,
+    has_bitten: null,
+    aggression: null,
+    breed: null,
+    favorite_park: null,
+    gender: null,
+    size: null,
+    socialization: null,
+    user: `${state.currentUser.user_id}`,
+    tags: []
   });
 
 
-    function handleChange(e) {
-      setNewDog(
-          { value: e.value }
-      );
+    const handleChange = (event) => {
+        // var name = event.target.getAttribute("name");
+        console.log('target', event.target)
+        console.log('target', event.target.name)
+        console.log('value', event.target.value)
+        console.log('1', newDog.tags)
+        if ([event.target.name] === "tags") {
+            setNewDog(
+                console.log('i am in it'),
+               { ...newDog, 
+                tags: newDog.tags.push(event.target.value)
+            });
+        }
+        else {
+            setNewDog({
+                ...newDog,
+                [event.target.name]: event.target.value
+            });
+        }
     }
+    
 
-    const HandleSubmit = async(e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-    //     const newDogFormData = new FormData();
-    //     newDogFormData.append(...newDog)
-    //     newDogFormData.append("name", newDog.name)
-    //     newDogFormData.append("age", newDog.title)
-    //     newDogFormData.append("birthday", newDog.description)
-    //     newDogFormData.append("about_me", newDog.about_me)
-    //     newDogFormData.append("is_fixed", newDog.is_fixed)
-    //     newDogFormData.append("has_bitten", newDog.has_bitten)
-    //     newDogFormData.append("aggression", newDog.aggression)
-    //     newDogFormData.append("breed", newDog.breed)
-    //     newDogFormData.append("favorite_park", newDog.favorite_park)
-    //     newDogFormData.append("gender", newDog.gender)
-    //     newDogFormData.append("size", newDog.size)
-    //     newDogFormData.append("socialization", newDog.socialization)
-    //     newDogFormData.append("user", `${state.currentUser.user_id}`)
+        const newDogFormData = new FormData();
+        newDogFormData.append("name", newDog.name)
+        newDogFormData.append("age", newDog.title)
+        newDogFormData.append("birthday", newDog.description)
+        newDogFormData.append("about_me", newDog.about_me)
+        newDogFormData.append("is_fixed", newDog.is_fixed)
+        newDogFormData.append("has_bitten", newDog.has_bitten)
+        newDogFormData.append("aggression", newDog.aggression)
+        newDogFormData.append("breed", newDog.breed)
+        newDogFormData.append("favorite_park", newDog.favorite_park)
+        newDogFormData.append("gender", newDog.gender)
+        newDogFormData.append("size", newDog.size)
+        newDogFormData.append("socialization", newDog.socialization)
+        newDogFormData.append("user", `${state.currentUser.user_id}`)
+        newDogFormData.append("tags", newDog.tags)
 
 
         try {
@@ -99,7 +123,7 @@ export default function AddDogForm() {
 
     return (
     <div>
-        <form onSubmit={HandleSubmit}>
+        <form onSubmit={handleSubmit}>
             <label>
                 Name:
                 <input
@@ -139,86 +163,124 @@ export default function AddDogForm() {
             </label>
             <label>
                 Are they fixed?
-                <Select
+                <select
                     className="newDogInput"
                     name="is_fixed"
-                    options={optionsBoolean}
-                    value={newDog.is_fixed}
+                    // value={newDog.is_fixed}
                     onChange={handleChange}
-                />
+                >
+                    {optionsBoolean.map((option) => (
+                        <option value={option.value}>{option.label}</option>
+                    ))}
+                </select>
             </label>
             <label>
                 Do they have a history of biting another dog or person?
-                <Select
+                <select 
                     className="newDogInput"
-                    name="has_bitten"
-                    options={optionsBoolean}
-                    value={newDog.has_bitten}
-                    onChange={handleChange}
-                />  
+                    name="has_bitten" 
+                    // value={newDog.has_bitten}
+                    onChange={handleChange} 
+                >
+                    {optionsBoolean.map((option) => (
+                        <option value={option.value}>{option.label}</option>
+                    ))}
+                </select>
             </label>
             <label>
                 How would you rank their aggression?
-                <Select
+                <select
                     className="newDogInput"
                     name="aggression"
-                    options={optionsAggressionSocialization}
-                    value={newDog.aggression}
+                    // value={newDog.aggression}
                     onChange={handleChange}
-                />
+                >
+                    {optionsAggressionSocialization.map((option) => (
+                        <option value={option.value}>{option.label}</option>
+                    ))} 
+                </select>
             </label>
             <label>
                 {/* eventually this one and parks will have a creatable input box that can relate
                  to the database and make a post if the breed or park aren't in the system yet */}
                 Breed:
-                <Select
+                <select
                     className="newDogInput"
                     name="breed"
-                    options={optionsBreed}
-                    value={newDog.breed}
+                    // value={newDog.breed}
                     onChange={handleChange}
-                />
+                >
+                    {optionsBreed.map((option) => (
+                        <option value={option.value}>{option.label}</option>
+                    ))} 
+                </select>
             </label>
             <label>
                 Favorite Park:
-                <Select
+                <select
                     className="newDogInput"
                     name="favorite_park"
-                    options={optionsPark}
-                    value={newDog.favorite_park}
+                    // value={newDog.favorite_park}
                     onChange={handleChange}
-                />
+                >
+                    {optionsPark.map((option) => (
+                        <option value={option.value}>{option.label}</option>
+                    ))}    
+                </select>
             </label>
             <label>
                 Gender:
-                <Select
+                <select
                     className="newDogInput"
                     name="gender"
                     options={optionsGender}
-                    value={newDog.gender}
+                    // value={newDog.gender}
                     onChange={handleChange}
-                />
+                >
+                    {optionsGender.map((option) => (
+                        <option value={option.value}>{option.label}</option>
+                    ))} 
+                </select>
             </label>
             <label>
                 Size:
-                <Select
+                <select
                     className="newDogInput"
                     name="size"
-                    options={optionsSize}
-                    value={newDog.size}
+                    // value={newDog.size}
                     onChange={handleChange}
-                />
+                >
+                    {optionsSize.map((option) => (
+                        <option value={option.value}>{option.label}</option>
+                    ))}  
+                </select>
             </label>
             <label>
                 How would you rank their exposure to other dogs and people?
-                <Select
+                <select
                     className="newDogInput"
                     name="socialization"
-                    options={optionsAggressionSocialization}
-                    value={newDog.socialization}
+                    // value={newDog.socialization}
                     onChange={handleChange}
-                />
+                >
+                    {optionsAggressionSocialization.map((option) => (
+                        <option value={option.value}>{option.label}</option>
+                    ))}
+                </select>
             </label>
+            <label>
+                Choose some hashtags to spice up your dog's profile!
+                <select multiple
+                    className="newDogInput"
+                    name="tags"
+                    // value={newDog.socialization}
+                    onChange={handleChange}
+                >
+                    {optionsTags.map((option) => (
+                        <option value={option.value}>{option.label}</option>
+                    ))}
+                </select>
+            </label>  
             <button type="submit">
                 Create
             </button>
