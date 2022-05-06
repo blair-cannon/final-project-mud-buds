@@ -8,16 +8,14 @@ export default function MyDog() {
   const [ state, dispatch ] = useGlobalState();
 
 return (
-  <div>
+  <>
     {state.dogs.map((dog) => <Dog key={dog.id} dog={dog} />)}
-    </div>
+  </>
   )
 }
 
 const Dog = ({ dog }) => {
   return (
-    <div>
-      {console.log("1", dog)}
     <Card className="dogCard">
       <Card.Body>
         <Card.Img src={ExampleDogImage} alt="Card image" />
@@ -43,6 +41,5 @@ const Dog = ({ dog }) => {
         <Card.Link href="#">Delete</Card.Link>
       </Card.Body>
     </Card>
-  </div>
   )
 }

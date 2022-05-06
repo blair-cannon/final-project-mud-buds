@@ -12,10 +12,10 @@ export default function NavBarLoggedIn(props) {
           <Container fluid>
             <img className="logo" src={Logo} />
             <div className="navRight">
-              <LinkContainer to="/feed">
+              <LinkContainer to="/login">
                 <Nav.Link className="navlink">Log In</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/notifications">
+              <LinkContainer to="/register">
                 <Nav.Link className="navlink">Create Account</Nav.Link>
               </LinkContainer>
               <Navbar.Toggle aria-controls="offcanvasNavbar" />
@@ -29,12 +29,8 @@ export default function NavBarLoggedIn(props) {
                   <Nav className="justify-content-end flex-grow-1 pe-3">
                     <Nav.Link href="#action1">New Client Info</Nav.Link>
                     <Nav.Link href="#action2">Safety</Nav.Link>
-                    <LinkContainer to="/">
-                      <Nav.Link onClick={() => {
-                        AuthService.logout()
-                        navigate('/')
-                        window.location.reload()
-                      }}>Create Account</Nav.Link>
+                    <LinkContainer to="/register">
+                      <Nav.Link >Create Account</Nav.Link>
                     </LinkContainer>
                   </Nav>
                 </Offcanvas.Body>

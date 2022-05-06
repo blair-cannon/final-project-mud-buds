@@ -1,5 +1,5 @@
-import { useState, Component } from "react";
-import { Navigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../context/GlobalState'
 import request from '../services/api.requests';
 
@@ -58,6 +58,7 @@ const optionsTags = [
 
 
 export default function AddDogForm() {
+    let navigate = useNavigate();
     const [state, dispatch] = useGlobalState();
     const [newDog, setNewDog] = useState({
     name: "",
@@ -128,7 +129,8 @@ export default function AddDogForm() {
               headers: { "Content-Type": "multipart/form-data" },
             }
             let resp = await request(options)
-            Navigate('/profile')
+            console.log(resp)
+            dispatch({ dogs: [...state.dogs, resp.data]})
         } catch(error) {
             console.log(error)
         }
@@ -136,7 +138,7 @@ export default function AddDogForm() {
 
     return (
     <div>
-        <form onSubmit={handleSubmit}>
+        <form className="form-new-dog" onSubmit={handleSubmit}>
             <label>
                 Name:
                 <input

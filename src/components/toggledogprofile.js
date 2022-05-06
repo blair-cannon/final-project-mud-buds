@@ -2,8 +2,7 @@ import React from 'react';
 import { Dropdown } from 'react-bootstrap';
 
 export default function Toggledogprofile() {
-  return (
-    <div>  
+  return ( 
         <Dropdown id="dropdownButton" >
             <Dropdown.Toggle>
                 Current Dog Profile
@@ -15,6 +14,5 @@ export default function Toggledogprofile() {
                 <Dropdown.Item href="#/action-2">switch to Dog3 profile</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
-    </div>
   )
 }

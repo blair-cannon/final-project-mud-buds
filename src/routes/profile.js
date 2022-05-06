@@ -13,7 +13,9 @@ const Profile = () => {
         <SideBar />
         <Col className="contentCol" align="center" lg={ 9 } >
           <ToggleDog />
-          <MyDog />
+          <div className="myDogs">
+            <MyDog />
+          </div>
           <Button onClick={() => setModalShow(true)}>Add Dog Profile</Button>
           <NewDogModal show={modalShow} onHide={() => setModalShow(false)}/>
         </Col>

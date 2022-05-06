@@ -21,7 +21,7 @@
 
 .contentCol {
     border: solid 2px black;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,7 +31,7 @@
 
 .messageCol {
     border: solid 2px black;
-    height: 100vh;
+    min-height: 100vh;
     background-color:rgba(0, 0, 0, 0.109);
 }
 
@@ -65,7 +65,7 @@
     float: right;
     display: flex;
     justify-content: center;
-    margin-right:17rem;
+    margin-right:12rem;
 }
 
 a.nav-link {
@@ -303,12 +303,12 @@ a.nav-link:focus {
 }
 
 .dropdown-toggle {
-    background-color: var(--yellow) !important;
-    color: var(--darkred) !important;
-    margin-bottom: 5rem !important;
-    margin-top: 3rem !important;
-    border: none !important;
-    font-weight: bold !important;
+    background-color: var(--yellow);
+    color: var(--darkred);
+    /* margin-bottom: 5rem;
+    margin-top: 3rem; */
+    border: none;
+    font-weight: bold;
 }
 
 /* .show>.btn-secondary.dropdown-toggle {
@@ -334,4 +334,56 @@ a.nav-link:focus {
     box-shadow: none !important;
     margin-top: 17rem;
 
+}
+
+.myDogs {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 3rem 0;
+} 
+
+.form-new-dog {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-new-dog > * {
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.modal-new-dog {
+    max-height: 600px;
+    overflow: scroll;
+}
+
+.message-from {
+    font-weight: bold;
+}
+
+.message-content {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.message-time {
+    font-size: .75rem;
+}
+
+.notification-text {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.notification-btn {
+    border-radius: 25px;
+    background-color: var(--yellow);
+    margin-left: 1rem;
+    text-transform: uppercase;
+    border: none;
+    font-size: 1rem;
 }

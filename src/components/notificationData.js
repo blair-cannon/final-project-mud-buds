@@ -64,10 +64,10 @@ export default function Convos() {
 const Notification = ({ notification, acceptConnection, deleteRequest }) => {
   return (
     <div>
-            <li>
+            <li className="notification-text">
                 {notification.dog_initializer.name}
-                <button onClick={() => {acceptConnection({ notification })}}>check</button>
-                <button onClick={() => {deleteRequest({ notification })}}>X</button>
+                <button className="notification-btn" onClick={() => {acceptConnection({ notification })}}>check</button>
+                <button className="notification-btn" onClick={() => {deleteRequest({ notification })}}>X</button>
             </li>
         </div>
       )
