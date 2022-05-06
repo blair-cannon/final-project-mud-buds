@@ -39,14 +39,6 @@ const optionsPark = [
     {value:2, label:"Lake Reba Park"}
 ]
 
-// const optionsTags = [
-//     {value:"Hyper", label:"Hyper"},
-//     {value:"Swimmer", label:"Swimmer"},
-//     {value:"Kid-friendly", label:"Kid-friendly"},
-//     {value:"Fast", label:"Fast"},
-//     {value:"WallLeaner", label:"WallLeaner"},
-// ]
-
 const optionsTags = [
     {value:"1", label:"Hyper"},
     {value:"2", label:"Swimmer"},
