@@ -1,8 +1,7 @@
 import React from 'react';
-// import HeroImage from '../images/dog_hero.png'
 import Luka from '../images/luka.jpeg';
 import Slogan from '../images/homePageSlogan.png';
-import {Figure, Container} from 'react-bootstrap';
+import { Figure } from 'react-bootstrap';
 import Walkthrough from '../components/walkthroughsteps';
 import TestimonialContainer from '../components/testimonialContainer';
 import FooterContainer from '../components/footerContainer';
