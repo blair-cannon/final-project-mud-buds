@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {Card, ListGroup, ListGroupItem} from 'react-bootstrap';
-import ExampleDogImage from '../images/luka.jpeg';
 import { useGlobalState } from "../context/GlobalState";
+import request from '../services/api.requests';
 
 
 export default function MyDog() {
@@ -15,10 +15,21 @@ return (
 }
 
 const Dog = ({ dog }) => {
+  const [ dogImage, setDogImage ] = useState();
+
+    async function getDogImage() {
+      let options = {
+        url: `/images/?dog=${dog.id}`,
+        method: 'GET',
+      } 
+      let resp = await request(options)
+      setDogImage(resp.data[0].image)
+    }
+    getDogImage()
   return (
     <Card className="dogCard">
       <Card.Body>
-        <Card.Img src={ExampleDogImage} alt="Card image" />
+        <Card.Img src={dogImage} alt="Card image" />
         <Card.ImgOverlay>
           <Card.Title className="dogTitle">{dog.name}, {dog.age}</Card.Title>
         </Card.ImgOverlay>
