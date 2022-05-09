@@ -387,3 +387,23 @@ a.nav-link:focus {
     border: none;
     font-size: 1rem;
 }
+
+.example-feed-image {
+    width: 35rem;
+    height: 40rem;
+    box-shadow: none;
+}
+
+.steps {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    gap: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.walkthrough-steps {
+    box-shadow: none;
+    margin-top: 12rem;
+}

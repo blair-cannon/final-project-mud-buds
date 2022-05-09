@@ -2,7 +2,7 @@ import React from 'react';
 import Luka from '../images/luka.jpeg';
 import Slogan from '../images/homePageSlogan.png';
 import { Figure } from 'react-bootstrap';
-import Walkthrough from '../components/walkthroughsteps';
+import Walkthrough from '../components/walkthrough';
 import TestimonialContainer from '../components/testimonialContainer';
 import FooterContainer from '../components/footerContainer';
 
