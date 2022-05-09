@@ -1,13 +1,409 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Dokdo&display=swap');
+
+:root {
+    --blue: #335C67;
+    --yellow: #fff3b0;
+    --orange: #e09f3e;
+    --darkorange: #b93b22;
+    --red: #9e2a2b;
+    --darkred: #540b0e;
+  }
+
+.pageContainer {
+    margin-top: 5rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.dogHeroImage {
+    margin: auto;
+    width:35rem;
+    height:45rem;
+}
+
+.contentCol {
+    border: solid 2px black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--blue);
+}
+
+.messageCol {
+    border: solid 2px black;
+    min-height: 100vh;
+    background-color:rgba(0, 0, 0, 0.109);
+}
+
+.conversationRow {
+    height: max-content;
+    border-bottom: solid 2px rgba(0, 0, 0, 0.178);
+    background-color:white;
+}
+
+.messageHeader {
+    border-bottom: solid 2px black;
+    color: var(--blue);
+    font-family: Dokdo;
+    background-color:white;
+    margin-bottom: 0;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav {
+    background-color: white;
+    color: black;
+    height: 4rem;
+}
+
+.navRight {
+    float: right;
+    display: flex;
+    justify-content: center;
+    margin-right:12rem;
+}
+
+a.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight:bold;
+    color: rgb(80, 78, 78);
+    text-transform: uppercase !important;
+    transition-timing-function: ease-in;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+a.nav-link:hover {
+    border-bottom: 4px solid var(--darkorange);
+    border-right: 4px solid var(--darkorange);
+    border-top: 4px solid var(--blue);
+    border-left: 4px solid var(--blue);
+    color: rgb(80, 78, 78) !important;
+}
+
+a.nav-link:active {
+    border-bottom: 4px solid var(--darkorange);
+    border-right: 4px solid var(--darkorange);
+    border-top: 4px solid var(--blue);
+    border-left: 4px solid var(--blue);
+    color: rgb(80, 78, 78) !important;
+}
+
+a.nav-link:focus {
+    border-bottom: 4px solid var(--darkorange);
+    border-right: 4px solid var(--darkorange);
+    border-top: 4px solid var(--blue);
+    border-left: 4px solid var(--blue);
+    color: rgb(80, 78, 78) !important;
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+.navbar-toggler-icon {
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.logo {
+    height: 7rem;
+    width: 12rem;
+    margin: 0.3rem;
+    margin-left: 2rem;
+}
+
+.figure-img {
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    margin-top: 4rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.walkthroughCard {
+    position: relative;
+    height: 13rem;
+    width: 80rem;
+    display: flex;
+    flex-direction: row !important;
+    margin-bottom: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    text-align: center;
+}
+
+.walkthroughImage {
+    width: 30% !important;
+}
+
+.walkthroughHeader {
+    color: var(--darkred);
+    text-align: center;
+    font-size: 4rem !important;
+    font-weight: bold !important;
+    margin-top: 5rem !important;
+    margin-bottom: 2rem !important;
+    font-family: Cutive Mono;
+    font-weight: bolder;
+}
+
+.walkthroughCardText {
+    font-size: 1.5rem !important;
+    color: black;
+}
+
+.walkthroughCardTitle {
+    margin-bottom: 0.5rem !important;
+    font-size: 2rem !important;
+    font-weight: bold !important;
+    color: var(--blue) !important;
+    font-family: Dokdo;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.createAccount {
+    background-color: var(--orange) !important;
+    border-color: var(--orange) !important;
+    font-family: Dokdo;
+    width: 13rem;
+    font-size: 1.4rem !important;
+}
+
+.testimonialCard {
+    height: 20rem;
+    width: 15rem;
+    margin: 3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.darkredContainer {
+    height: 30rem;
+    background-color: var(--darkred);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerContainer {
+    background-color: var(--yellow);
+    height: 15rem;
+}
+
+.dogdisplayHeader {
+    color: var(--yellow);
+    font-family: Cutive Mono;
+    font-weight: bold;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+}
+
+.dogTitle {
+    color: var(--darkred);
+    font-weight: bold !important;
+    position: absolute;
+    bottom: 240px;
+    left: 25px;
+    font-family: 'Dokdo';
+    font-size: 1.7rem !important;
+    background-color: white;
+}
+
+.genderAndbreed {
+    margin-top: 1rem;
+}
+
+.dogTags {
+    font-family: Dokdo;
+    color: var(--darkred) !important;
+    font-weight: bold;
+    font-size: 1.4rem !important;
+}
+
+.dogCard {
+    width: 18rem;
+    height: 38rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 3rem;
+}
+
+.loginBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+    height: 35rem;
+    background-color: var(--blue);
+    align-items: center;
+    margin-top: 4.5rem;
+    margin-bottom: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.loginImage {
+    height: 20rem;
+    width: 40rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.loginWords {
+    color: white;
+}
+
+.loginButton {
+    border-radius: 25px;
+    background-color: var(--yellow);
+    width: 8rem;
+    height: 3rem;
+    margin-top: 1rem;
+    border: 1px solid var(--yellow);
+    font-family: Dokdo;
+    font-size: 1.5rem;
+    
+}
+
+.registerBox {
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    width: 70%;
+    height: 35rem;
+    background-color: var(--blue);
+    align-items: center;
+    margin-top: 4.5rem;
+    margin-bottom: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.registerImage {
+    margin-right: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 20rem;
+}
+
+.conversationSubject {
+    font-style: italic;
+}
+
+.conversationDate {
+    float: right;
+}
+
+.dropdown-toggle {
+    background-color: var(--yellow);
+    color: var(--darkred);
+    /* margin-bottom: 5rem;
+    margin-top: 3rem; */
+    border: none;
+    font-weight: bold;
+}
+
+/* .show>.btn-secondary.dropdown-toggle {
+    background-color: var(--yellow);
+    color: var(--darkred);
+    margin-bottom: 8rem;
+    margin-top: 3rem;
+} */
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+    align-items: center;
+    gap: 7rem;
+}
+
+.sloganImage {
+    width: 40rem;
+    height: 35rem;
+    box-shadow: none !important;
+    margin-top: 10rem;
+
+}
+
+.myDogs {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 3rem 0;
+} 
+
+.form-new-dog {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-new-dog > * {
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.modal-new-dog {
+    max-height: 600px;
+    overflow: scroll;
+}
+
+.message-from {
+    font-weight: bold;
+}
+
+.message-content {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.message-time {
+    font-size: .75rem;
+}
+
+.notification-text {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.notification-btn {
+    border-radius: 25px;
+    background-color: var(--yellow);
+    margin-left: 1rem;
+    text-transform: uppercase;
+    border: none;
+    font-size: 1rem;
+}
+
+.example-feed-image {
+    width: 35rem;
+    height: 40rem;
+    box-shadow: none;
+}
+
+.steps {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    gap: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.walkthrough-steps {
+    box-shadow: none;
+    margin-top: 12rem;
 }
