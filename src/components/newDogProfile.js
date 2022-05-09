@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useGlobalState } from '../context/GlobalState'
 import request from '../services/api.requests';
 import NewDogImageModal from '../components/newDogImage';
+import {Button} from 'react-bootstrap';
 
 const optionsAggressionSocialization = [
     {value:1, label:"High"},
@@ -296,9 +297,9 @@ export default function AddDogForm() {
                     ))}
                 </select>
             </label>  
-            <button type="submit" onClick={() => setModalShow(true)}>
+            <Button type="submit" onClick={() => setModalShow(true)}>
                 Next
-            </button>
+            </Button>
         </form>
         <NewDogImageModal thisDogId={thisDogId} show={modalShow} onHide={() => setModalShow(false)}/>
     </div>

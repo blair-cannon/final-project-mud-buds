@@ -12,7 +12,7 @@ const Profile = () => {
       <Row className="flex-xl-nowrap">
         <SideBar />
         <Col className="contentCol" align="center" lg={ 9 } >
-          <ToggleDog />
+          {/* <ToggleDog /> */}
           <div className="myDogs">
             <MyDog />
           </div>
