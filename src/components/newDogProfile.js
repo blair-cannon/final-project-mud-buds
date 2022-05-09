@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../context/GlobalState'
 import request from '../services/api.requests';
+import NewDogImageModal from '../components/newDogImage';
 
 const optionsAggressionSocialization = [
     {value:1, label:"High"},
@@ -52,6 +53,8 @@ const optionsTags = [
 export default function AddDogForm() {
     let navigate = useNavigate();
     const [state, dispatch] = useGlobalState();
+    const [modalShow, setModalShow] = useState(false);
+    const [thisDogId, setThisDogId] = useState();
     const [newDog, setNewDog] = useState({
     name: "",
     age: "",
@@ -68,6 +71,7 @@ export default function AddDogForm() {
     user: `${state.currentUser.user_id}`,
     tags: []
   });
+
 
 
     const handleChange = (event) => {
@@ -121,6 +125,7 @@ export default function AddDogForm() {
               headers: { "Content-Type": "multipart/form-data" },
             }
             let resp = await request(options)
+            setThisDogId(resp.data.id);
             console.log(resp)
             dispatch({ dogs: [...state.dogs, resp.data]})
         } catch(error) {
@@ -288,10 +293,11 @@ export default function AddDogForm() {
                     ))}
                 </select>
             </label>  
-            <button type="submit">
-                Create
+            <button type="submit" onClick={() => setModalShow(true)}>
+                Next
             </button>
         </form>
+        <NewDogImageModal thisDogId={thisDogId} show={modalShow} onHide={() => setModalShow(false)}/>
     </div>
     )
 }

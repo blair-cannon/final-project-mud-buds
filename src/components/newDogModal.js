@@ -3,7 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 import NewDogProfile from './newDogProfile';
 
 export default function NewDogView(props) {
-// const [modalShow, setModalShow] = useState(false)
+  {console.log(props)}
   return (
     <Modal
       {...props}
@@ -13,7 +13,7 @@ export default function NewDogView(props) {
     >
       <Modal.Header closeButton>
       </Modal.Header>
-      <Modal.Body class="modal-new-dog">
+      <Modal.Body className="modal-new-dog">
             <NewDogProfile/>
       </Modal.Body>
       <Modal.Footer>
