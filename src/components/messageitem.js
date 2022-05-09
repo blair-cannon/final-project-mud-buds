@@ -29,9 +29,9 @@ const MessageItem = ({ message }) => {
   return (
     <div>
       {/* {console.log(message)} */}
-        <Row>{message.dog_sent.name}</Row>
-        <Row>{message.sent_at}</Row>
-        <Row>{message.content}</Row>
+        <Row className="message-time">{message.sent_at} </Row>
+        <Row className="message-from">{message.dog_sent.name}:</Row>
+        <Row className="message-content">{message.content}</Row>
     </div>
   )
 }

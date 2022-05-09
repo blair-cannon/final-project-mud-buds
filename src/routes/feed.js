@@ -10,7 +10,9 @@ export default function Feed() {
         <SideBar />
         <Col className="contentCol" lg={ 9 } >
         <h2 className="dogdisplayHeader">Let's find your furry friend <br/> a furry friend!</h2>
+        <div className="myDogs">
           <DogDisplay />
+        </div>
         </Col>
       </Row>
     </Container>

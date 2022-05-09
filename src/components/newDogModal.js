@@ -13,7 +13,7 @@ export default function NewDogView(props) {
     >
       <Modal.Header closeButton>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body class="modal-new-dog">
             <NewDogProfile/>
       </Modal.Body>
       <Modal.Footer>
