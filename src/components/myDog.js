@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {Card, ListGroup, ListGroupItem} from 'react-bootstrap';
-// import ExampleDogImage from '../images/luka.jpeg';
 import { useGlobalState } from "../context/GlobalState";
 import request from '../services/api.requests';
 
@@ -24,7 +23,6 @@ const Dog = ({ dog }) => {
         method: 'GET',
       } 
       let resp = await request(options)
-      console.log(resp.data[0].image)
       setDogImage(resp.data[0].image)
     }
     getDogImage()

@@ -30,12 +30,23 @@ return (
 }
 
 const IndividualDog = ({ dog }) => {
+  const [ dogImage, setDogImage ] = useState();
+
+  async function getDogImage() {
+    let options = {
+      url: `/images/?dog=${dog.id}`,
+      method: 'GET',
+    } 
+    let resp = await request(options)
+    setDogImage(resp.data[0].image)
+  }
+  getDogImage()
+
   return (
     <div>
-      {/* {console.log(dog)} */}
     <Card className="dogCard">
       <Card.Body>
-        <Card.Img src={ExampleDogImage} alt="Card image" />
+        <Card.Img src={dogImage} alt="Card image" />
         <Card.ImgOverlay>
           <Card.Title className="dogTitle">{dog.name}, {dog.age}</Card.Title>
         </Card.ImgOverlay>
