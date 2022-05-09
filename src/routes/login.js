@@ -39,7 +39,7 @@ const Login = () => {
 
   const getUserDogs = async (id) => {  
     let options = {
-      url: `/dogs/?user=${id}`,
+      url: `/dogs/?user_id=${id}`,
       method: 'GET',
     }
 

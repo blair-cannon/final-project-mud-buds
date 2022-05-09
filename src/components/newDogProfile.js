@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../context/GlobalState'
 import request from '../services/api.requests';
 import NewDogImageModal from '../components/newDogImage';
@@ -10,9 +9,14 @@ const optionsAggressionSocialization = [
     {value:3, label:"Low"}
 ]
 
-const optionsBoolean = [
+const optionsFixed = [
     {value:true, label:"Yes"},
     {value:false, label:"No"}
+]
+
+const optionsBitten = [
+    {value:false, label:"Yes"},
+    {value:true, label:"No"}
 ]
 
 const optionsGender = [
@@ -51,7 +55,6 @@ const optionsTags = [
 
 
 export default function AddDogForm() {
-    let navigate = useNavigate();
     const [state, dispatch] = useGlobalState();
     const [modalShow, setModalShow] = useState(false);
     const [thisDogId, setThisDogId] = useState();
@@ -60,14 +63,14 @@ export default function AddDogForm() {
     age: "",
     birthday: "",
     about_me: "",
-    is_fixed: null,
-    has_bitten: null,
-    aggression: null,
-    breed: null,
-    favorite_park: null,
-    gender: null,
-    size: null,
-    socialization: null,
+    is_fixed: true,
+    has_bitten: false,
+    aggression: 1,
+    breed: 1,
+    favorite_park: 1,
+    gender: 1,
+    size: 1,
+    socialization: 1,
     user: `${state.currentUser.user_id}`,
     tags: []
   });
@@ -181,7 +184,7 @@ export default function AddDogForm() {
                     // value={newDog.is_fixed}
                     onChange={handleChange}
                 >
-                    {optionsBoolean.map((option) => (
+                    {optionsFixed.map((option) => (
                         <option value={option.value}>{option.label}</option>
                     ))}
                 </select>
@@ -194,7 +197,7 @@ export default function AddDogForm() {
                     // value={newDog.has_bitten}
                     onChange={handleChange} 
                 >
-                    {optionsBoolean.map((option) => (
+                    {optionsBitten.map((option) => (
                         <option value={option.value}>{option.label}</option>
                     ))}
                 </select>

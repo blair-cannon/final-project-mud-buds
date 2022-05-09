@@ -1,19 +1,16 @@
 import { useState } from "react";
-// import { useNavigate } from 'react-router-dom';
-import { useGlobalState } from '../context/GlobalState'
 import request from '../services/api.requests';
 import { Modal, Form, Button } from 'react-bootstrap';
 
 export default function AddDogImage(props) {
-    const [state, dispatch] = useGlobalState();
     const [newDogImage, setNewDogImage] = useState({
         image: null,
-        dog_id: `${props.thisDogId}`,
+        dog: `${props.thisDogId}`,
     })
 
     const handleChangeImage = (event) => {
         setNewDogImage({
-            image: event.target.value,
+            image: event.target.files[0],
         });
     }
 
@@ -21,10 +18,9 @@ export default function AddDogImage(props) {
         e.preventDefault()
         const newDogImageFormData = new FormData();
         newDogImageFormData.append("image", newDogImage.image);
-        newDogImageFormData.append("dog_id", `${props.thisDogId}`);
+        newDogImageFormData.append("dog", `${props.thisDogId}`);
 
         // const params = new URLSearchParams();
-        // will send the data as type: formData
         // params.append(newDogImage);
         try {
             let options = {

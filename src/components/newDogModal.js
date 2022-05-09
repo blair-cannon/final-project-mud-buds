@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import NewDogProfile from './newDogProfile';
 
 export default function NewDogView(props) {
-  {console.log(props)}
   return (
     <Modal
       {...props}
