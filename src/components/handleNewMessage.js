@@ -43,6 +43,7 @@ export default function HandleNewMessage({ convoId, newConvo, Hide, HideSelf }) 
             let resp = await request(options)
             Hide()
             HideSelf()
+            // window.location.reload()
             
         } catch(error) {
             console.log(error)

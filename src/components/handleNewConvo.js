@@ -42,6 +42,10 @@ export default function HandleNewConvo({ Hide }) {
               data: newConvo,
             }
             let resp = await request(options)
+            dispatch({ conversations: [...state.conversations, resp.data]})
+            var existing = JSON.parse(localStorage.getItem('myconversations'));
+            existing = existing ? existing : [];
+            localStorage.setItem('myconversations', JSON.stringify([...existing, resp.data]));
             setConvoId(resp.data.id)
             setModalShow(true)
         } catch(error) {

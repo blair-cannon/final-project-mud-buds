@@ -126,7 +126,6 @@ export default function AddDogForm() {
               method: "POST",
               url: '/dogs/',
               data: newDog,
-              headers: { "Content-Type": "multipart/form-data" },
             }
             let resp = await request(options)
             setThisDogId(resp.data.id);
