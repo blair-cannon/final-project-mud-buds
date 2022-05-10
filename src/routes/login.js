@@ -25,14 +25,17 @@ const Login = () => {
       .then(async (resp) => {
         let data = jwtDecode(resp.access)
         let dogs = await getUserDogs(data.user_id)
+        let conversations = await getUserConversations(data.user_id)
 
         // Update the state globally for all expected values, in GlobalState.js -> initialState
         await dispatch({
           currentUserToken: resp.access,
           currentUser: data,
-          dogs
+          dogs,
+          conversations
         })
         localStorage.setItem('mydogs', JSON.stringify(dogs));
+        localStorage.setItem('myconversations', JSON.stringify(conversations));
         navigate('/')
       });
   }
@@ -40,6 +43,16 @@ const Login = () => {
   const getUserDogs = async (id) => {  
     let options = {
       url: `/dogs/?user_id=${id}`,
+      method: 'GET',
+    }
+
+    let resp = await request(options)
+    return resp.data
+  }
+
+  const getUserConversations = async (id) => {  
+    let options = {
+      url: `/conversations/?user_id=${id}`,
       method: 'GET',
     }
 

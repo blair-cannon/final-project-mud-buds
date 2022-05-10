@@ -9,6 +9,7 @@ export default function AddDogImage(props) {
     })
 
     const handleChangeImage = (event) => {
+      console.log(event.target)
         setNewDogImage({
             image: event.target.files[0],
         });
@@ -30,6 +31,8 @@ export default function AddDogImage(props) {
             }
             let resp = await request(options)
             console.log(resp)
+            props.hidefirst()
+            props.onHide()
         } catch(error) {
             console.log(error)
         }

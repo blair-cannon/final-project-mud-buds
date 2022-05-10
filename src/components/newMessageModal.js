@@ -1,7 +1,8 @@
 import { Modal, Button } from "react-bootstrap";
-import NewDogProfile from './newDogProfile';
+import HandleNewMessage from './handleNewMessage';
 
-export default function NewDogView(props) {
+
+export default function NewConvoModal(props) {
   return (
     <Modal
       {...props}
@@ -12,7 +13,7 @@ export default function NewDogView(props) {
       <Modal.Header closeButton>
       </Modal.Header>
       <Modal.Body className="modal-new-dog">
-            <NewDogProfile hidefirst={props.onHide} />
+           <HandleNewMessage convoId={props.convoId} Hide={props.Hide} HideSelf={props.onHide} newConvo={props.newConvo}/>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useGlobalState } from '../context/GlobalState'
 import request from '../services/api.requests';
 import NewDogImageModal from '../components/newDogImage';
+import {Button} from 'react-bootstrap';
 
 const optionsAggressionSocialization = [
     {value:1, label:"High"},
@@ -54,7 +55,7 @@ const optionsTags = [
 
 
 
-export default function AddDogForm() {
+export default function AddDogForm({ hidefirst }) {
     const [state, dispatch] = useGlobalState();
     const [modalShow, setModalShow] = useState(false);
     const [thisDogId, setThisDogId] = useState();
@@ -125,12 +126,14 @@ export default function AddDogForm() {
               method: "POST",
               url: '/dogs/',
               data: newDog,
-              headers: { "Content-Type": "multipart/form-data" },
             }
             let resp = await request(options)
             setThisDogId(resp.data.id);
             console.log(resp)
             dispatch({ dogs: [...state.dogs, resp.data]})
+            var existing = JSON.parse(localStorage.getItem('mydogs'));
+            existing = existing ? existing : [];
+            localStorage.setItem('mydogs', JSON.stringify([...existing, resp.data]));
         } catch(error) {
             console.log(error)
         }
@@ -296,11 +299,11 @@ export default function AddDogForm() {
                     ))}
                 </select>
             </label>  
-            <button type="submit" onClick={() => setModalShow(true)}>
+            <Button type="submit" onClick={() => setModalShow(true)}>
                 Next
-            </button>
+            </Button>
         </form>
-        <NewDogImageModal thisDogId={thisDogId} show={modalShow} onHide={() => setModalShow(false)}/>
+        <NewDogImageModal thisDogId={thisDogId} hidefirst={hidefirst} show={modalShow} onHide={() => setModalShow(false)}/>
     </div>
     )
 }
