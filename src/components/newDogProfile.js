@@ -131,6 +131,9 @@ export default function AddDogForm({ hidefirst }) {
             setThisDogId(resp.data.id);
             console.log(resp)
             dispatch({ dogs: [...state.dogs, resp.data]})
+            var existing = JSON.parse(localStorage.getItem('mydogs'));
+            existing = existing ? existing : [];
+            localStorage.setItem('mydogs', JSON.stringify([...existing, resp.data]));
         } catch(error) {
             console.log(error)
         }
