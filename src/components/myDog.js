@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Card, ListGroup, ListGroupItem} from 'react-bootstrap';
+import {Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 import { useGlobalState } from "../context/GlobalState";
 import request from '../services/api.requests';
 
@@ -16,6 +16,7 @@ return (
 
 const Dog = ({ dog }) => {
   const [ dogImage, setDogImage ] = useState();
+  const [ state, dispatch ] = useGlobalState();
 
     async function getDogImage() {
       let options = {
@@ -50,7 +51,10 @@ const Dog = ({ dog }) => {
           url: `/dogs/${dog.id}`,
           method: 'DELETE',
         } 
-        let variable = await request(options)
+        let resp = await request(options)
+        let updatedDogs = state.dogs.filter((savedDog) => savedDog.id !== dog.id)
+        dispatch({dogs: updatedDogs})
+        localStorage.setItem('mydogs', JSON.stringify(updatedDogs));
       }
       catch(error) {
         console.log(error)
@@ -84,7 +88,7 @@ const Dog = ({ dog }) => {
                         // navigate('/')
                         // window.location.reload()
                       }}>Edit</Button>
-        <Card.Link onClick={() => { deleteDog() }}>Delete</Card.Link>
+        <Button onClick={deleteDog} >Delete</Button>
       </Card.Body>
     </Card>
   )
