@@ -24,14 +24,14 @@ export default function Convos() {
         method: 'GET',
       } 
       let resp = await request(options)
-      setConversations(...resp.data)
+      setConversations(conversations => [...conversations, ...resp.data])
+      console.log(resp.data)
     }
     getConvos()
-    console.log(conversations)
-    // getOtherConvos()
+    getOtherConvos()
   }, []);
+  console.log('convo', conversations)
   
-  // if (state.dogs !== []) {
   return (
     <div>  
     {conversations.map((convo) => <IndividualConvo key={convo.id} convo={convo} />)}

@@ -43,6 +43,7 @@ export default function HandleNewMessage({ convoId, newConvo, Hide, HideSelf }) 
             let resp = await request(options)
             Hide()
             HideSelf()
+            
         } catch(error) {
             console.log(error)
         }
