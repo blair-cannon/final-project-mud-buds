@@ -4,15 +4,17 @@ import request from '../services/api.requests';
 import { Form, Button } from 'react-bootstrap';
 
 
-export default function HandleNewMessage({ convoId, newConvo }) {
+export default function HandleNewMessage({ convoId, newConvo, Hide, HideSelf }) {
+    console.log(convoId)
     const [state, dispatch] = useGlobalState();
-    // const [toOptions, setToOptions] = useState([]);
     const [newMessage, setNewMessage] = useState({
         content: "",
         conversation: `${convoId}`,
         dog_received: `${newConvo.dog_other}`,
         dog_sent: `${newConvo.dog_creator}`,
     });
+
+    console.log('message', newMessage)
 
     const handleChange = (event) => {
 
@@ -24,6 +26,7 @@ export default function HandleNewMessage({ convoId, newConvo }) {
     
 
     const handleSubmit = async(e) => {
+        console.log('message')
         e.preventDefault()
         const newMessageFormData = new FormData();
         newMessageFormData.append("content", newMessage.subject)
@@ -38,7 +41,8 @@ export default function HandleNewMessage({ convoId, newConvo }) {
               data: newMessage,
             }
             let resp = await request(options)
-
+            Hide()
+            HideSelf()
         } catch(error) {
             console.log(error)
         }

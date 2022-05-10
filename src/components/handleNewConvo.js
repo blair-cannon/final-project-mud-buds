@@ -5,7 +5,7 @@ import { Form, Button } from 'react-bootstrap';
 import NewMessageModal from '../components/newMessageModal';
 
 
-export default function HandleNewConvo() {
+export default function HandleNewConvo({ Hide }) {
     const [state, dispatch] = useGlobalState();
     const [modalShow, setModalShow] = useState(false);
     const [convoId, setConvoId] = useState();
@@ -16,10 +16,10 @@ export default function HandleNewConvo() {
         dog_other: null,
   });
 
-
+  console.log('convo', newConvo)
 
     const handleChange = (event) => {
-
+    
         setNewConvo({
             ...newConvo,
             [event.target.name]: event.target.value,
@@ -28,6 +28,7 @@ export default function HandleNewConvo() {
     
 
     const handleSubmit = async(e) => {
+        console.log('convo')
         e.preventDefault()
         const newConvoFormData = new FormData();
         newConvoFormData.append("subject", newConvo.subject)
@@ -42,6 +43,7 @@ export default function HandleNewConvo() {
             }
             let resp = await request(options)
             setConvoId(resp.data.id)
+            setModalShow(true)
         } catch(error) {
             console.log(error)
         }
@@ -83,8 +85,9 @@ export default function HandleNewConvo() {
                     name="dog_other"
                     onChange={handleChange}
                 >
+                    <option value=''></option>
                     {toOptions.filter((dog) => dog.user.id !== state.currentUser.user_id).map((dog) => (
-                        <option value={dog.id}>{dog.name}</option>
+                        <option key={dog.id} value={dog.id}>{dog.name}</option>
                     ))}
                 </select>
             </label> 
@@ -97,9 +100,9 @@ export default function HandleNewConvo() {
                     onChange={handleChange}
                 />
             </label>
-            <Button type="submit" onClick={() => setModalShow(true)}>Next</Button>
-            <NewMessageModal convoId={convoId} newConvo={newConvo} show={modalShow} onHide={() => setModalShow(false)}/>
-       </Form>
+            <Button type="submit">Next</Button>
+        </Form>
+        <NewMessageModal convoId={convoId} Hide={Hide} newConvo={newConvo} show={modalShow} onHide={() => setModalShow(false)}/>
     </div>
     );
 }

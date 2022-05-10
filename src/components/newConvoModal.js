@@ -12,8 +12,8 @@ export default function NewConvoModal(props) {
       <Modal.Header closeButton>
       </Modal.Header>
       <Modal.Body className="modal-new-dog">
-           <HandleNewConvo />
-      </Modal.Body>
+           <HandleNewConvo Hide={props.onHide}/>
+      </Modal.Body >
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
