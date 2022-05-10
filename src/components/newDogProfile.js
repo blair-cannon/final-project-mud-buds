@@ -55,7 +55,7 @@ const optionsTags = [
 
 
 
-export default function AddDogForm() {
+export default function AddDogForm({ hidefirst }) {
     const [state, dispatch] = useGlobalState();
     const [modalShow, setModalShow] = useState(false);
     const [thisDogId, setThisDogId] = useState();
@@ -300,7 +300,7 @@ export default function AddDogForm() {
                 Next
             </Button>
         </form>
-        <NewDogImageModal thisDogId={thisDogId} show={modalShow} onHide={() => setModalShow(false)}/>
+        <NewDogImageModal thisDogId={thisDogId} hidefirst={hidefirst} show={modalShow} onHide={() => setModalShow(false)}/>
     </div>
     )
 }

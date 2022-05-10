@@ -12,7 +12,7 @@ export default function NewDogView(props) {
       <Modal.Header closeButton>
       </Modal.Header>
       <Modal.Body className="modal-new-dog">
-            <NewDogProfile/>
+            <NewDogProfile hidefirst={props.onHide} />
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
