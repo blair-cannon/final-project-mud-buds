@@ -38,6 +38,7 @@ const IndividualDog = ({ dog }) => {
       method: 'GET',
     } 
     let resp = await request(options)
+    console.log(resp)
     setDogImage(resp.data[0].image)
   }
   getDogImage()
