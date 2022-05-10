@@ -1,16 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useGlobalState } from '../context/GlobalState'
 import request from '../services/api.requests';
 import { Form, Button } from 'react-bootstrap';
 import NewMessageModal from '../components/newMessageModal';
-
-    // state.dogs.map((dog,i) => <option value={dog.id} key={i}>{dog.name}</option>)
 
 
 export default function HandleNewConvo() {
     const [state, dispatch] = useGlobalState();
     const [modalShow, setModalShow] = useState(false);
     const [convoId, setConvoId] = useState();
+    const [toOptions, setToOptions] = useState([]);
     const [newConvo, setNewConvo] = useState({
         subject: "",
         dog_creator: state.dogs[0].id,
@@ -48,9 +47,23 @@ export default function HandleNewConvo() {
         }
     }
 
+    useEffect(() => {
+      async function getToOptions() {
+        let options = {
+          url: '/dogs',
+          method: 'GET',
+    } 
+        let resp = await request(options);
+        setToOptions(resp.data)
+    }
+  
+      getToOptions()
+    }, []);
+
+
     return (
     <div>
-       <Form>
+       <Form  onSubmit={handleSubmit}>
             <label>
                 From:
                 <select
@@ -63,7 +76,6 @@ export default function HandleNewConvo() {
                     ))} 
                 </select>
             </label>
-            {/* all other dogs??
             <label>
                 To:
                 <select
@@ -71,11 +83,11 @@ export default function HandleNewConvo() {
                     name="dog_other"
                     onChange={handleChange}
                 >
-                    {state.dogs.map((dog) => (
+                    {toOptions.filter((dog) => dog.user.id !== state.currentUser.user_id).map((dog) => (
                         <option value={dog.id}>{dog.name}</option>
-                    ))} 
+                    ))}
                 </select>
-            </label> */}
+            </label> 
             <label>
                 Subject:
                 <input
@@ -86,7 +98,7 @@ export default function HandleNewConvo() {
                 />
             </label>
             <Button type="submit" onClick={() => setModalShow(true)}>Next</Button>
-            <NewMessageModal convoId={convoId} show={modalShow} onHide={() => setModalShow(false)}/>
+            <NewMessageModal convoId={convoId} newConvo={newConvo} show={modalShow} onHide={() => setModalShow(false)}/>
        </Form>
     </div>
     );
