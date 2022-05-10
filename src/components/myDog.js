@@ -26,6 +26,37 @@ const Dog = ({ dog }) => {
       setDogImage(resp.data[0].image)
     }
     getDogImage()
+
+    // async function editDog() {
+      // try {  
+      //   let options = {
+      //     url: `/dogs/${dog.id}`,
+      //     method: 'PATCH',
+      //     data: params
+      //   } 
+    //     let variable = await request(options)
+    //     // filter to removed 'accepted' notification from UI
+    //     let newConnections = connections.filter((connection) => connection.id !== notification.id)
+    //     setConnections(newConnections)
+    //   } 
+      // catch(error) {
+      //     console.log(error)
+      // }
+    // }
+
+    async function deleteDog() {
+      try {  
+        let options = {
+          url: `/dogs/${dog.id}`,
+          method: 'DELETE',
+        } 
+        let variable = await request(options)
+      }
+      catch(error) {
+        console.log(error)
+      }
+    }
+
   return (
     <Card className="dogCard">
       <Card.Body>
@@ -48,8 +79,12 @@ const Dog = ({ dog }) => {
         </ListGroupItem>
       </ListGroup>
       <Card.Body>
-        <Card.Link href="#">Edit</Card.Link>
-        <Card.Link href="#">Delete</Card.Link>
+        <Button onClick={() => {
+                        // AuthService.logout()
+                        // navigate('/')
+                        // window.location.reload()
+                      }}>Edit</Button>
+        <Card.Link onClick={() => { deleteDog() }}>Delete</Card.Link>
       </Card.Body>
     </Card>
   )
