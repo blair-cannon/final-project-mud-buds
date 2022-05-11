@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 import { useGlobalState } from "../context/GlobalState";
 import request from '../services/api.requests';
+import EditDogModal from './editDogModal';
 
 
 export default function MyDog() {
@@ -17,6 +18,7 @@ return (
 const Dog = ({ dog }) => {
   const [ dogImage, setDogImage ] = useState();
   const [ state, dispatch ] = useGlobalState();
+  const [modalShow, setModalShow] = useState(false);
 
     async function getDogImage() {
       let options = {
@@ -29,20 +31,20 @@ const Dog = ({ dog }) => {
     getDogImage()
 
     // async function editDog() {
-      // try {  
-      //   let options = {
-      //     url: `/dogs/${dog.id}`,
-      //     method: 'PATCH',
-      //     data: params
-      //   } 
+    //   try {  
+    //     let options = {
+    //       url: `/dogs/${dog.id}`,
+    //       method: 'PUT',
+    //       data: editedDog
+    //     } 
     //     let variable = await request(options)
     //     // filter to removed 'accepted' notification from UI
     //     let newConnections = connections.filter((connection) => connection.id !== notification.id)
     //     setConnections(newConnections)
     //   } 
-      // catch(error) {
-      //     console.log(error)
-      // }
+    //   catch(error) {
+    //       console.log(error)
+    //   }
     // }
 
     async function deleteDog() {
@@ -83,11 +85,8 @@ const Dog = ({ dog }) => {
         </ListGroupItem>
       </ListGroup>
       <Card.Body>
-        <Button onClick={() => {
-                        // AuthService.logout()
-                        // navigate('/')
-                        // window.location.reload()
-                      }}>Edit</Button>
+        <Button onClick={() => setModalShow(true)}>Edit</Button>
+        <EditDogModal dog={dog} show={modalShow} onHide={() => setModalShow(false)}/>
         <Button onClick={deleteDog} >Delete</Button>
       </Card.Body>
     </Card>
