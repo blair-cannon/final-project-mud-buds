@@ -45,11 +45,11 @@ const optionsPark = [
 ]
 
 const optionsTags = [
-    {value:"1", label:"Hyper"},
-    {value:"2", label:"Swimmer"},
-    {value:"3", label:"Kid-friendly"},
-    {value:"4", label:"Fast"},
-    {value:"5", label:"WallLeaner"},
+    {value:1, label:"Hyper"},
+    {value:2, label:"Swimmer"},
+    {value:3, label:"Kid-friendly"},
+    {value:4, label:"Fast"},
+    {value:5, label:"WallLeaner"},
 ]
 
 
