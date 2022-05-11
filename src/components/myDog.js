@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import {Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
+import {Card, ListGroup, ListGroupItem, Button, OverlayTrigger, Popover } from 'react-bootstrap';
 import { useGlobalState } from "../context/GlobalState";
 import request from '../services/api.requests';
 import EditDogModal from './editDogModal';
+import Connections from './myConnections';
 
 
 export default function MyDog() {
@@ -63,8 +64,17 @@ const Dog = ({ dog }) => {
       }
     }
 
+    const popover = (
+      <Popover id="popover-basic">
+        <Popover.Header as="h3">Popover right</Popover.Header>
+        <Popover.Body>
+          <Connections/>
+        </Popover.Body>
+      </Popover>
+    );
+
   return (
-    <>
+    <div className="dog-profile-div">
       <Card className="dogCard">
         <Card.Body>
           <Card.Img src={dogImage} alt="Card image" />
@@ -91,15 +101,9 @@ const Dog = ({ dog }) => {
           <Button onClick={deleteDog} >Delete</Button>
         </Card.Body>
       </Card>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-  ...
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="#">More options</a>
-    <ul class="dropdown-menu">
-      ...
-    </ul>
-  </li>
-</ul>
-    </>
+      <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+        <Button variant="success">Connections</Button>
+      </OverlayTrigger>
+    </div>
   )
 }

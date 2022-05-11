@@ -436,3 +436,13 @@ a.nav-link:focus {
 		transform: scale(1.2);
 	}
 }
+
+.dog-profile-div {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+}
+
+.connections-btn {
+    display: flex;
+}

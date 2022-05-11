@@ -1,11 +1,14 @@
-import React from 'react';
-import { Row } from 'react-bootstrap';
+import React, { useState, useEffect} from 'react';
+import { Popover, Button, Row } from 'react-bootstrap';
 import { useGlobalState } from "../context/GlobalState";
+import request from '../services/api.requests';
+import NewConvoModal from './newConvoModal';
 
 
 export default function Connections() {
   const [ state, dispatch ] = useGlobalState();
-  const [connections, setConnections] = useState([]);
+  const [initializedAcceptedConnections, setInitializedAcceptedConnections] = useState([]);
+  const [targetedAcceptedConnections, setTargetedAcceptedConnections] = useState([]);
 
   useEffect(() => {
     async function getConnections() {
@@ -14,7 +17,7 @@ export default function Connections() {
         method: 'GET',
       } 
       let resp = await request(options)
-      setConnections(resp.data)
+      setTargetedAcceptedConnections(resp.data)
     }
 
     async function getOtherConnections() {
@@ -23,7 +26,7 @@ export default function Connections() {
           method: 'GET',
         } 
         let resp = await request(options)
-        setConnections(...connections, ...resp.data)
+        setInitializedAcceptedConnections(resp.data)
       }
 
     getConnections()
@@ -33,14 +36,45 @@ export default function Connections() {
 return (
   <div>
       {/* filter connections for being accepted */}
-    {connections.filter((connection) => connection.is_accepted === true && connection.dog_target.).map((connection) => <IndividualConnection key={connection.id} connection={connection} />)}
+    {initializedAcceptedConnections.filter((connection) => connection.is_accepted === true).map((connection) => <IAConnection key={connection.id} connection={connection} />)}
+    {/* {targetedAcceptedConnections.filter((connection) => connection.is_accepted === true).map((connection) => <TAConnection key={connection.id} connection={connection} />)} */}
     </div>
   )
 }
-const IndividualConnection = ({ connection }) => {
+
+// function deleteRequest({ connection }) {
+//   // request to delete request from database
+//   let options = {
+//     url: `/connections/${connection.id}/`,
+//     method: 'DELETE',
+//   } 
+//   let variable = request(options)
+//   // filter to remove the 'deleted' notification from UI
+//   let newConnections = connections.filter((connection) => connection.id !== notification.id)
+//   setConnections(newConnections)
+// }
+
+const IAConnection = ({ connection }) => {
+  // const [modalShow, setModalShow] = useState(false);
   return (
-    <Row className="connectionRow">
-        {connection.}
-    </Row>
+    <>hello</>
+    // <ul>
+      // {/* <li>{connection.dog_target.name}</li> */}
+    //   {/* <Button className="new-convo-btn-in-connections" onClick={() => setModalShow(true)}>Message</Button> */}
+    //   {/* <NewConvoModal show={modalShow} onHide={() => setModalShow(false)} /> */}
+    //   {/* <Button href="#/action-3">Delete</Button> */}
+    // {/* </ul> */}
   )
 }
+
+// const TAConnection = ({ connection }) => {
+//   const [modalShow, setModalShow] = useState(false);
+//   return (
+//     <div className="connections-btn">
+//       <Dropdown.ItemText>{connection.dog_target.name}</Dropdown.ItemText>
+//       <Button className="new-convo-btn-in-connections" onClick={() => setModalShow(true)}>Message</Button>
+//         <NewConvoModal show={modalShow} onHide={() => setModalShow(false)} />
+//       <Button href="#/action-3">Delete</Button>
+//     </div>
+//   )
+// }
