@@ -7,6 +7,7 @@ import Profile from './routes/profile';
 import Login from './routes/login';
 import Register from './routes/register';
 import Navigation from './components/navigation';
+import Connections from './components/myConnections';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { GlobalProvider } from './context/GlobalState';
 
@@ -32,6 +33,7 @@ return (
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          <Route path="/connections" element={<Connections />}></Route>
       </Routes>
     </Router>
     </div>

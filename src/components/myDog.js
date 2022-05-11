@@ -4,9 +4,10 @@ import { useGlobalState } from "../context/GlobalState";
 import request from '../services/api.requests';
 import EditDogModal from './editDogModal';
 import Connections from './myConnections';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function MyDog() {
+  let navigate = useNavigate();
   const [ state, dispatch ] = useGlobalState();
 
 return (
@@ -101,9 +102,7 @@ const Dog = ({ dog }) => {
           <Button onClick={deleteDog} >Delete</Button>
         </Card.Body>
       </Card>
-      <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-        <Button variant="success">Connections</Button>
-      </OverlayTrigger>
+      <Button onClick={() => {navigate('/connections')}}>{dog.name}'s Connections</Button>
     </div>
   )
 }

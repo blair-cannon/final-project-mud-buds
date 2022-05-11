@@ -57,13 +57,14 @@ return (
 const IAConnection = ({ connection }) => {
   // const [modalShow, setModalShow] = useState(false);
   return (
-    <>hello</>
-    // <ul>
-      // {/* <li>{connection.dog_target.name}</li> */}
-    //   {/* <Button className="new-convo-btn-in-connections" onClick={() => setModalShow(true)}>Message</Button> */}
-    //   {/* <NewConvoModal show={modalShow} onHide={() => setModalShow(false)} /> */}
-    //   {/* <Button href="#/action-3">Delete</Button> */}
-    // {/* </ul> */}
+    <>hello
+      <ul>
+        <li>{connection.dog_target.name}</li> 
+      <Button className="new-convo-btn-in-connections" onClick={() => setModalShow(true)}>Message</Button> 
+      <NewConvoModal show={modalShow} onHide={() => setModalShow(false)} /> 
+      <Button href="#/action-3">Delete</Button>
+      </ul>
+    </>
   )
 }
 
