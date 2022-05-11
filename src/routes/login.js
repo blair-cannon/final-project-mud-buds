@@ -51,15 +51,24 @@ const Login = () => {
   }
 
   const getUserConversations = async (id) => {  
-    let options = {
-      url: `/conversations/?user_id=${id}`,
+    let options1 = {
+      url: `/conversations/?dog_creator__user_id=${id}`,
       method: 'GET',
     }
 
-    let resp = await request(options)
-    return resp.data
-  }
+    let resp1 = await request(options1)
+    let data1 = resp1.data
+  
+    let options2 = {
+      url: `/conversations/?dog_other__user_id=${id}`,
+      method: 'GET',
+    }
 
+    let resp2 = await request(options2)
+    let data2 = resp2.data
+    let allUserConversations = [...data1, ...data2]
+    return allUserConversations
+  }
 
   return (
     <div>
