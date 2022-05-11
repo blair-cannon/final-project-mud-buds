@@ -3,11 +3,10 @@ import {Card, ListGroup, ListGroupItem, Button, OverlayTrigger, Popover } from '
 import { useGlobalState } from "../context/GlobalState";
 import request from '../services/api.requests';
 import EditDogModal from './editDogModal';
-import Connections from './myConnections';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function MyDog() {
-  let navigate = useNavigate();
+
   const [ state, dispatch ] = useGlobalState();
 
 return (
@@ -18,6 +17,7 @@ return (
 }
 
 const Dog = ({ dog }) => {
+  let navigate = useNavigate();
   const [ dogImage, setDogImage ] = useState();
   const [ state, dispatch ] = useGlobalState();
   const [modalShow, setModalShow] = useState(false);
@@ -65,14 +65,10 @@ const Dog = ({ dog }) => {
       }
     }
 
-    const popover = (
-      <Popover id="popover-basic">
-        <Popover.Header as="h3">Popover right</Popover.Header>
-        <Popover.Body>
-          <Connections/>
-        </Popover.Body>
-      </Popover>
-    );
+    // const toConnections = { 
+    //   pathname: "/connections", 
+    //   dog: dog 
+    // };
 
   return (
     <div className="dog-profile-div">
@@ -102,7 +98,7 @@ const Dog = ({ dog }) => {
           <Button onClick={deleteDog} >Delete</Button>
         </Card.Body>
       </Card>
-      <Button onClick={() => {navigate('/connections')}}>{dog.name}'s Connections</Button>
+      <Link   to={"/connections"}>{dog.name}'s Connections</Link>
     </div>
   )
 }

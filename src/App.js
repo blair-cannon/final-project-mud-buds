@@ -7,7 +7,7 @@ import Profile from './routes/profile';
 import Login from './routes/login';
 import Register from './routes/register';
 import Navigation from './components/navigation';
-import Connections from './components/myConnections';
+import Connections from './components/connectionsmy';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { GlobalProvider } from './context/GlobalState';
 
