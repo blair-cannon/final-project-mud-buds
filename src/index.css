@@ -407,3 +407,50 @@ a.nav-link:focus {
     box-shadow: none;
     margin-top: 12rem;
 }
+
+.loading-screen-wrapper {
+    background: linear-gradient(to left top, var(--yellow), var(--orange), var(--blue), var(--red), var(--darkred));
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.paw-print-svg {
+    height: 6rem;
+    width: 6rem;
+    animation: pulse 1s ease-in-out infinite;
+}
+@keyframes pulse {
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	80% {
+		opacity: 1;
+		transform: scale(1.2);
+	}
+}
+
+.dog-profile-div {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+}
+
+.connections-btn {
+    display: flex;
+}
+
+.connections {
+    display: flex;
+    justify-content: center;
+    border: red;
+    margin-top: 10rem;
+    font-size: 10rem;
+}

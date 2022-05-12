@@ -2,7 +2,7 @@ import { Modal, Button } from "react-bootstrap";
 import HandleNewMessage from './handleNewMessage';
 
 
-export default function NewConvoModal(props) {
+export default function NewMessageModal(props) {
   return (
     <Modal
       {...props}
