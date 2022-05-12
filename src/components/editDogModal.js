@@ -55,6 +55,8 @@ const optionsTags = [
 
 
 export default function EditDogModal(props) {
+    console.log(props.dog)
+    console.log(typeof(props.dog.tags))
     const [state, dispatch] = useGlobalState();
     const [editedDog, setEditedDog] = useState({
         name: props.dog.name,
@@ -83,6 +85,7 @@ export default function EditDogModal(props) {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
+        console.log('hey', editedDog.tags)
         const editedDogFormData = new FormData();
         editedDogFormData.append("name", editedDog.name)
         editedDogFormData.append("age", editedDog.title)
@@ -283,7 +286,7 @@ export default function EditDogModal(props) {
             </Form>
           </Modal.Body>
           <Button type="submit" variant="primary" onClick={handleSubmit}>
-            Create Post
+            Update
           </Button>
           <Modal.Footer>
             <Button onClick={props.onHide}>Close</Button>

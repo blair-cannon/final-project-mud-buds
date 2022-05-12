@@ -46,11 +46,11 @@ const optionsPark = [
 ]
 
 const optionsTags = [
-    {value:"1", label:"Hyper"},
-    {value:"2", label:"Swimmer"},
-    {value:"3", label:"Kid-friendly"},
-    {value:"4", label:"Fast"},
-    {value:"5", label:"WallLeaner"},
+    {value:1, label:"Hyper"},
+    {value:2, label:"Swimmer"},
+    {value:3, label:"Kid-friendly"},
+    {value:4, label:"Fast"},
+    {value:5, label:"WallLeaner"},
 ]
 
 
@@ -87,7 +87,7 @@ export default function AddDogForm({ hidefirst }) {
         if ([event.target.name] == "tags") {
                 setNewDog(
                        { ...newDog, 
-                        tags: [...newDog.tags, parseInt(event.target.value)]
+                        tags: [...newDog.tags, event.target.value]
                         // tags: newDog.tags.push(event.target.value)
                         // [event.target.name]: newDog.tags.push("hey")
                     });
@@ -105,6 +105,8 @@ export default function AddDogForm({ hidefirst }) {
     const handleSubmit = async(e) => {
         e.preventDefault()
         const newDogFormData = new FormData();
+       
+
         newDogFormData.append("name", newDog.name)
         newDogFormData.append("age", newDog.title)
         newDogFormData.append("birthday", newDog.description)

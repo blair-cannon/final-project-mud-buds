@@ -50,6 +50,7 @@ const Dog = ({ dog }) => {
     // }
 
     async function deleteDog() {
+      console.log('mydogg', dog)
       try {  
         let options = {
           url: `/dogs/${dog.id}`,
