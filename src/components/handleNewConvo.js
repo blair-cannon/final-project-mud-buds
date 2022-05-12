@@ -16,7 +16,6 @@ export default function HandleNewConvo({ Hide }) {
         dog_other: null,
   });
 
-  console.log('convo', newConvo)
 
     const handleChange = (event) => {
     
@@ -28,7 +27,6 @@ export default function HandleNewConvo({ Hide }) {
     
 
     const handleSubmit = async(e) => {
-        console.log('convo')
         e.preventDefault()
         const newConvoFormData = new FormData();
         newConvoFormData.append("subject", newConvo.subject)

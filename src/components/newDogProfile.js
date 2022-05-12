@@ -80,10 +80,6 @@ export default function AddDogForm({ hidefirst }) {
 
     const handleChange = (event) => {
         // var name = event.target.getAttribute("name");
-        console.log('target', event.target)
-        console.log('target', event.target.name)
-        console.log('value', event.target.value)
-        console.log('1', newDog.tags)
         if ([event.target.name] == "tags") {
                 setNewDog(
                        { ...newDog, 
@@ -97,7 +93,6 @@ export default function AddDogForm({ hidefirst }) {
                         ...newDog,
                         [event.target.name]: event.target.value,
                     });
-                    console.log('object', newDog)
         }
     }
     

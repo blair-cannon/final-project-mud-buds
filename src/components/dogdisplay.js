@@ -25,13 +25,19 @@ export default function Dogdisplay() {
 return (
   <div>
       {/* filter for all dogs that aren't owned by the logged in user */}
-    {feed.filter((dog) => dog.user.id !== state.currentUser.user_id).map((dog) => <IndividualDog key={dog.id} dog={dog} />)}
+    {feed.filter((dog) => dog.user.id !== state.currentUser.user_id).map((dog) => <IndividualDog key={dog.id} dog={dog} feed={feed} setFeed={setFeed} />)}
     </div>
   )
 }
 
-const IndividualDog = ({ dog }) => {
+const IndividualDog = ({ dog, feed, setFeed }) => {
   const [ dogImage, setDogImage ] = useState();
+  const [ state, dispatch ] = useGlobalState();
+  const [connectionData, setConnectionData] = useState({
+    dog_initializer: state.dogs[0].id,
+    dog_target: dog.id,
+    is_accepted: false,
+  })
 
   async function getDogImage() {
     let options = {
@@ -39,10 +45,43 @@ const IndividualDog = ({ dog }) => {
       method: 'GET',
     } 
     let resp = await request(options)
-    console.log(resp)
+    // console.log(resp)
     setDogImage(resp.data[0].image)
   }
   getDogImage()
+
+
+
+  async function checkPlacement(event) {
+    console.log(event.pageX)
+    var rightOccurred = false;
+    var leftOccurred = false;
+    if(event.pageX >= 800 && !rightOccurred){
+      // request to be friends and take off screen
+      let newFeed = feed.filter((feedDog) => feedDog.id !== dog.id)
+      setFeed(newFeed)
+      setConnectionData(connectionData)
+      try {
+        let options = {
+          method: "POST",
+          url: '/connections/',
+          data: connectionData,
+        }
+        let resp = await request(options)
+        rightOccurred = true;
+      }
+      catch(error) {
+      console.log(error)
+      }
+    }
+    else if (event.pageX <= 200 && !leftOccurred) {
+      // skip and take off screen
+      let newFeed = feed.filter((feedDog) => feedDog.id !== dog.id)
+      setFeed(newFeed)
+      leftOccurred = true;
+    }
+  }
+
 
   return (
     <div>
@@ -54,6 +93,7 @@ const IndividualDog = ({ dog }) => {
       top: 0,
       bottom: 0,
     }}
+    onDrag={checkPlacement}
   >
     <Card className="dogCard">
       <Card.Body>

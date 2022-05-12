@@ -9,7 +9,6 @@ export default function MyDog() {
 
   const [ state, dispatch ] = useGlobalState();
 
-  console.log('state.dogs', state.dogs)
 return (
   <>
     {state.dogs.map((dog) => <Dog key={dog.id} dog={dog} />)}
@@ -23,7 +22,6 @@ const Dog = ({ dog }) => {
   const [modalShow, setModalShow] = useState(false);
 
     async function getDogImage() {
-      console.log('rerender', dog)
       let options = {
         url: `/images/?dog=${dog.id}`,
         method: 'GET',
@@ -34,7 +32,6 @@ const Dog = ({ dog }) => {
     getDogImage()
 
     async function deleteDog() {
-      console.log('mydogg', dog)
       try {  
         let options = {
           url: `/dogs/${dog.id}`,

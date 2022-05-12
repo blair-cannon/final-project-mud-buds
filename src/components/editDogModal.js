@@ -115,17 +115,11 @@ export default function EditDogModal(props) {
             let editedState = state.dogs.filter((existingDog) => existingDog.id !== props.dog.id)
             let count = editedState.push(editedDog)
             dispatch({ dogs: editedState})
-            console.log(state.dogs)
-
-            // var existing = JSON.parse(localStorage.getItem('mydogs'));
-            // existing = existing ? existing : [];
-            // localStorage.setItem('mydogs', JSON.stringify(editedState));
             props.onHide()
         } catch(error) {
             console.log(error)
         }
     }
-        console.log('blair', props.dog)
     return (
         <Modal
           {...props}
@@ -183,7 +177,6 @@ export default function EditDogModal(props) {
                     >
                         {optionsFixed.map((option) => {
                             if (option.value == !!props.dog.is_fixed || option.value == props.dog.is_fixed) {
-                                console.log(1)
                                 return <option value={option.value} selected="selected" >{option.label}</option>
                             }  
                             else { return <option value={option.value} >{option.label}</option> }
@@ -199,7 +192,6 @@ export default function EditDogModal(props) {
                     >
                         {optionsBitten.map((option) => {
                             if (option.value == !!props.dog.has_bitten || option.value == props.dog.has_bitten) {
-                                console.log(1)
                                 return <option value={option.value} selected="selected" >{option.label}</option>
                             }  
                             else { return <option value={option.value} >{option.label}</option> }
@@ -215,7 +207,6 @@ export default function EditDogModal(props) {
                     >
                         {optionsAggressionSocialization.map((option) => {
                             if (option.value == props.dog.aggression.id) {
-                                console.log(1)
                                 return <option value={option.value} selected="selected" >{option.label}</option>
                             }  
                             else { return <option value={option.value} >{option.label}</option> }
@@ -233,7 +224,6 @@ export default function EditDogModal(props) {
                     >
                         {optionsBreed.map((option) => {
                             if (option.value == props.dog.breed.id) {
-                                console.log(1)
                                 return <option value={option.value} selected="selected" >{option.label}</option>
                             }  
                             else { return <option value={option.value} >{option.label}</option> }
@@ -249,7 +239,6 @@ export default function EditDogModal(props) {
                     >
                         {optionsPark.map((option) => {
                             if (option.value == props.dog.favorite_park.id) {
-                                console.log(1)
                                 return <option value={option.value} selected="selected" >{option.label}</option>
                             }  
                             else { return <option value={option.value} >{option.label}</option> }
@@ -266,7 +255,6 @@ export default function EditDogModal(props) {
                     >
                         {optionsGender.map((option) => {
                             if (option.value == props.dog.gender.id) {
-                                console.log(1)
                                 return <option value={option.value} selected="selected" >{option.label}</option>
                             }  
                             else { return <option value={option.value} >{option.label}</option> }
@@ -282,7 +270,6 @@ export default function EditDogModal(props) {
                     >
                         {optionsSize.map((option) => {
                             if (option.value == props.dog.size.id) {
-                                console.log(1)
                                 return <option value={option.value} selected="selected" >{option.label}</option>
                             }  
                             else { return <option value={option.value} >{option.label}</option> }
@@ -298,7 +285,6 @@ export default function EditDogModal(props) {
                     >
                         {optionsAggressionSocialization.map((option) => {
                             if (option.value == props.dog.socialization.id) {
-                                console.log(1)
                                 return <option value={option.value} selected="selected" >{option.label}</option>
                             }  
                             else { return <option value={option.value} >{option.label}</option> }
@@ -314,7 +300,6 @@ export default function EditDogModal(props) {
                     >
                         {optionsTags.map((option) => {
                             if (option.label == props.dog.tags) {
-                                console.log(1)
                                 return <option value={option.value} selected="selected" >{option.label}</option>
                             }  
                             else { return <option value={option.value} >{option.label}</option> }
