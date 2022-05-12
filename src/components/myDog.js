@@ -78,7 +78,6 @@ const Dog = ({ dog }) => {
           <Button onClick={deleteDog} >Delete</Button>
         </Card.Body>
       </Card>
-      <Link   to={"/connections"}>{dog.name}'s Connections</Link>
     </div>
   )
 }

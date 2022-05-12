@@ -4,9 +4,11 @@ import SideBar from '../components/sidebar';
 import ToggleDog from '../components/toggledogprofile';
 import MyDog from '../components/myDog';
 import NewDogModal from '../components/newDogModal';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const [modalShow, setModalShow] = useState(false);
+
   return (
     <Container className="pageContainer" fluid>
       <Row className="flex-xl-nowrap">
@@ -16,6 +18,7 @@ const Profile = () => {
           <div className="myDogs">
             <MyDog />
           </div>
+            <Link   to={"/connections"}>My Friends</Link>
           <Button onClick={() => setModalShow(true)}>Add Dog Profile</Button>
           <NewDogModal show={modalShow} onHide={() => setModalShow(false)}/>
         </Col>
