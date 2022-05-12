@@ -3,6 +3,7 @@ import {Card, ListGroup, ListGroupItem} from 'react-bootstrap';
 import ExampleDogImage from '../images/luka.jpeg';
 import request from '../services/api.requests.js';
 import { useGlobalState } from "../context/GlobalState";
+import { motion } from 'framer-motion';
 
 
 export default function Dogdisplay() {
@@ -45,6 +46,15 @@ const IndividualDog = ({ dog }) => {
 
   return (
     <div>
+    <motion.div
+    drag
+    dragConstraints={{
+      left: -80,
+      right: 80,
+      top: 0,
+      bottom: 0,
+    }}
+  >
     <Card className="dogCard">
       <Card.Body>
         <Card.Img src={dogImage} alt="Card image" />
@@ -71,6 +81,7 @@ const IndividualDog = ({ dog }) => {
         <Card.Link href="#">message</Card.Link>
       </Card.Body>
     </Card>
+  </motion.div>
   </div>
   )
 }
