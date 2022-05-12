@@ -450,7 +450,6 @@ a.nav-link:focus {
 .connections {
     display: flex;
     justify-content: center;
-    border: red;
     margin-top: 10rem;
     font-size: 10rem;
 }
