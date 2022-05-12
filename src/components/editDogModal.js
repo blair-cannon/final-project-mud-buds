@@ -55,7 +55,7 @@ const optionsTags = [
 
 
 export default function EditDogModal(props) {
-    console.log(props.dog)
+    console.log('here', props.dog)
     console.log(typeof(props.dog.tags))
     const [state, dispatch] = useGlobalState();
     const [editedDog, setEditedDog] = useState({
@@ -75,6 +75,7 @@ export default function EditDogModal(props) {
         tags: props.dog.tags
       });
 
+
     const handleChange = (event) => {
         setEditedDog({
             ...editedDog,
@@ -88,8 +89,8 @@ export default function EditDogModal(props) {
         console.log('hey', editedDog.tags)
         const editedDogFormData = new FormData();
         editedDogFormData.append("name", editedDog.name)
-        editedDogFormData.append("age", editedDog.title)
-        editedDogFormData.append("birthday", editedDog.description)
+        editedDogFormData.append("age", editedDog.age)
+        editedDogFormData.append("birthday", editedDog.birthday)
         editedDogFormData.append("about_me", editedDog.about_me)
         editedDogFormData.append("is_fixed", editedDog.is_fixed)
         editedDogFormData.append("has_bitten", editedDog.has_bitten)
@@ -104,7 +105,7 @@ export default function EditDogModal(props) {
 
         try {
             let options = {
-              method: "PUT",
+              method: "PATCH",
               url: `/dogs/${props.dog.id}/`,
               data: editedDogFormData,
             }
