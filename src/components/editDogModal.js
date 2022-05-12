@@ -15,8 +15,8 @@ const optionsFixed = [
 ]
 
 const optionsBitten = [
-    {value:false, label:"Yes"},
-    {value:true, label:"No"}
+    {value:false, label:"No"},
+    {value:true, label:"Yes"}
 ]
 
 const optionsGender = [
@@ -59,6 +59,7 @@ export default function EditDogModal(props) {
     console.log(typeof(props.dog.tags))
     const [state, dispatch] = useGlobalState();
     const [editedDog, setEditedDog] = useState({
+        id: props.dog.id,
         name: props.dog.name,
         age: props.dog.age,
         birthday: props.dog.birthday,
@@ -124,7 +125,7 @@ export default function EditDogModal(props) {
             console.log(error)
         }
     }
-
+        console.log('blair', props.dog)
     return (
         <Modal
           {...props}
@@ -180,9 +181,13 @@ export default function EditDogModal(props) {
                         name="is_fixed"
                         onChange={handleChange}
                     >
-                        {optionsFixed.map((option) => (
-                            <option value={option.value}>{option.label}</option>
-                        ))}
+                        {optionsFixed.map((option) => {
+                            if (option.value == !!props.dog.is_fixed || option.value == props.dog.is_fixed) {
+                                console.log(1)
+                                return <option value={option.value} selected="selected" >{option.label}</option>
+                            }  
+                            else { return <option value={option.value} >{option.label}</option> }
+                        })}
                     </select>
                 </label>
                 <label>
@@ -192,9 +197,13 @@ export default function EditDogModal(props) {
                         name="has_bitten" 
                         onChange={handleChange} 
                     >
-                        {optionsBitten.map((option) => (
-                            <option value={option.value}>{option.label}</option>
-                        ))}
+                        {optionsBitten.map((option) => {
+                            if (option.value == !!props.dog.has_bitten || option.value == props.dog.has_bitten) {
+                                console.log(1)
+                                return <option value={option.value} selected="selected" >{option.label}</option>
+                            }  
+                            else { return <option value={option.value} >{option.label}</option> }
+                        })}
                     </select>
                 </label>
                 <label>
@@ -204,9 +213,13 @@ export default function EditDogModal(props) {
                         name="aggression"
                         onChange={handleChange}
                     >
-                        {optionsAggressionSocialization.map((option) => (
-                            <option value={option.value}>{option.label}</option>
-                        ))} 
+                        {optionsAggressionSocialization.map((option) => {
+                            if (option.value == props.dog.aggression.id) {
+                                console.log(1)
+                                return <option value={option.value} selected="selected" >{option.label}</option>
+                            }  
+                            else { return <option value={option.value} >{option.label}</option> }
+                        })}
                     </select>
                 </label>
                 <label>
@@ -218,9 +231,13 @@ export default function EditDogModal(props) {
                         name="breed"
                         onChange={handleChange}
                     >
-                        {optionsBreed.map((option) => (
-                            <option value={option.value}>{option.label}</option>
-                        ))} 
+                        {optionsBreed.map((option) => {
+                            if (option.value == props.dog.breed.id) {
+                                console.log(1)
+                                return <option value={option.value} selected="selected" >{option.label}</option>
+                            }  
+                            else { return <option value={option.value} >{option.label}</option> }
+                        })}
                     </select>
                 </label>
                 <label>
@@ -230,9 +247,13 @@ export default function EditDogModal(props) {
                         name="favorite_park"
                         onChange={handleChange}
                     >
-                        {optionsPark.map((option) => (
-                            <option value={option.value}>{option.label}</option>
-                        ))}    
+                        {optionsPark.map((option) => {
+                            if (option.value == props.dog.favorite_park.id) {
+                                console.log(1)
+                                return <option value={option.value} selected="selected" >{option.label}</option>
+                            }  
+                            else { return <option value={option.value} >{option.label}</option> }
+                        })}   
                     </select>
                 </label>
                 <label>
@@ -243,9 +264,13 @@ export default function EditDogModal(props) {
                         options={optionsGender}
                         onChange={handleChange}
                     >
-                        {optionsGender.map((option) => (
-                            <option value={option.value}>{option.label}</option>
-                        ))} 
+                        {optionsGender.map((option) => {
+                            if (option.value == props.dog.gender.id) {
+                                console.log(1)
+                                return <option value={option.value} selected="selected" >{option.label}</option>
+                            }  
+                            else { return <option value={option.value} >{option.label}</option> }
+                        })}
                     </select>
                 </label>
                 <label>
@@ -255,9 +280,13 @@ export default function EditDogModal(props) {
                         name="size"
                         onChange={handleChange}
                     >
-                        {optionsSize.map((option) => (
-                            <option value={option.value}>{option.label}</option>
-                        ))}  
+                        {optionsSize.map((option) => {
+                            if (option.value == props.dog.size.id) {
+                                console.log(1)
+                                return <option value={option.value} selected="selected" >{option.label}</option>
+                            }  
+                            else { return <option value={option.value} >{option.label}</option> }
+                        })} 
                     </select>
                 </label>
                 <label>
@@ -267,9 +296,13 @@ export default function EditDogModal(props) {
                         name="socialization"
                         onChange={handleChange}
                     >
-                        {optionsAggressionSocialization.map((option) => (
-                            <option value={option.value}>{option.label}</option>
-                        ))}
+                        {optionsAggressionSocialization.map((option) => {
+                            if (option.value == props.dog.socialization.id) {
+                                console.log(1)
+                                return <option value={option.value} selected="selected" >{option.label}</option>
+                            }  
+                            else { return <option value={option.value} >{option.label}</option> }
+                        })}
                     </select>
                 </label>
                 <label>
@@ -279,9 +312,13 @@ export default function EditDogModal(props) {
                         name="tags"
                         onChange={handleChange}
                     >
-                        {optionsTags.map((option) => (
-                            <option value={option.value}>{option.label}</option>
-                        ))}
+                        {optionsTags.map((option) => {
+                            if (option.label == props.dog.tags) {
+                                console.log(1)
+                                return <option value={option.value} selected="selected" >{option.label}</option>
+                            }  
+                            else { return <option value={option.value} >{option.label}</option> }
+                        })}
                     </select>
                 </label>  
             </Form>

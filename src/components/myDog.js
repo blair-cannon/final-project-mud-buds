@@ -9,13 +9,13 @@ export default function MyDog() {
 
   const [ state, dispatch ] = useGlobalState();
 
+  console.log('state.dogs', state.dogs)
 return (
   <>
     {state.dogs.map((dog) => <Dog key={dog.id} dog={dog} />)}
   </>
   )
 }
-
 const Dog = ({ dog }) => {
   let navigate = useNavigate();
   const [ dogImage, setDogImage ] = useState();
@@ -23,6 +23,7 @@ const Dog = ({ dog }) => {
   const [modalShow, setModalShow] = useState(false);
 
     async function getDogImage() {
+      console.log('rerender', dog)
       let options = {
         url: `/images/?dog=${dog.id}`,
         method: 'GET',
@@ -31,23 +32,6 @@ const Dog = ({ dog }) => {
       setDogImage(resp.data[0].image)
     }
     getDogImage()
-
-    // async function editDog() {
-    //   try {  
-    //     let options = {
-    //       url: `/dogs/${dog.id}`,
-    //       method: 'PUT',
-    //       data: editedDog
-    //     } 
-    //     let variable = await request(options)
-    //     // filter to removed 'accepted' notification from UI
-    //     let newConnections = connections.filter((connection) => connection.id !== notification.id)
-    //     setConnections(newConnections)
-    //   } 
-    //   catch(error) {
-    //       console.log(error)
-    //   }
-    // }
 
     async function deleteDog() {
       console.log('mydogg', dog)
@@ -65,11 +49,6 @@ const Dog = ({ dog }) => {
         console.log(error)
       }
     }
-
-    // const toConnections = { 
-    //   pathname: "/connections", 
-    //   dog: dog 
-    // };
 
   return (
     <div className="dog-profile-div">
