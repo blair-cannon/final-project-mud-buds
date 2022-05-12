@@ -117,9 +117,9 @@ export default function EditDogModal(props) {
             dispatch({ dogs: editedState})
             console.log(state.dogs)
 
-            var existing = JSON.parse(localStorage.getItem('mydogs'));
-            existing = existing ? existing : [];
-            localStorage.setItem('mydogs', JSON.stringify(editedState));
+            // var existing = JSON.parse(localStorage.getItem('mydogs'));
+            // existing = existing ? existing : [];
+            // localStorage.setItem('mydogs', JSON.stringify(editedState));
             props.onHide()
         } catch(error) {
             console.log(error)
