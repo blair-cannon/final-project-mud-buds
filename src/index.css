@@ -9,14 +9,37 @@
     --darkred: #540b0e;
   }
 
-.pageContainer {
+.notificationPageContainer {
+    margin-top: 10rem;
+    /* background-color: var(--orange); */
+    /* width: 100rem; */
+    margin:auto;
+    border-radius: 25px;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.profilePageContainer {
     margin-top: 5rem;
+    background-color: var(--orange);
+    width: 90%;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .feedPageContainer {
-    margin-top: 5rem;
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
+    padding-bottom: 5rem;
+    margin-bottom: 2rem;
 }
 
 .dogHeroImage {
@@ -26,25 +49,30 @@
 }
 
 .contentCol {
-    border: solid 2px black;
+    border: solid 2px rgba(96, 95, 95, 0.266);
+    border-radius: 25px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: var(--blue);
+    width: 70%;
 }
 
 .messageCol {
-    border: solid 2px black;
+    border: solid 2px rgba(96, 95, 95, 0.266);
     min-height: 100vh;
     background-color:rgba(0, 0, 0, 0.109);
+    border-radius: 25px;
 }
 
 .conversationRow {
     height: max-content;
-    border-bottom: solid 2px rgba(0, 0, 0, 0.178);
+    border-bottom: solid 2px rgba(96, 95, 95, 0.266);
     background-color:white;
+    border-radius: 6px;
+    margin-top: 2px;
 }
 
 .messageHeader {
@@ -198,16 +226,20 @@ a.nav-link:focus {
 }
 
 .footerContainer {
-    background-color: var(--yellow);
-    height: 15rem;
-}
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+    background-color: var(--yellow);  
+    margin-top: 1rem;      
+  }
 
 .dogdisplayHeader {
     color: var(--darkred);
     font-family: Cutive Mono;
     font-weight: bold;
     margin-bottom: 0;
-    margin-top: 0;
+    margin-top: 0.5rem;
     text-align: center;
 }
 
@@ -225,6 +257,7 @@ a.nav-link:focus {
     color: var(--darkred);
     font-weight: bold;
     font-size: 2rem;
+    margin-bottom: 0;
 }
 
 /* .dogCard {
@@ -340,7 +373,7 @@ a.nav-link:focus {
 .myDogs {
     display: flex;
     flex-direction: row;
-    gap: 30px;
+    gap: 2rem;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -470,7 +503,7 @@ a.nav-link:focus {
     
     /* Displayed under the container */
     z-index: -1;
-    left: 40rem;
+    left: 31rem;
     
     /* Background and border colors */
     background-color: rgb(255, 255, 255);
@@ -478,9 +511,10 @@ a.nav-link:focus {
     
     /* Rotate it. Change the number of degrees for the following cards */
     transform: rotate(3deg);
-    height: 43rem;
-    width: 30rem;
+    height: 35rem;
+    width: 23rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 2rem;
 
 }
 
@@ -494,7 +528,7 @@ a.nav-link:focus {
 
 .imageSize {
     width: 100%;
-    height: 20vw;
+    height: 22vw;
     object-fit: cover;
 }
 
@@ -507,15 +541,48 @@ a.nav-link:focus {
 }
 
 .owned-by {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family:'Courier New', Courier, monospace;
     font-weight: bold;
     margin-top: 1rem;
+    margin-bottom: 0;
 
 }
 
 .dog-info-body {
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-family:'Courier New', Courier, monospace;
-    line-height: 2.5rem;
+    line-height: 1.5rem;
+}
+
+.wrapperFeed {
+        position: relative;
+        min-height: 100vh;
+        margin-bottom: 1rem;
+      }
+
+.myDogCard {
+    width: 18rem;
+    /* height: 38rem; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+}
+
+.friendsLink {
+    font-size: 1rem;
+    color: var(--darkred);
+    margin-bottom: 1rem;
+    background-color: white;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.profileHeader,
+.notificationHeader {
+    size: 2rem;
+    color: white;
+    font-weight: bold;
+    font-family:'Courier New', Courier, monospace;
 }
