@@ -16,7 +16,7 @@ export default function Feed() {
           <img className="check-and-x" src={Checkmark} alt="checkmark"></img>
           </div>
       </Container>
-        <FooterContainer />
+        {/* <FooterContainer /> */}
     </div>
   )
 }

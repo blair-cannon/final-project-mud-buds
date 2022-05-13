@@ -38,25 +38,28 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
     dog_target: dog.id,
     is_accepted: false,
   })
+    useEffect(() => {
+      async function getDogImage() {
+        let options = {
+          url: `/images/?dog=${dog.id}`,
+          method: 'GET',
+        } 
+        let resp = await request(options)
+        // console.log(resp)
+        setDogImage(resp.data[0].image)
+      }
+      getDogImage()
+    }, [])
 
-  async function getDogImage() {
-    let options = {
-      url: `/images/?dog=${dog.id}`,
-      method: 'GET',
-    } 
-    let resp = await request(options)
-    // console.log(resp)
-    setDogImage(resp.data[0].image)
-  }
-  getDogImage()
 
-
-
-  async function checkPlacement(event) {
-    console.log(event.pageX)
     var rightOccurred = false;
     var leftOccurred = false;
-    if(event.pageX >= 800 && !rightOccurred){
+
+  async function checkPlacement(event,  info) {
+    console.log(event, info)
+    if(info.offset.x > 0 && !rightOccurred){
+        rightOccurred = true;
+      console.log(event)
       // request to be friends and take off screen
       let newFeed = feed.filter((feedDog) => feedDog.id !== dog.id)
       setFeed(newFeed)
@@ -68,13 +71,12 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
           data: connectionData,
         }
         let resp = await request(options)
-        rightOccurred = true;
       }
       catch(error) {
       console.log(error)
       }
     }
-    else if (event.pageX <= 200 && !leftOccurred) {
+    else if (info.offset.x < 0 && !leftOccurred) {
       // skip and take off screen
       let newFeed = feed.filter((feedDog) => feedDog.id !== dog.id)
       setFeed(newFeed)
@@ -84,15 +86,8 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
 
 
   return (
-    <div>
     <motion.div
-    drag
-    dragConstraints={{
-      left: -80,
-      right: 80,
-      top: 0,
-      bottom: 0,
-    }}
+    drag="x"
     onDrag={checkPlacement}
   >
     <Card className="dogCard">
@@ -120,6 +115,5 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
       </Card.Body>
     </Card>
   </motion.div>
-  </div>
   )
 }
