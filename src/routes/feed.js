@@ -7,7 +7,7 @@ import FooterContainer from '../components/footerContainer';
 
 export default function Feed() {
   return (
-    <div className="wrapperFeed">
+    <div className="wrapper">
       <Container className="feedPageContainer" fluid>
           <h2 className="dogdisplayHeader">Let's find your furry friend <br/> a furry friend!</h2>
           <div className="motionDiv">

@@ -8,18 +8,20 @@ import FooterContainer from '../components/footerContainer';
 
 export default function Home() {
   return (
-    <div>
-      <div className="hero">
-      <Figure>
-        <Figure.Image className="sloganImage" src={Slogan}/>
-      </Figure>
-      <Figure>
-        <Figure.Image className="dogHeroImage" src={Luka}/>
-      </Figure>
-      </div>
-      <Walkthrough />
-      <TestimonialContainer />
+    <>
+      <div className="Wrapper">
+        <div className="hero">
+          <Figure>
+            <Figure.Image className="sloganImage" src={Slogan}/>
+          </Figure>
+          <Figure>
+            <Figure.Image className="dogHeroImage" src={Luka}/>
+          </Figure>
+          </div>
+          <Walkthrough />
+          <TestimonialContainer />
       <FooterContainer />
-    </div>
+      </div>
+    </>
   )
 }

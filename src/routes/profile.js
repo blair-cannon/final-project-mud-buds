@@ -11,7 +11,7 @@ const Profile = () => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
-    <>
+    <div className="wrapper">
       <Container className="profilePageContainer" fluid>
         <h1 className="profileHeader">My Dogs.</h1>
         <div className="myDogs">
@@ -22,7 +22,7 @@ const Profile = () => {
           <NewDogModal show={modalShow} onHide={() => setModalShow(false)}/>
       </Container>
       {/* <FooterContainer /> */}
-    </>
+    </div>
   )
 }
 

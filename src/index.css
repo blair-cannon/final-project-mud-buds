@@ -3,28 +3,16 @@
 :root {
     --blue: #335C67;
     --yellow: #fff3b0;
-    --orange: #e09f3e;
+    --orange: #e09f3ebc;
     --darkorange: #b93b22;
     --red: #9e2a2b;
     --darkred: #540b0e;
   }
 
-.notificationPageContainer {
-    margin-top: 10rem;
-    /* background-color: var(--orange); */
-    /* width: 100rem; */
-    margin:auto;
-    border-radius: 25px;
-    display: flex;
-    justify-content:space-evenly;
-    align-items: center;
-    padding: 2rem 0;
-}
-
 .profilePageContainer {
     margin-top: 5rem;
     background-color: var(--orange);
-    width: 90%;
+    width: 70%;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
@@ -49,38 +37,39 @@
 }
 
 .contentCol {
-    border: solid 2px rgba(96, 95, 95, 0.266);
+    border: solid 10px var(--blue);
     border-radius: 25px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--blue);
+    background-color: white;
     width: 70%;
 }
 
 .messageCol {
-    border: solid 2px rgba(96, 95, 95, 0.266);
+    border: none;
     min-height: 100vh;
-    background-color:rgba(0, 0, 0, 0.109);
+    /* background-color:rgba(0, 0, 0, 0.109); */
     border-radius: 25px;
+    margin-right: 1rem;
+    padding: 4px;
 }
 
 .conversationRow {
     height: max-content;
-    border-bottom: solid 2px rgba(96, 95, 95, 0.266);
+    border: solid 2px var(--blue);
     background-color:white;
     border-radius: 6px;
-    margin-top: 2px;
+    margin-top: 8px;
 }
 
 .messageHeader {
-    border-bottom: solid 2px black;
-    color: var(--blue);
+    color: var(--darkred);
     font-family: Dokdo;
     background-color:white;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    text-align: center;
 }
 
 .center {
@@ -411,17 +400,32 @@ a.nav-link:focus {
 }
 
 .notification-text {
-    color: white;
-    font-size: 1.5rem;
+    color: darkslategray;
+    font-size: 2rem;
+    list-style: none;
+    font-style: bold;
+    text-transform: uppercase;
+    font-family:'Courier New', Courier, monospace;
+    text-decoration: underline;
 }
 
-.notification-btn {
+.notification-btn-plus {
     border-radius: 25px;
-    background-color: var(--yellow);
+    color: var(--blue);
     margin-left: 1rem;
-    text-transform: uppercase;
     border: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-style: bold;
+}
+
+.notification-btn-x {
+    border-radius: 25px;
+    color: var(--red);
+    margin-left: 1rem;
+    border: none;
+    font-size: 1.5rem;
+    font-style: bold;
+
 }
 
 .example-feed-image {
@@ -503,7 +507,8 @@ a.nav-link:focus {
     
     /* Displayed under the container */
     z-index: -1;
-    left: 31rem;
+    left: 34rem;
+    top: 10rem;
     
     /* Background and border colors */
     background-color: rgb(255, 255, 255);
@@ -535,8 +540,10 @@ a.nav-link:focus {
 .motionDiv {
     display: flex;
     justify-content: center;
-    width: 65%;
-    margin: auto;
+    width: 73%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
     align-items: center;
 }
 
@@ -555,11 +562,6 @@ a.nav-link:focus {
     line-height: 1.5rem;
 }
 
-.wrapperFeed {
-        position: relative;
-        min-height: 100vh;
-        margin-bottom: 1rem;
-      }
 
 .myDogCard {
     width: 18rem;
@@ -579,10 +581,37 @@ a.nav-link:focus {
     font-weight: bold;
 }
 
-.profileHeader,
-.notificationHeader {
+.profileHeader {
     size: 2rem;
     color: white;
     font-weight: bold;
     font-family:'Courier New', Courier, monospace;
+}
+
+.notificationHeader {
+    size: 4rem;
+    color: var(--darkred);
+    font-weight: bold;
+    font-family: Dokdo;
+    margin-top: 2rem;
+}
+
+.check-and-x {
+    margin-top: 10rem;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.notificationPageContainer {
+    padding-bottom: 5rem;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+    width: 1200px;
 }
