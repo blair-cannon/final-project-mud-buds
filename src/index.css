@@ -13,6 +13,12 @@
     margin-top: 5rem;
 }
 
+.feedPageContainer {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+}
+
 .dogHeroImage {
     margin: auto;
     width:35rem;
@@ -197,41 +203,36 @@ a.nav-link:focus {
 }
 
 .dogdisplayHeader {
-    color: var(--yellow);
+    color: var(--darkred);
     font-family: Cutive Mono;
     font-weight: bold;
-    margin-bottom: 4rem;
-    margin-top: 4rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
 }
 
 .dogTitle {
     color: var(--darkred);
-    font-weight: bold !important;
-    position: absolute;
-    bottom: 240px;
-    left: 25px;
+    font-weight: bold;
     font-family: 'Dokdo';
-    font-size: 1.7rem !important;
+    font-size: 2rem;
     background-color: white;
 }
 
-.genderAndbreed {
-    margin-top: 1rem;
-}
 
 .dogTags {
     font-family: Dokdo;
-    color: var(--darkred) !important;
+    color: var(--darkred);
     font-weight: bold;
-    font-size: 1.4rem !important;
+    font-size: 2rem;
 }
 
-.dogCard {
+/* .dogCard {
     width: 18rem;
     height: 38rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 3rem;
-}
+} */
 
 .loginBox {
     display: flex;
@@ -342,7 +343,9 @@ a.nav-link:focus {
     gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 3rem 0;
+    align-items: center;
+    margin: auto;
+    margin-top: 0;
 } 
 
 .form-new-dog {
@@ -452,4 +455,67 @@ a.nav-link:focus {
     justify-content: center;
     margin-top: 10rem;
     font-size: 10rem;
+}
+
+.dogCard {
+    margin-top: 0;
+    /* margin-left: auto;
+    margin-right: auto;
+    /* Absolute position */
+    position: absolute;
+    /* top: 10rem; */
+    /* Take full size */
+    /* height: 100rem;
+    width: 80rem; */
+    
+    /* Displayed under the container */
+    z-index: -1;
+    left: 40rem;
+    
+    /* Background and border colors */
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    
+    /* Rotate it. Change the number of degrees for the following cards */
+    transform: rotate(3deg);
+    height: 43rem;
+    width: 30rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.feedDogs {
+    margin: auto;
+    /* width: 50%; */
+    display: flex;
+    justify-content: center;
+    flex: 1 1 auto;
+}
+
+.imageSize {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+}
+
+.motionDiv {
+    display: flex;
+    justify-content: center;
+    width: 65%;
+    margin: auto;
+    align-items: center;
+}
+
+.owned-by {
+    font-size: 2rem;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-top: 1rem;
+
+}
+
+.dog-info-body {
+    font-size: 1.4rem;
+    font-family:'Courier New', Courier, monospace;
+    line-height: 2.5rem;
 }

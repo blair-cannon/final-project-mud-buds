@@ -23,9 +23,9 @@ export default function Dogdisplay() {
     getFeed()
 }, []);
 return (
-  <div>
+  <div className="feedDogs">
       {/* filter for all dogs that aren't owned by the logged in user */}
-    {feed.filter((dog) => dog.user.id !== state.currentUser.user_id).map((dog) => <IndividualDog key={dog.id} dog={dog} feed={feed} setFeed={setFeed} />)}
+    {feed.filter((dog) => dog.user.id !== state.currentUser.user_id).map((dog) => <IndividualDog className="dogCard" key={dog.id} dog={dog} feed={feed} setFeed={setFeed} />)}
     </div>
   )
 }
@@ -97,28 +97,26 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
   >
     <Card className="dogCard">
       <Card.Body>
-        <Card.Img src={dogImage} alt="Card image" />
+        <Card.Img className="imageSize" src={dogImage} alt="Card image" />
         <Card.ImgOverlay>
           <Card.Title className="dogTitle">{dog.name}, {dog.age}</Card.Title>
         </Card.ImgOverlay>
-        <Card.Text className="genderAndbreed">
-          {dog.gender.label}, {dog.breed.name}
-          <br />
-          Owner:{dog.user.first_name}
+        <Card.Text className="owned-by">
+          Owned By:{dog.user.first_name}
         </Card.Text>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroupItem>
+        <Card.Text className="dog-info-body">
+          {dog.gender.label}, {dog.breed.name}.
+          <br/>
           {dog.about_me}
-        </ListGroupItem>
-        <ListGroupItem className="dogTags">
+          <br/>
+          My favorite park is...
+          <br/>
+          {dog.favorite_park.name}
+          <br />
+        </Card.Text>
+        <Card.Text className="dogTags">
           #{dog.tags.map((tag) => tag).join(' #')}
-        </ListGroupItem>
-      </ListGroup>
-      <Card.Body>
-        <Card.Link href="#">connect</Card.Link>
-        <Card.Link href="#">skip</Card.Link>
-        <Card.Link href="#">message</Card.Link>
+        </Card.Text>
       </Card.Body>
     </Card>
   </motion.div>
