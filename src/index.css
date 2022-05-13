@@ -260,8 +260,8 @@ a.nav-link:focus {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 70%;
-    height: 35rem;
+    width: 40%;
+    height: 25rem;
     background-color: var(--blue);
     align-items: center;
     margin-top: 4.5rem;
@@ -281,6 +281,10 @@ a.nav-link:focus {
 
 .loginWords {
     color: white;
+    margin-right: 0.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    margin-left: 7rem;
 }
 
 .loginButton {
@@ -292,14 +296,46 @@ a.nav-link:focus {
     border: 1px solid var(--yellow);
     font-family: Dokdo;
     font-size: 1.5rem;
+    margin-left:12rem;
+}
+
+.registerWords {
+    color: white;
+    margin-right: 0.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    margin-left: 7rem;
+}
+
+.loginInput {
+    position:absolute;
+    left:35rem;
+    margin-bottom: 1rem;
+}
+
+.resgisterButton {
+    border-radius: 25px;
+    background-color: var(--yellow);
+    width: 8rem;
+    height: 3rem;
+    margin-top: 1rem;
+    border: 1px solid var(--yellow);
+    font-family: Dokdo;
+    font-size: 1.5rem;
+    margin-left:12rem;
     
+}
+
+.resgisterInput {
+    position:absolute;
+    left:45rem;
+    margin-bottom: 1rem;
 }
 
 .registerBox {
     display: flex;
-    justify-content: center;
-    /* flex-direction: column; */
-    width: 70%;
+    justify-content: left;
+    width: 40%;
     height: 35rem;
     background-color: var(--blue);
     align-items: center;
@@ -487,11 +523,23 @@ a.nav-link:focus {
     display: flex;
 }
 
+.connectionTextDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
 .connections {
     display: flex;
     justify-content: center;
     margin-top: 10rem;
-    font-size: 10rem;
+    font-size: 5rem;
+    font-family: Dokdo;
+    color: var(--blue);
+    margin-left:auto;
+    margin-right: auto;
 }
 
 .dogCard {

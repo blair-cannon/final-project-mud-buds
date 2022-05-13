@@ -73,7 +73,7 @@ const Login = () => {
   return (
     <div>
       <form className="loginBox" onSubmit={handleLogin}>
-      <img className="loginImage" src={LoginImage} alt="log in dog image" ></img>
+      {/* <img className="loginImage" src={LoginImage} alt="log in dog image" ></img> */}
         <div>
           <label className="loginWords" htmlFor="username">Username: </label>
           <input
@@ -102,7 +102,7 @@ const Login = () => {
         />
       </form>
       <TestimonialContainer />
-      <FooterContainer />
+      {/* <FooterContainer /> */}
     </div>
   )
 

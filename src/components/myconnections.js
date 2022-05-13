@@ -37,7 +37,7 @@ export default function Connections({ dog }) {
 
 
 return (
-    <div>
+    <div className="connectionTextDiv">
         <h1 className="connections">Friends</h1>
         {targetedAcceptedConnections.filter((connection) => connection.is_accepted === true).map((connection) => <TAConnection dog={dog} key={connection.id} connection={connection} setTargetedAcceptedConnections={setTargetedAcceptedConnections} targetedAcceptedConnections={targetedAcceptedConnections} />)}
         {initializedAcceptedConnections.filter((connection) => connection.is_accepted === true).map((connection) => <IAConnection dog={dog} key={connection.id} connection={connection} setInitializedAcceptedConnections={setInitializedAcceptedConnections} initializedAcceptedConnections={initializedAcceptedConnections}  />)}
@@ -62,7 +62,7 @@ const TAConnection = ({ connection, setTargetedAcceptedConnections, targetedAcce
     return (
       <div >
         <ul>
-          <li>{connection.dog_initializer.name}</li> 
+          <li >{connection.dog_initializer.name}</li> 
         <Button className="new-convo-btn-in-connections" onClick={() => setModalShow(true)}>Message</Button>
             <NewConvoModal show={modalShow} onHide={() => setModalShow(false)} /> 
         <Button onClick={() => {deleteFriend({ connection })}}>Delete</Button>
