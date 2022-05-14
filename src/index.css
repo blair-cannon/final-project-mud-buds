@@ -465,7 +465,7 @@ a.nav-link:focus {
 }
 
 .example-feed-image {
-    width: 35rem;
+    width: 53rem;
     height: 40rem;
     box-shadow: none;
 }
@@ -554,7 +554,7 @@ a.nav-link:focus {
     width: 80rem; */
     
     /* Displayed under the container */
-    z-index: -1;
+    /* z-index: -1; */
     left: 34rem;
     top: 10rem;
     
@@ -573,7 +573,6 @@ a.nav-link:focus {
 
 .feedDogs {
     margin: auto;
-    /* width: 50%; */
     display: flex;
     justify-content: center;
     flex: 1 1 auto;
@@ -585,7 +584,7 @@ a.nav-link:focus {
     object-fit: cover;
 }
 
-.motionDiv {
+.feed-dog-and-image-wrapper {
     display: flex;
     justify-content: center;
     width: 73%;
@@ -665,12 +664,7 @@ a.nav-link:focus {
 }
 
 .card-img-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
+    position: relative;
     border-radius: calc(0.25rem - 1px);
     pointer-events: none;
 }

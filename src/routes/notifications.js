@@ -6,7 +6,7 @@ import FooterContainer from '../components/footerContainer';
 
 export default function Notifications() {
   return (
-    <div classname="wrapper">
+    <div className="wrapper">
       <Container className="notificationPageContainer" fluid>
       <Row className="flex-xl-nowrap">
         <SideBar />

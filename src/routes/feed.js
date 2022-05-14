@@ -10,10 +10,12 @@ export default function Feed() {
     <div className="wrapper">
       <Container className="feedPageContainer" fluid>
           <h2 className="dogdisplayHeader">Let's find your furry friend <br/> a furry friend!</h2>
-          <div className="motionDiv">
-          <img className="check-and-x" src={Xmark} alt="xmark"></img>
-          <DogDisplay />
-          <img className="check-and-x" src={Checkmark} alt="checkmark"></img>
+          <div className="feed-dog-and-image-wrapper">
+            <img className="check-and-x" src={Xmark} alt="xmark"></img>
+            {/* <div className="motionDiv"> */}
+            <DogDisplay />
+            {/* </div> */}
+            <img className="check-and-x" src={Checkmark} alt="checkmark"></img>
           </div>
       </Container>
         {/* <FooterContainer /> */}
