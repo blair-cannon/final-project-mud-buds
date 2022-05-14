@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import {Card, ListGroup, ListGroupItem} from 'react-bootstrap';
+import {Card, Button } from 'react-bootstrap';
 import ExampleDogImage from '../images/luka.jpeg';
 import request from '../services/api.requests.js';
 import { useGlobalState } from "../context/GlobalState";
 import { motion } from 'framer-motion';
 
+
+let ReadMoreEnum = {
+  false: "Read More",
+  true: "Read Less"
+}
 
 export default function Dogdisplay() {
   const [ state, dispatch ] = useGlobalState();
@@ -31,6 +36,9 @@ return (
 }
 
 const IndividualDog = ({ dog, feed, setFeed }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [readMoreText, setReadMoreText] = useState(ReadMoreEnum["false"]);
+  const [className, setClassName] = useState("closed");
   const [ dogImage, setDogImage ] = useState();
   const [ state, dispatch ] = useGlobalState();
   const [connectionData, setConnectionData] = useState({
@@ -84,6 +92,12 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
     }
   }
 
+  const handleClick = () => {
+    const nextIsOpen = !isOpen;
+    setIsOpen(nextIsOpen);
+    setClassName(nextIsOpen ? "open" : "closed");
+    setReadMoreText(ReadMoreEnum[`${nextIsOpen}`]);
+  };
 
   return (
     <motion.div
@@ -99,7 +113,7 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
         <Card.Text className="owned-by">
           Owned By:{dog.user.first_name}
         </Card.Text>
-        <Card.Text className="dog-info-body">
+        <Card.Text className={`${className}`}>
           {dog.gender.label}, {dog.breed.name}.
           <br/>
           {dog.about_me}
@@ -108,7 +122,15 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
           <br/>
           {dog.favorite_park.name}
           <br />
+          Size: {dog.size.label}
+          <br />
+          Aggression level: {dog.aggression.label}
+          <br />
+          Socialization level: {dog.socialization.label}
+          <br />
+          Fixed? {dog.is_fixed}
         </Card.Text>
+        <Button onClick={handleClick}>{readMoreText}</Button>
         <Card.Text className="dogTags">
           #{dog.tags.map((tag) => tag).join(' #')}
         </Card.Text>

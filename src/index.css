@@ -249,12 +249,6 @@ a.nav-link:focus {
     margin-bottom: 0;
 }
 
-/* .dogCard {
-    width: 18rem;
-    height: 38rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 3rem;
-} */
 
 .loginBox {
     display: flex;
@@ -564,7 +558,7 @@ a.nav-link:focus {
     
     /* Rotate it. Change the number of degrees for the following cards */
     transform: rotate(3deg);
-    height: 35rem;
+    min-height: 37rem;
     width: 23rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 2rem;
@@ -603,12 +597,38 @@ a.nav-link:focus {
 
 }
 
-.dog-info-body {
+/* .dog-info-body {
     font-size: 1rem;
     font-family:'Courier New', Courier, monospace;
     line-height: 1.5rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    padding: 1rem;
+} */
+
+.open {
+    height: auto;
+    font-size: 1rem;
+    font-family:'Courier New', Courier, monospace;
+    line-height: 1.5rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    padding: 1rem;
 }
 
+.closed {
+    -webkit-line-clamp: 4;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 4;
+    font-size: 1rem;
+    font-family:'Courier New', Courier, monospace;
+    line-height: 1.5rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    padding: 1rem;
+}
 
 .myDogCard {
     width: 18rem;
