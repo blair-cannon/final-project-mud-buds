@@ -54,6 +54,7 @@ export default function HandleNewMessage({ convoId, newConvo, Hide, HideSelf }) 
                 <input
                     className="newMessageInput"
                     name="content"
+                    type="text"
                     value={newMessage.content}
                     onChange={handleChange}
                 />

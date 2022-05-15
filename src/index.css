@@ -400,6 +400,14 @@ a.nav-link:focus {
     font-weight: bold;
 }
 
+.messageModal {
+    max-height: 600px;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow:scroll;
+    margin-top: 5rem;
+}
+
 .message-content {
     margin-left: 1rem;
     margin-bottom: 1rem;

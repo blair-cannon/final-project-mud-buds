@@ -4,7 +4,7 @@ import MessageItem from "./messageitem";
 
 export default function MessageModal(props) {
   return (
-    <Modal
+    <Modal className="messageModal"
       {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
