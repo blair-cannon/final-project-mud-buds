@@ -128,7 +128,7 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
           <br />
           Socialization level: {dog.socialization.label}
           <br />
-          Fixed? {dog.is_fixed}
+          Fixed? {JSON.stringify(dog.is_fixed)}
         </Card.Text>
         <Button onClick={handleClick}>{readMoreText}</Button>
         <Card.Text className="dogTags">

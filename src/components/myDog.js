@@ -5,6 +5,11 @@ import request from '../services/api.requests';
 import EditDogModal from './editDogModal';
 import { useNavigate, Link } from 'react-router-dom';
 
+let ReadMoreEnum = {
+  false: "Read More",
+  true: "Read Less"
+}
+
 export default function MyDog() {
 
   const [ state, dispatch ] = useGlobalState();
@@ -20,6 +25,9 @@ const Dog = ({ dog }) => {
   const [ dogImage, setDogImage ] = useState();
   const [ state, dispatch ] = useGlobalState();
   const [modalShow, setModalShow] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [readMoreText, setReadMoreText] = useState(ReadMoreEnum["false"]);
+  const [className, setClassName] = useState("closed");
 
     async function getDogImage() {
       let options = {
@@ -47,6 +55,13 @@ const Dog = ({ dog }) => {
       }
     }
 
+    const handleClick = () => {
+      const nextIsOpen = !isOpen;
+      setIsOpen(nextIsOpen);
+      setClassName(nextIsOpen ? "open" : "closed");
+      setReadMoreText(ReadMoreEnum[`${nextIsOpen}`]);
+    };
+
   return (
     <div className="dog-profile-div">
           <Card className="myDogCard">
@@ -58,7 +73,7 @@ const Dog = ({ dog }) => {
         <Card.Text className="owned-by">
           Owned By:{dog.user.first_name}
         </Card.Text>
-        <Card.Text className="dog-info-body">
+        <Card.Text className={`${className}`}>
           {dog.gender.label}, {dog.breed.name}.
           <br/>
           {dog.about_me}
@@ -67,7 +82,15 @@ const Dog = ({ dog }) => {
           <br/>
           {dog.favorite_park.name}
           <br />
+          Size: {dog.size.label}
+          <br />
+          Aggression level: {dog.aggression.label}
+          <br />
+          Socialization level: {dog.socialization.label}
+          <br />
+          Fixed? {JSON.stringify(dog.is_fixed)}
         </Card.Text>
+        <Button onClick={handleClick}>{readMoreText}</Button>
         <Card.Text className="dogTags">
           #{dog.tags.map((tag) => tag).join(' #')}
         </Card.Text>
