@@ -299,6 +299,10 @@ a.nav-link:focus {
     margin-bottom: 1rem;
 }
 
+.newMessageInput {
+
+}
+
 .resgisterInput {
     position:absolute;
     left:45rem;
@@ -401,11 +405,10 @@ a.nav-link:focus {
 }
 
 .messageModal {
-    max-height: 600px;
-    display: flex;
-    flex-direction: column-reverse;
-    overflow:scroll;
-    margin-top: 5rem;
+    min-height: 600px;
+    /* overflow:scroll;
+    scroll-snap-type: y proximity; */
+    border-radius: 25px;
 }
 
 .message-content {

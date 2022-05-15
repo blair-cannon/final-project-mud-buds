@@ -39,7 +39,7 @@ export default function AddDogImage(props) {
     }
 
     return (
-        <Modal
+        <Modal 
           {...props}
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"

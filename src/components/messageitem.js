@@ -79,9 +79,10 @@ const handleSubmit = async(e) => {
     <div>
     {messages.map((message) => <MessageItem key={message.id} message={message} />)}
     <Form  onSubmit={handleSubmit} >
-          <input
+          <textarea
               className="newMessageInput"
               ref={inputRef}
+              maxlength="600"
               name="content"
               type="text"
               value={newMessage.content}
