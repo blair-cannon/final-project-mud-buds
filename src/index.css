@@ -254,31 +254,24 @@ a.nav-link:focus {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 40%;
-    height: 25rem;
-    background-color: var(--blue);
-    align-items: center;
-    margin-top: 4.5rem;
-    margin-bottom: 2rem;
+    height: 20rem;
+    width: 20rem;
     margin-right: auto;
     margin-left: auto;
-    border-radius: 100px;
+    margin-bottom: 5rem;
+    border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 5rem;
+    text-align: center;
+    border: 6px solid var(--orange);
 }
 
-.loginImage {
-    height: 20rem;
-    width: 40rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 
 .loginWords {
-    color: white;
-    margin-right: 0.5rem;
+    color: black;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    margin-left: 7rem;
+    margin-left: 1rem;
 }
 
 .loginButton {
@@ -286,38 +279,24 @@ a.nav-link:focus {
     background-color: var(--yellow);
     width: 8rem;
     height: 3rem;
-    margin-top: 1rem;
     border: 1px solid var(--yellow);
     font-family: Dokdo;
     font-size: 1.5rem;
-    margin-left:12rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
 }
 
 .registerWords {
-    color: white;
+    color: black;
     margin-right: 0.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    margin-left: 7rem;
 }
 
 .loginInput {
-    position:absolute;
-    left:35rem;
+    margin-left: 1rem;
     margin-bottom: 1rem;
-}
-
-.resgisterButton {
-    border-radius: 25px;
-    background-color: var(--yellow);
-    width: 8rem;
-    height: 3rem;
-    margin-top: 1rem;
-    border: 1px solid var(--yellow);
-    font-family: Dokdo;
-    font-size: 1.5rem;
-    margin-left:12rem;
-    
 }
 
 .resgisterInput {
@@ -328,17 +307,19 @@ a.nav-link:focus {
 
 .registerBox {
     display: flex;
-    justify-content: left;
-    width: 40%;
-    height: 35rem;
-    background-color: var(--blue);
-    align-items: center;
-    margin-top: 4.5rem;
-    margin-bottom: 2rem;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    width: 20rem;
     margin-right: auto;
     margin-left: auto;
-    border-radius: 100px;
+    margin-bottom: 5rem;
+    border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 5rem;
+    text-align: center;
+    border: 6px solid var(--orange);
+    padding: 0.5rem;
 }
 
 .registerImage {
@@ -687,4 +668,42 @@ a.nav-link:focus {
     position: relative;
     border-radius: calc(0.25rem - 1px);
     pointer-events: none;
+}
+
+.need-dog-profile-error {
+    height: 10rem;
+    width: 20rem;
+    background-color: var(--yellow);
+}
+
+.sentence-and-link {
+    display: flex;
+    justify-content: center;
+}
+
+.create-dog-prompt {
+    width: 60%;
+    height: auto;
+    border: 6px var(--red) solid;
+    border-radius: 25px;
+    margin-top: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10rem;
+    text-align: center;
+    font-family: 'Cutive Mono';
+    font-size: 2.5rem;
+    font-weight: bolder;
+    margin-bottom: 5rem;
+}
+
+.step-1-prompt {
+    padding-top: 1rem;
+    padding-right:  0.5rem;
+}
+
+.login-register-header {
+    font-family: Dokdo;
+    color: var(--blue);
+    font-size: 2.5rem;
 }

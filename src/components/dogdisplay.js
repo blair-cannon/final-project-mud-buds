@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Card, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import ExampleDogImage from '../images/luka.jpeg';
 import request from '../services/api.requests.js';
 import { useGlobalState } from "../context/GlobalState";
@@ -12,6 +13,7 @@ let ReadMoreEnum = {
 }
 
 export default function Dogdisplay() {
+  let navigate = useNavigate();
   const [ state, dispatch ] = useGlobalState();
   const [feed, setFeed] = useState([]);
 
@@ -27,12 +29,22 @@ export default function Dogdisplay() {
 
     getFeed()
 }, []);
-return (
-  <div className="feedDogs">
-      {/* filter for all dogs that aren't owned by the logged in user */}
-    {feed.filter((dog) => dog.user.id !== state.currentUser.user_id).map((dog) => <IndividualDog className="dogCard" key={dog.id} dog={dog} feed={feed} setFeed={setFeed} />)}
-    </div>
-  )
+
+  if (state.dogs.length == 0) {
+    console.log('1')
+    return (
+      navigate('/createDogPrompt')
+    )
+  }
+  else {
+    console.log('2')
+    return (
+      <div className="feedDogs">
+          {/* filter for all dogs that aren't owned by the logged in user */}
+        {feed.filter((dog) => dog.user.id !== state.currentUser.user_id).map((dog) => <IndividualDog className="dogCard" key={dog.id} dog={dog} feed={feed} setFeed={setFeed} />)}
+        </div>
+      )
+  }
 }
 
 const IndividualDog = ({ dog, feed, setFeed }) => {

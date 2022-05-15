@@ -73,9 +73,10 @@ const Login = () => {
   return (
     <div>
       <form className="loginBox" onSubmit={handleLogin}>
-      {/* <img className="loginImage" src={LoginImage} alt="log in dog image" ></img> */}
+      <h1 className="login-register-header">Log In.</h1>
         <div>
           <label className="loginWords" htmlFor="username">Username: </label>
+          <br/>
           <input
             type="text"
             id="username"
@@ -86,6 +87,7 @@ const Login = () => {
         </div>
         <div>
           <label className="loginWords" htmlFor="pass">Password: </label>
+          <br/>
           <input
             type="password"
             id="pass"
