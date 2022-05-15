@@ -104,7 +104,7 @@ const Login = () => {
         />
       </form>
       <TestimonialContainer />
-      {/* <FooterContainer /> */}
+      <FooterContainer />
     </div>
   )
 

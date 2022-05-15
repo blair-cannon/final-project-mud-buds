@@ -20,7 +20,7 @@ export default function Home() {
           </div>
           <Walkthrough />
           <TestimonialContainer />
-      {/* <FooterContainer /> */}
+        <FooterContainer />
       </div>
     </>
   )

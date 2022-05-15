@@ -122,7 +122,7 @@ const Register = () => {
         </div>
       </form>
       <TestimonialContainer />
-      {/* <FooterContainer /> */}
+      <FooterContainer />
     </div>
   )
 
