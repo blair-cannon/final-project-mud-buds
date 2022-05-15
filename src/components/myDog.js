@@ -5,11 +5,15 @@ import request from '../services/api.requests';
 import EditDogModal from './editDogModal';
 import { useNavigate, Link } from 'react-router-dom';
 
+let ReadMoreEnum = {
+  false: "Read More",
+  true: "Read Less"
+}
+
 export default function MyDog() {
 
   const [ state, dispatch ] = useGlobalState();
 
-  console.log('state.dogs', state.dogs)
 return (
   <>
     {state.dogs.map((dog) => <Dog key={dog.id} dog={dog} />)}
@@ -21,9 +25,11 @@ const Dog = ({ dog }) => {
   const [ dogImage, setDogImage ] = useState();
   const [ state, dispatch ] = useGlobalState();
   const [modalShow, setModalShow] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [readMoreText, setReadMoreText] = useState(ReadMoreEnum["false"]);
+  const [className, setClassName] = useState("closed");
 
     async function getDogImage() {
-      console.log('rerender', dog)
       let options = {
         url: `/images/?dog=${dog.id}`,
         method: 'GET',
@@ -34,7 +40,6 @@ const Dog = ({ dog }) => {
     getDogImage()
 
     async function deleteDog() {
-      console.log('mydogg', dog)
       try {  
         let options = {
           url: `/dogs/${dog.id}`,
@@ -50,34 +55,52 @@ const Dog = ({ dog }) => {
       }
     }
 
+    const handleClick = () => {
+      const nextIsOpen = !isOpen;
+      setIsOpen(nextIsOpen);
+      setClassName(nextIsOpen ? "open" : "closed");
+      setReadMoreText(ReadMoreEnum[`${nextIsOpen}`]);
+    };
+
   return (
     <div className="dog-profile-div">
-      <Card className="dogCard">
-        <Card.Body>
-          <Card.Img src={dogImage} alt="Card image" />
-          <Card.ImgOverlay>
-            <Card.Title className="dogTitle">{dog.name}, {dog.age}</Card.Title>
-          </Card.ImgOverlay>
-          <Card.Text className="genderAndbreed">
-            {dog.gender.label}, {dog.breed.name}
-            <br />
-            Owner:{dog.user.first_name}
-          </Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroupItem>
-            {dog.about_me}
-          </ListGroupItem>
-          <ListGroupItem className="dogTags">
-            #{dog.tags.map((tag) => tag).join(' #')}
-          </ListGroupItem>
-        </ListGroup>
-        <Card.Body>
+          <Card className="myDogCard">
+      <Card.Body>
+        <Card.Img className="imageSize" src={dogImage} alt="Card image" />
+        <Card.ImgOverlay>
+          <Card.Title className="dogTitle">{dog.name}, {dog.age}</Card.Title>
+        </Card.ImgOverlay>
+        <Card.Text className="owned-by">
+          Owned By:{dog.user.first_name}
+        </Card.Text>
+        <Card.Text className={`${className}`}>
+          {dog.gender.label}, {dog.breed.name}.
+          <br/>
+          {dog.about_me}
+          <br/>
+          My favorite park is...
+          <br/>
+          {dog.favorite_park.name}
+          <br />
+          Size: {dog.size.label}
+          <br />
+          Aggression level: {dog.aggression.label}
+          <br />
+          Socialization level: {dog.socialization.label}
+          <br />
+          Fixed? {JSON.stringify(dog.is_fixed)}
+        </Card.Text>
+        <Button onClick={handleClick}>{readMoreText}</Button>
+        <Card.Text className="dogTags">
+          #{dog.tags.map((tag) => tag).join(' #')}
+        </Card.Text>
+      </Card.Body>
+      <Card.Body>
           <Button onClick={() => setModalShow(true)}>Edit</Button>
           <EditDogModal dog={dog} show={modalShow} onHide={() => setModalShow(false)}/>
           <Button onClick={deleteDog} >Delete</Button>
         </Card.Body>
-      </Card>
+    </Card>
     </div>
   )
 }

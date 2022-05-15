@@ -5,7 +5,6 @@ import { Form, Button } from 'react-bootstrap';
 
 
 export default function HandleNewMessage({ convoId, newConvo, Hide, HideSelf }) {
-    console.log(convoId)
     const [state, dispatch] = useGlobalState();
     const [newMessage, setNewMessage] = useState({
         content: "",
@@ -13,8 +12,6 @@ export default function HandleNewMessage({ convoId, newConvo, Hide, HideSelf }) 
         dog_received: `${newConvo.dog_other}`,
         dog_sent: `${newConvo.dog_creator}`,
     });
-
-    console.log('message', newMessage)
 
     const handleChange = (event) => {
 
@@ -26,7 +23,6 @@ export default function HandleNewMessage({ convoId, newConvo, Hide, HideSelf }) 
     
 
     const handleSubmit = async(e) => {
-        console.log('message')
         e.preventDefault()
         const newMessageFormData = new FormData();
         newMessageFormData.append("content", newMessage.subject)
