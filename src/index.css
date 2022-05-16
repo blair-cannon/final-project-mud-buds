@@ -1003,6 +1003,35 @@ a.nav-link:focus {
         width: 33rem;
         height: 20rem;
     }
+    .darkredContainer {
+        height: 14rem;
+        padding: 1rem;
+        gap:0.5rem;
+    }
+    .testimonialCard {
+        height: 10rem;
+        width: 8rem;
+        margin: auto;
+        padding-bottom: 0.5rem;
+    }
+    .testimonialCard .card-body {
+        padding: 0.1rem 0.1rem;
+        font-size: 0.5rem;
+    }
+    .loginBox {
+        margin-top:7rem;
+    }
+    .registerBox {
+        margin-top: 7rem;
+    }
+    .tip {
+        font-size: 0.75rem;
+        margin-bottom: 0.1rem;
+
+    }
+    .safety-tips {
+        gap: 1rem;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
