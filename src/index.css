@@ -7,7 +7,11 @@
     --darkorange: #b93b22;
     --red: #9e2a2b;
     --darkred: #540b0e;
-  }
+}
+
+html, body {
+    overflow-x: hidden;
+}
 
 .profilePageContainer {
     margin-top: 5rem;
@@ -42,6 +46,7 @@
     width:35rem;
     height:45rem;
 }
+
 
 .contentCol {
     border: solid 10px var(--blue);
@@ -547,7 +552,7 @@ a.nav-link:focus {
     
     /* Displayed under the container */
     /* z-index: -1; */
-    left: 34rem;
+    left: 30rem;
     top: 10rem;
     
     /* Background and border colors */
@@ -579,7 +584,7 @@ a.nav-link:focus {
 .feed-dog-and-image-wrapper {
     display: flex;
     justify-content: center;
-    width: 73%;
+    width: 85%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 1.5rem;
@@ -921,7 +926,6 @@ a.nav-link:focus {
     .contentCol {
         min-height:max-content;
         min-width:55%;
-        margin-left: 2rem;
     }
     .new-convo-btn {
         width:14rem;
@@ -952,6 +956,11 @@ a.nav-link:focus {
         height: 1.5rem;
         font-size: 0.75rem;
         margin-top: 1rem;
+        margin-left:0;
+        margin-right:0;
+    }
+    .container {
+        margin
     }
     .quoteLeft {
         margin-left: 1rem;
