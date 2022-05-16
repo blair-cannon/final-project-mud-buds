@@ -68,7 +68,7 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
         // console.log(resp)
         setDogImage(resp.data[0].image)
       }
-      // getDogImage()
+      getDogImage()
     }, [])
 
 
@@ -142,7 +142,7 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
           <br />
           Fixed? {JSON.stringify(dog.is_fixed)}
         </Card.Text>
-        <Button onClick={handleClick}>{readMoreText}</Button>
+        <Button className="read-more-btn" onClick={handleClick}>{readMoreText}</Button>
         <Card.Text className="dogTags">
           #{dog.tags.map((tag) => tag).join(' #')}
         </Card.Text>

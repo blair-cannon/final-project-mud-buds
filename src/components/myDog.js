@@ -39,7 +39,7 @@ const Dog = ({ dog }) => {
       // console.log(resp)
       setDogImage(resp.data[0].image)
     }
-    // getMyDogImage()
+    getMyDogImage()
   }, [])
 
     async function deleteDog() {

@@ -24,19 +24,21 @@ function App() {
       {loading === false ? (
           <GlobalProvider>
               <Router>
-                <Navigation></Navigation>
-                <Routes>
-                  <Route path="/" element={<Home />}></Route>
-                  <Route path="/feed" element={<Feed />}></Route>
-                  <Route path="/notifications" element={<Notifications />} ></Route>
-                  <Route path="/profile" element={<Profile />}></Route>
-                  <Route path="/login" element={<Login />}></Route>
-                  <Route path="/register" element={<Register />}></Route>
-                  <Route path="/connections" element={<Connections />}></Route>
-                  <Route path="/createDogPrompt" element={<CreateDogPrompt />}></Route>
-                  <Route path="/aboutUs" element={<AboutUs />}></Route>
-                  <Route path="/safetyTips" element={<SafetyTips />}></Route>
-                </Routes>
+              <Navigation></Navigation>
+              <div className="container">
+                  <Routes>
+                    <Route path="/" element={<Home />}></Route>
+                    <Route path="/feed" element={<Feed />}></Route>
+                    <Route path="/notifications" element={<Notifications />} ></Route>
+                    <Route path="/profile" element={<Profile />}></Route>
+                    <Route path="/login" element={<Login />}></Route>
+                    <Route path="/register" element={<Register />}></Route>
+                    <Route path="/connections" element={<Connections />}></Route>
+                    <Route path="/createDogPrompt" element={<CreateDogPrompt />}></Route>
+                    <Route path="/aboutUs" element={<AboutUs />}></Route>
+                    <Route path="/safetyTips" element={<SafetyTips />}></Route>
+                  </Routes>
+                </div>
               </Router>
           </GlobalProvider>
       ) : (

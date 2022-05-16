@@ -12,7 +12,7 @@ const Profile = () => {
 
   return (
     <>
-      <div className="wrapper">
+      {/* <div className="wrapper"> */}
         <Container className="profilePageContainer" fluid>
           <h1 className="profileHeader">My Dogs.</h1>
           <div className="myDogs">
@@ -22,7 +22,7 @@ const Profile = () => {
             <Button onClick={() => setModalShow(true)}>Add Dog Profile</Button>
             <NewDogModal show={modalShow} onHide={() => setModalShow(false)}/>
         </Container>
-      </div>
+      {/* </div> */}
       <div className="dummydiv"></div>
       <FooterContainer />
     </>
