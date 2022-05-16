@@ -9,7 +9,7 @@ export default function NavBarLoggedIn(props) {
     let navigate = useNavigate()
     return (
         <Navbar className="nav" expand={false}>
-          <Container fluid>
+          {/* <Container fluid> */}
             <img className="logo" src={Logo} />
             <div className="navRight">
               <LinkContainer to="/feed">
@@ -47,6 +47,6 @@ export default function NavBarLoggedIn(props) {
                 </Offcanvas.Body>
               </Navbar.Offcanvas>
             </div>
-          </Container>
+          {/* </Container> */}
         </Navbar>
     )};
