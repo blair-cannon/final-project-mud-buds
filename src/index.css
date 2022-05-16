@@ -811,3 +811,55 @@ a.nav-link:focus {
     color: var(--blue);
     font-weight: bold;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .dogdisplayHeader {
+        margin-top:3.5rem;
+        line-height: 1rem;
+    }
+    .check-and-x {
+        height: 3rem;
+        margin-top: 14rem;
+    }
+    .wrapper {
+        margin-bottom:2rem;
+    }
+    .dogCard {
+        min-height:none;
+        width:17rem;
+        left:3.75rem;
+        top:11rem;
+    }
+    .feed-dog-and-image-wrapper {
+        gap:10rem;
+        width: 100%;
+    }
+    .imageSize {
+        height: 38rem;
+    }
+    .logo {
+        height: 4rem;
+        width: 8rem;
+        margin-left: 0.5rem;
+    }
+    .navRight {
+        float: none;
+    }
+    a.nav-link {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) {...} */
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {...} */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {...} */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {...} */
