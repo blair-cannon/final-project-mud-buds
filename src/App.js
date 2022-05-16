@@ -7,7 +7,7 @@ import Profile from "./routes/profile";
 import Login from "./routes/login";
 import Register from "./routes/register";
 import Navigation from "./components/navigation";
-import Connections from "./components/myconnections";
+import Connections from "./routes/myconnections";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GlobalProvider } from "./context/GlobalState";
 import CreateDogPrompt from "./components/createDogPrompt";
