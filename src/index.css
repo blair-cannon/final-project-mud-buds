@@ -3,14 +3,38 @@
 :root {
     --blue: #335C67;
     --yellow: #fff3b0;
-    --orange: #e09f3e;
+    --orange: #e09f3ebc;
     --darkorange: #b93b22;
     --red: #9e2a2b;
     --darkred: #540b0e;
   }
 
-.pageContainer {
+.profilePageContainer {
     margin-top: 5rem;
+    background-color: var(--orange);
+    width: 70%;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    min-height: 100vh;
+    justify-content: flex-start;
+    margin-bottom: 4rem;
+}
+
+.feedPageContainer {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5rem;
+    position: relative;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 4rem;
 }
 
 .dogHeroImage {
@@ -20,33 +44,39 @@
 }
 
 .contentCol {
-    border: solid 2px black;
+    border: solid 10px var(--blue);
+    border-radius: 25px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--blue);
+    background-color: white;
+    width: 70%;
 }
 
 .messageCol {
-    border: solid 2px black;
+    border: none;
     min-height: 100vh;
-    background-color:rgba(0, 0, 0, 0.109);
+    /* background-color:rgba(0, 0, 0, 0.109); */
+    border-radius: 25px;
+    margin-right: 1rem;
+    padding: 4px;
 }
 
 .conversationRow {
     height: max-content;
-    border-bottom: solid 2px rgba(0, 0, 0, 0.178);
+    border: solid 2px var(--blue);
     background-color:white;
+    border-radius: 6px;
+    margin-top: 8px;
 }
 
 .messageHeader {
-    border-bottom: solid 2px black;
-    color: var(--blue);
+    color: var(--darkred);
     font-family: Dokdo;
     background-color:white;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    text-align: center;
 }
 
 .center {
@@ -177,7 +207,7 @@ a.nav-link:focus {
 }
 
 .testimonialCard {
-    height: 20rem;
+    height: 23rem;
     width: 15rem;
     margin: 3rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -192,72 +222,64 @@ a.nav-link:focus {
 }
 
 .footerContainer {
-    background-color: var(--yellow);
-    height: 15rem;
-}
+    position: relative;
+    bottom: 0;
+    width: 100vw;
+    height: 2.5rem; 
+    background-color: var(--yellow);  
+    margin-top: 0;
+    text-align: center;      
+  }
 
 .dogdisplayHeader {
-    color: var(--yellow);
+    color: var(--darkred);
     font-family: Cutive Mono;
     font-weight: bold;
-    margin-bottom: 4rem;
-    margin-top: 4rem;
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+    text-align: center;
 }
 
 .dogTitle {
     color: var(--darkred);
-    font-weight: bold !important;
-    position: absolute;
-    bottom: 240px;
-    left: 25px;
+    font-weight: bold;
     font-family: 'Dokdo';
-    font-size: 1.7rem !important;
+    font-size: 2rem;
     background-color: white;
 }
 
-.genderAndbreed {
-    margin-top: 1rem;
-}
 
 .dogTags {
     font-family: Dokdo;
-    color: var(--darkred) !important;
+    color: var(--darkred);
     font-weight: bold;
-    font-size: 1.4rem !important;
+    font-size: 2rem;
+    margin-bottom: 0;
 }
 
-.dogCard {
-    width: 18rem;
-    height: 38rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 3rem;
-}
 
 .loginBox {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 70%;
-    height: 35rem;
-    background-color: var(--blue);
-    align-items: center;
-    margin-top: 4.5rem;
-    margin-bottom: 2rem;
+    height: 20rem;
+    width: 20rem;
     margin-right: auto;
     margin-left: auto;
-    border-radius: 100px;
+    margin-bottom: 5rem;
+    border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 5rem;
+    text-align: center;
+    border: 6px solid var(--orange);
 }
 
-.loginImage {
-    height: 20rem;
-    width: 40rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 
 .loginWords {
-    color: white;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
 }
 
 .loginButton {
@@ -265,27 +287,48 @@ a.nav-link:focus {
     background-color: var(--yellow);
     width: 8rem;
     height: 3rem;
-    margin-top: 1rem;
     border: 1px solid var(--yellow);
     font-family: Dokdo;
     font-size: 1.5rem;
-    
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+
+.registerWords {
+    color: black;
+    margin-right: 0.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.loginInput {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+.resgisterInput {
+    position:absolute;
+    left:45rem;
+    margin-bottom: 1rem;
 }
 
 .registerBox {
     display: flex;
     justify-content: center;
-    /* flex-direction: column; */
-    width: 70%;
-    height: 35rem;
-    background-color: var(--blue);
-    align-items: center;
-    margin-top: 4.5rem;
-    margin-bottom: 2rem;
+    flex-direction: column;
+    height: auto;
+    width: 20rem;
     margin-right: auto;
     margin-left: auto;
-    border-radius: 100px;
+    margin-bottom: 5rem;
+    border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 5rem;
+    text-align: center;
+    border: 6px solid var(--orange);
+    padding: 0.5rem;
 }
 
 .registerImage {
@@ -339,10 +382,12 @@ a.nav-link:focus {
 .myDogs {
     display: flex;
     flex-direction: row;
-    gap: 30px;
+    gap: 2rem;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 3rem 0;
+    align-items: center;
+    margin: auto;
+    margin-top: 0;
 } 
 
 .form-new-dog {
@@ -364,6 +409,13 @@ a.nav-link:focus {
     font-weight: bold;
 }
 
+.messageModal {
+    min-height: 600px;
+    /* overflow:scroll;
+    scroll-snap-type: y proximity; */
+    border-radius: 25px;
+}
+
 .message-content {
     margin-left: 1rem;
     margin-bottom: 1rem;
@@ -375,21 +427,36 @@ a.nav-link:focus {
 }
 
 .notification-text {
-    color: white;
-    font-size: 1.5rem;
+    color: darkslategray;
+    font-size: 2rem;
+    list-style: none;
+    font-style: bold;
+    text-transform: uppercase;
+    font-family:'Courier New', Courier, monospace;
+    text-decoration: underline;
 }
 
-.notification-btn {
+.notification-btn-plus {
     border-radius: 25px;
-    background-color: var(--yellow);
+    color: var(--blue);
     margin-left: 1rem;
-    text-transform: uppercase;
     border: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-style: bold;
+}
+
+.notification-btn-x {
+    border-radius: 25px;
+    color: var(--red);
+    margin-left: 1rem;
+    border: none;
+    font-size: 1.5rem;
+    font-style: bold;
+
 }
 
 .example-feed-image {
-    width: 35rem;
+    width: 53rem;
     height: 40rem;
     box-shadow: none;
 }
@@ -400,10 +467,523 @@ a.nav-link:focus {
     display: flex;
     gap: 2rem;
     margin-top: 5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
 }
 
 .walkthrough-steps {
     box-shadow: none;
     margin-top: 12rem;
 }
+
+.loading-screen-wrapper {
+    background: linear-gradient(to left top, var(--yellow), var(--orange), var(--blue), var(--red), var(--darkred));
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    pointer-events: none;
+}
+
+.paw-print-svg {
+    height: 6rem;
+    width: 6rem;
+    animation: pulse 1s ease-in-out infinite;
+}
+@keyframes pulse {
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	80% {
+		opacity: 1;
+		transform: scale(1.2);
+	}
+}
+
+.dog-profile-div {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+}
+
+.connections-btn {
+    display: flex;
+}
+
+.connectionTextDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.connections {
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+    font-size: 5rem;
+    font-family: Dokdo;
+    color: var(--blue);
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.dogCard {
+    margin-top: 0;
+    /* margin-left: auto;
+    margin-right: auto;
+    /* Absolute position */
+    position: absolute;
+    /* top: 10rem; */
+    /* Take full size */
+    /* height: 100rem;
+    width: 80rem; */
+    
+    /* Displayed under the container */
+    /* z-index: -1; */
+    left: 34rem;
+    top: 10rem;
+    
+    /* Background and border colors */
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    
+    /* Rotate it. Change the number of degrees for the following cards */
+    transform: rotate(3deg);
+    min-height: 37rem;
+    width: 23rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 2rem;
+
+}
+
+.feedDogs {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex: 1 1 auto;
+}
+
+.imageSize {
+    width: 100%;
+    height: 22vw;
+    object-fit: cover;
+}
+
+.feed-dog-and-image-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 73%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+    align-items: center;
+}
+
+.owned-by {
+    font-size: 1.5rem;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 0;
+
+}
+
+/* .dog-info-body {
+    font-size: 1rem;
+    font-family:'Courier New', Courier, monospace;
+    line-height: 1.5rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    padding: 1rem;
+} */
+
+.open {
+    height: auto;
+    font-size: 1rem;
+    font-family:'Courier New', Courier, monospace;
+    line-height: 1.7rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    padding: 1rem;
+}
+
+.closed {
+    -webkit-line-clamp: 4;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 4;
+    font-size: 1rem;
+    font-family:'Courier New', Courier, monospace;
+    line-height: 1.7rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    padding: 1.5rem;
+}
+
+.myDogCard {
+    width: 20rem;
+    min-height: 38rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+}
+
+.friendsLink {
+    font-size: 1rem;
+    color: var(--darkred);
+    margin-bottom: 1rem;
+    background-color: white;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.profileHeader {
+    size: 2rem;
+    color: white;
+    font-weight: bold;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.notificationHeader {
+    size: 4rem;
+    color: var(--darkred);
+    font-weight: bold;
+    font-family: Dokdo;
+    margin-top: 2rem;
+}
+
+.check-and-x {
+    margin-top: 10rem;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 4rem;
+    /* pointer-events:none; */
+}
+
+.notificationPageContainer {
+    padding-bottom: 5rem;
+    margin-top: 5rem;
+    width: 1200px;
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 4rem;
+}
+
+.card-img-overlay {
+    position: relative;
+    border-radius: calc(0.25rem - 1px);
+}
+
+.need-dog-profile-error {
+    height: 10rem;
+    width: 20rem;
+    background-color: var(--yellow);
+}
+
+.sentence-and-link {
+    display: flex;
+    justify-content: center;
+}
+
+.create-dog-prompt {
+    width: 60%;
+    height: auto;
+    border: 6px var(--red) solid;
+    border-radius: 25px;
+    margin-top: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10rem;
+    text-align: center;
+    font-family: 'Cutive Mono';
+    font-size: 2.5rem;
+    font-weight: bolder;
+    margin-bottom: 5rem;
+}
+
+.step-1-prompt {
+    padding-top: 1rem;
+    padding-right:  0.5rem;
+}
+
+.login-register-header {
+    font-family: Dokdo;
+    color: var(--blue);
+    font-size: 2.5rem;
+}
+
+.div-create-account {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 2rem;
+}
+
+.button-create-account {
+    background-color: var(--blue);
+    border: none;
+}
+
+.testimonial-text {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.dummydiv {
+    height: 3rem;
+    width: 100%
+}
+
+.quoteLeft {
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 15rem;
+    font-size: 1.3rem;
+}
+
+.quoteRight {
+    font-family: 'Courier New', Courier, monospace;
+    float: right;
+    margin-right: 15rem;
+    font-size: 1.3rem;
+}
+
+.about-us-header {
+    font-family: Dokdo;
+    color: var(--blue);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-us-image {
+    width: 15rem;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.about-us-div {
+    margin-top: 5rem;
+    padding-bottom: 2rem;
+}
+
+.about-us-header-2 {
+    font-family: Dokdo;
+    color: var(--blue);
+    margin-top: 12rem;
+    text-align: center;
+}
+
+.about-us-mission {
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.safety-header {
+    color: var(--darkred);
+    font-family: Dokdo;
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.safety-tips {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 0;
+}
+
+.tip {
+    width: 20rem;
+    font-family:'Courier New', Courier, monospace;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+    color: var(--blue);
+    font-weight: bold;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .dogdisplayHeader {
+        margin-top:0.5rem;
+        line-height: 1.5rem;
+        font-size:1.2rem;
+    }
+    .check-and-x {
+        height: 3rem;
+        margin-top: 14rem;
+    }
+    .wrapper {
+        margin-bottom:10rem;
+    }
+    .dogCard {
+        width:15rem;
+        left:4rem;
+        top:6rem;
+    }
+    .myDogCard {
+        width:15rem;
+    }
+    .feed-dog-and-image-wrapper {
+        gap:8.75rem;
+        width: 100%;
+    }
+    .imageSize {
+        height: 14rem;
+    }
+    .logo {
+        height: 4rem;
+        width: 8rem;
+        margin-left: 0.5rem;
+    }
+    .navRight {
+        float: none;
+    }
+    a.nav-link {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+    .dogTags {
+        font-size:1.2rem;
+    }
+    .owned-by {
+        font-size:1rem;
+    }
+    .open {
+        line-height: 1rem;
+        margin:0;
+    }
+    .card-img-overlay {
+        margin:0;
+        padding:0;
+    }
+    .read-more-btn {
+        height:1.5rem;
+        font-size:0.75rem;
+        padding-bottom:1.5rem;
+    }
+    .feedPageContainer {
+        margin-top: 3.5rem;
+        padding-bottom: 2rem;
+    }
+    .closed {
+        line-height: 1rem;
+        padding:0;
+    }
+    .messageCol {
+        min-height:41vh;
+        width:350px;
+        margin-left:2rem;
+    }
+    .notificationPageContainer {
+        flex-direction: row;
+        width: 18rem;
+    }
+    .messageHeader {
+        font-size: 1.5rem;
+        text-align: left;
+        margin-left: 4rem;
+    }
+    .conversationDate,
+    .conversationSubject,
+    .conversationText {
+        font-size: 0.75rem;
+    }
+    .conversationRow {
+        width:14rem;
+        height:3.5rem;
+    }
+    .contentCol {
+        min-height:max-content;
+        width:55%;
+        margin-left: 2rem;
+    }
+    .new-convo-btn {
+        width:14rem;
+    }
+    .notificationHeader {
+        font-size:1.5rem;
+    }
+    .modal-content {
+        width: 100%;
+    }
+    #offcanvasNavbar {
+        width: 50%;
+    }
+    html, body {
+        overflow-x: hidden;
+    }
+    body {
+        position: relative;
+    }
+    .profilePageContainer {
+        width: 95%;
+    }
+    .connections {
+        font-size: 2rem;
+        margin-top:6rem;
+    }
+    .footerContainer {
+        height: 1.5rem;
+        font-size: 0.75rem;
+        margin-top: 1rem;
+    }
+    .quoteLeft {
+        margin-left: 1rem;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .quoteRight {
+        margin-right: 0rem;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .about-us-header {
+        margin-bottom: 1rem;
+    }
+    .about-us-header-2 {
+        margin-top: 8rem;
+    }
+    .about-us-mission {
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .about-us-image {
+        width: 10rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) {...} */
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {...} */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {...} */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {...} */

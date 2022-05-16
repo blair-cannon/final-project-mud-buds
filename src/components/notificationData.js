@@ -66,8 +66,8 @@ const Notification = ({ notification, acceptConnection, deleteRequest }) => {
     <div>
             <li className="notification-text">
                 {notification.dog_initializer.name}
-                <button className="notification-btn" onClick={() => {acceptConnection({ notification })}}>check</button>
-                <button className="notification-btn" onClick={() => {deleteRequest({ notification })}}>X</button>
+                <button className="notification-btn-plus" onClick={() => {acceptConnection({ notification })}}>+</button>
+                <button className="notification-btn-x" onClick={() => {deleteRequest({ notification })}}>x</button>
             </li>
         </div>
       )

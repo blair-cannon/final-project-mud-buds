@@ -4,23 +4,28 @@ import SideBar from '../components/sidebar';
 import ToggleDog from '../components/toggledogprofile';
 import MyDog from '../components/myDog';
 import NewDogModal from '../components/newDogModal';
+import { Link } from 'react-router-dom';
+import FooterContainer from '../components/footerContainer';
 
 const Profile = () => {
   const [modalShow, setModalShow] = useState(false);
+
   return (
-    <Container className="pageContainer" fluid>
-      <Row className="flex-xl-nowrap">
-        <SideBar />
-        <Col className="contentCol" align="center" lg={ 9 } >
-          <ToggleDog />
+    <>
+      {/* <div className="wrapper"> */}
+        <Container className="profilePageContainer" fluid>
+          <h1 className="profileHeader">My Dogs.</h1>
           <div className="myDogs">
             <MyDog />
           </div>
-          <Button onClick={() => setModalShow(true)}>Add Dog Profile</Button>
-          <NewDogModal show={modalShow} onHide={() => setModalShow(false)}/>
-        </Col>
-      </Row>
-    </Container>
+          <Link  className="friendsLink" to={"/connections"}>Our Friends</Link>
+            <Button onClick={() => setModalShow(true)}>Add Dog Profile</Button>
+            <NewDogModal show={modalShow} onHide={() => setModalShow(false)}/>
+        </Container>
+      {/* </div> */}
+      <div className="dummydiv"></div>
+      <FooterContainer />
+    </>
   )
 }
 

@@ -8,12 +8,14 @@ import React, {
   
   let user = JSON.parse(localStorage.getItem('user'));
   let savedDogs = JSON.parse(localStorage.getItem('mydogs'));
+  let savedConversations = JSON.parse(localStorage.getItem('myconversations'));
 
   
   const initialState = {
     currentUser: user ? jwtDecode(user.access) : null,
     currentUserToken: user ? user.access : null,
     dogs: savedDogs ? savedDogs : [],
+    conversations: savedConversations ? savedConversations : [],
   }
   
   const GlobalStateContext = createContext(initialState);

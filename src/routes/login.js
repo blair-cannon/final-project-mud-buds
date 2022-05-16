@@ -25,21 +25,24 @@ const Login = () => {
       .then(async (resp) => {
         let data = jwtDecode(resp.access)
         let dogs = await getUserDogs(data.user_id)
+        let conversations = await getUserConversations(data.user_id)
 
         // Update the state globally for all expected values, in GlobalState.js -> initialState
         await dispatch({
           currentUserToken: resp.access,
           currentUser: data,
-          dogs
+          dogs,
+          conversations
         })
         localStorage.setItem('mydogs', JSON.stringify(dogs));
+        localStorage.setItem('myconversations', JSON.stringify(conversations));
         navigate('/')
       });
   }
 
   const getUserDogs = async (id) => {  
     let options = {
-      url: `/dogs/?user=${id}`,
+      url: `/dogs/?user_id=${id}`,
       method: 'GET',
     }
 
@@ -47,13 +50,33 @@ const Login = () => {
     return resp.data
   }
 
+  const getUserConversations = async (id) => {  
+    let options1 = {
+      url: `/conversations/?dog_creator__user_id=${id}`,
+      method: 'GET',
+    }
+
+    let resp1 = await request(options1)
+    let data1 = resp1.data
+  
+    let options2 = {
+      url: `/conversations/?dog_other__user_id=${id}`,
+      method: 'GET',
+    }
+
+    let resp2 = await request(options2)
+    let data2 = resp2.data
+    let allUserConversations = [...data1, ...data2]
+    return allUserConversations
+  }
 
   return (
     <div>
       <form className="loginBox" onSubmit={handleLogin}>
-      <img className="loginImage" src={LoginImage} alt="log in dog image" ></img>
+      <h1 className="login-register-header">Log In.</h1>
         <div>
           <label className="loginWords" htmlFor="username">Username: </label>
+          <br/>
           <input
             type="text"
             id="username"
@@ -64,6 +87,7 @@ const Login = () => {
         </div>
         <div>
           <label className="loginWords" htmlFor="pass">Password: </label>
+          <br/>
           <input
             type="password"
             id="pass"

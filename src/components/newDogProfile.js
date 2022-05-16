@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../context/GlobalState'
 import request from '../services/api.requests';
+import NewDogImageModal from '../components/newDogImage';
+import {Button} from 'react-bootstrap';
 
 const optionsAggressionSocialization = [
     {value:1, label:"High"},
@@ -9,9 +10,14 @@ const optionsAggressionSocialization = [
     {value:3, label:"Low"}
 ]
 
-const optionsBoolean = [
+const optionsFixed = [
     {value:true, label:"Yes"},
     {value:false, label:"No"}
+]
+
+const optionsBitten = [
+    {value:false, label:"Yes"},
+    {value:true, label:"No"}
 ]
 
 const optionsGender = [
@@ -40,46 +46,44 @@ const optionsPark = [
 ]
 
 const optionsTags = [
-    {value:"1", label:"Hyper"},
-    {value:"2", label:"Swimmer"},
-    {value:"3", label:"Kid-friendly"},
-    {value:"4", label:"Fast"},
-    {value:"5", label:"WallLeaner"},
+    {value:1, label:"Hyper"},
+    {value:2, label:"Swimmer"},
+    {value:3, label:"Kid-friendly"},
+    {value:4, label:"Fast"},
+    {value:5, label:"WallLeaner"},
 ]
 
 
 
-export default function AddDogForm() {
-    let navigate = useNavigate();
+export default function AddDogForm({ hidefirst }) {
     const [state, dispatch] = useGlobalState();
+    const [modalShow, setModalShow] = useState(false);
+    const [thisDogId, setThisDogId] = useState();
     const [newDog, setNewDog] = useState({
     name: "",
     age: "",
     birthday: "",
     about_me: "",
-    is_fixed: null,
-    has_bitten: null,
-    aggression: null,
-    breed: null,
-    favorite_park: null,
-    gender: null,
-    size: null,
-    socialization: null,
+    is_fixed: true,
+    has_bitten: false,
+    aggression: 1,
+    breed: 1,
+    favorite_park: 1,
+    gender: 1,
+    size: 1,
+    socialization: 1,
     user: `${state.currentUser.user_id}`,
     tags: []
   });
 
 
+
     const handleChange = (event) => {
         // var name = event.target.getAttribute("name");
-        console.log('target', event.target)
-        console.log('target', event.target.name)
-        console.log('value', event.target.value)
-        console.log('1', newDog.tags)
         if ([event.target.name] == "tags") {
                 setNewDog(
                        { ...newDog, 
-                        tags: [...newDog.tags, parseInt(event.target.value)]
+                        tags: [...newDog.tags, event.target.value]
                         // tags: newDog.tags.push(event.target.value)
                         // [event.target.name]: newDog.tags.push("hey")
                     });
@@ -89,40 +93,26 @@ export default function AddDogForm() {
                         ...newDog,
                         [event.target.name]: event.target.value,
                     });
-                    console.log('object', newDog)
         }
     }
     
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        const newDogFormData = new FormData();
-        newDogFormData.append("name", newDog.name)
-        newDogFormData.append("age", newDog.title)
-        newDogFormData.append("birthday", newDog.description)
-        newDogFormData.append("about_me", newDog.about_me)
-        newDogFormData.append("is_fixed", newDog.is_fixed)
-        newDogFormData.append("has_bitten", newDog.has_bitten)
-        newDogFormData.append("aggression", newDog.aggression)
-        newDogFormData.append("breed", newDog.breed)
-        newDogFormData.append("favorite_park", newDog.favorite_park)
-        newDogFormData.append("gender", newDog.gender)
-        newDogFormData.append("size", newDog.size)
-        newDogFormData.append("socialization", newDog.socialization)
-        newDogFormData.append("user", `${state.currentUser.user_id}`)
-        newDogFormData.append("tags", newDog.tags)
-
 
         try {
             let options = {
               method: "POST",
               url: '/dogs/',
               data: newDog,
-              headers: { "Content-Type": "multipart/form-data" },
             }
             let resp = await request(options)
+            setThisDogId(resp.data.id);
             console.log(resp)
             dispatch({ dogs: [...state.dogs, resp.data]})
+            var existing = JSON.parse(localStorage.getItem('mydogs'));
+            existing = existing ? existing : [];
+            localStorage.setItem('mydogs', JSON.stringify([...existing, resp.data]));
         } catch(error) {
             console.log(error)
         }
@@ -176,7 +166,7 @@ export default function AddDogForm() {
                     // value={newDog.is_fixed}
                     onChange={handleChange}
                 >
-                    {optionsBoolean.map((option) => (
+                    {optionsFixed.map((option) => (
                         <option value={option.value}>{option.label}</option>
                     ))}
                 </select>
@@ -189,7 +179,7 @@ export default function AddDogForm() {
                     // value={newDog.has_bitten}
                     onChange={handleChange} 
                 >
-                    {optionsBoolean.map((option) => (
+                    {optionsBitten.map((option) => (
                         <option value={option.value}>{option.label}</option>
                     ))}
                 </select>
@@ -276,22 +266,24 @@ export default function AddDogForm() {
                 </select>
             </label>
             <label>
-                Choose some hashtags to spice up your dog's profile!
-                <select multiple
+                Choose a hashtag to spice up your dog's profile!
+                {/* change this select to multiple once tags are figured out */}
+                <select 
                     className="newDogInput"
                     name="tags"
-                    // value={newDog.socialization}
                     onChange={handleChange}
                 >
+                    <option disabled selected value> -- select an option -- </option>
                     {optionsTags.map((option) => (
                         <option value={option.value}>{option.label}</option>
                     ))}
                 </select>
             </label>  
-            <button type="submit">
-                Create
-            </button>
+            <Button type="submit" onClick={() => setModalShow(true)}>
+                Next
+            </Button>
         </form>
+        <NewDogImageModal thisDogId={thisDogId} hidefirst={hidefirst} show={modalShow} onHide={() => setModalShow(false)}/>
     </div>
     )
 }

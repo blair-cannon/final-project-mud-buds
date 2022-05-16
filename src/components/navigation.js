@@ -15,8 +15,12 @@ function NavBar(props) {
 
 function Navigation() {
   return (
-    <div >
-      <NavBar />
+    <div className="container" >
+      <div className="row" >
+        <div className="col">
+          <NavBar />
+        </div>
+      </div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import Placeholder from '../images/placeholder.png'
 export default function TestimonyCard() {
   return (
     
-    //   want to pull the most recent three 
+    //   want to pull the most recent three in next iteration
     <Card className="testimonialCard">
       <Card.Img src={Placeholder} />
       <Card.Body>

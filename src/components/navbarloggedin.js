@@ -9,7 +9,7 @@ export default function NavBarLoggedIn(props) {
     let navigate = useNavigate()
     return (
         <Navbar className="nav" expand={false}>
-          <Container fluid>
+          {/* <Container fluid> */}
             <img className="logo" src={Logo} />
             <div className="navRight">
               <LinkContainer to="/feed">
@@ -30,8 +30,12 @@ export default function NavBarLoggedIn(props) {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                   <Nav className="justify-content-end flex-grow-1 pe-3">
-                    <Nav.Link href="#action1">New Client Info</Nav.Link>
-                    <Nav.Link href="#action2">Safety</Nav.Link>
+                  <LinkContainer to="/aboutUs">
+                      <Nav.Link>About Us</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/safetyTips">
+                      <Nav.Link>Safety Tips</Nav.Link>
+                    </LinkContainer>
                     <LinkContainer to="/">
                       <Nav.Link onClick={() => {
                         AuthService.logout()
@@ -43,6 +47,6 @@ export default function NavBarLoggedIn(props) {
                 </Offcanvas.Body>
               </Navbar.Offcanvas>
             </div>
-          </Container>
+          {/* </Container> */}
         </Navbar>
     )};
