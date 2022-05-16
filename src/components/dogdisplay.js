@@ -68,7 +68,7 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
         // console.log(resp)
         setDogImage(resp.data[0].image)
       }
-      // getDogImage()
+      getDogImage()
     }, [])
 
 
