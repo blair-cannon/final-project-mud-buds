@@ -27,8 +27,12 @@ export default function NavBarLoggedIn(props) {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                   <Nav className="justify-content-end flex-grow-1 pe-3">
-                    <Nav.Link href="#action1">New Client Info</Nav.Link>
-                    <Nav.Link href="#action2">Safety</Nav.Link>
+                    <LinkContainer to="/aboutUs">
+                      <Nav.Link>About Us</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/safetyTips">
+                      <Nav.Link>Safety Tips</Nav.Link>
+                    </LinkContainer>
                     <LinkContainer to="/register">
                       <Nav.Link >Create Account</Nav.Link>
                     </LinkContainer>

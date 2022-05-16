@@ -8,6 +8,8 @@ import Login from "./routes/login";
 import Register from "./routes/register";
 import Navigation from "./components/navigation";
 import Connections from "./routes/myconnections";
+import AboutUs from "./routes/aboutUs";
+import SafetyTips from "./routes/safetyTips";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GlobalProvider } from "./context/GlobalState";
 import CreateDogPrompt from "./components/createDogPrompt";
@@ -32,6 +34,8 @@ function App() {
                   <Route path="/register" element={<Register />}></Route>
                   <Route path="/connections" element={<Connections />}></Route>
                   <Route path="/createDogPrompt" element={<CreateDogPrompt />}></Route>
+                  <Route path="/aboutUs" element={<AboutUs />}></Route>
+                  <Route path="/safetyTips" element={<SafetyTips />}></Route>
                 </Routes>
               </Router>
           </GlobalProvider>
