@@ -266,11 +266,11 @@ export default function AddDogForm({ hidefirst }) {
                 </select>
             </label>
             <label>
-                Choose some hashtags to spice up your dog's profile!
-                <select multiple
+                Choose a hashtag to spice up your dog's profile!
+                {/* change this select to multiple once tags are figured out */}
+                <select
                     className="newDogInput"
                     name="tags"
-                    // value={newDog.socialization}
                     onChange={handleChange}
                 >
                     {optionsTags.map((option) => (
