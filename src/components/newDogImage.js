@@ -21,8 +21,6 @@ export default function AddDogImage(props) {
         newDogImageFormData.append("image", newDogImage.image);
         newDogImageFormData.append("dog", `${props.thisDogId}`);
 
-        // const params = new URLSearchParams();
-        // params.append(newDogImage);
         try {
             let options = {
               method: "POST",
@@ -39,7 +37,7 @@ export default function AddDogImage(props) {
     }
 
     return (
-        <Modal
+        <Modal 
           {...props}
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"

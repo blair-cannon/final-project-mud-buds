@@ -28,10 +28,6 @@ export default function HandleNewConvo({ Hide }) {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        const newConvoFormData = new FormData();
-        newConvoFormData.append("subject", newConvo.subject)
-        newConvoFormData.append("dog_creator", newConvo.dog_creator)
-        newConvoFormData.append("dog_other", newConvo.dog_other)
 
         try {
             let options = {

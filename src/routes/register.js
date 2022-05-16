@@ -1,10 +1,12 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import AuthService from "../services/auth.service";
 import TestimonialContainer from "../components/testimonialContainer";
 import FooterContainer from "../components/footerContainer";
 import RegisterImage from "../images/registerImage.png";
 
 const Register = () => {
+  let navigate = useNavigate();
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -24,15 +26,17 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     AuthService.register(user)
+      navigate('/')
   }
 
   return (
     <div >
       <form className="registerBox" onSubmit={handleRegister}>
-        {/* <img className="registerImage" src={RegisterImage} alt="register dog image" ></img> */}
+        <h1 className="login-register-header">Create Account.</h1>
         <div>
           <div>
             <label className="registerWords" htmlFor="username">Username:</label>
+            <br/>
             <input
               type="text"
               id="username"
@@ -44,6 +48,7 @@ const Register = () => {
           </div>
           <div>
             <label className="registerWords" htmlFor="email">Email:</label>
+            <br/>
             <input
               type="text"
               id="email"
@@ -55,6 +60,7 @@ const Register = () => {
           </div>
           <div>
             <label className="registerWords" htmlFor="pass">Password:</label>
+            <br/>
             <input
               type="password"
               id="pass"
@@ -67,6 +73,7 @@ const Register = () => {
           </div>
           <div>
             <label className="registerWords" htmlFor="passConf">Confirm Password:</label>
+            <br/>
             <input
               type="password"
               id="passConf"
@@ -78,9 +85,10 @@ const Register = () => {
           </div>
           <div>
             <label className="registerWords" htmlFor="first_name">First Name:</label>
+            <br/>
             <input
               type="text"
-              id="firstName"
+              id="first_name"
               className="loginInput"
               name="fname"
             
@@ -89,9 +97,10 @@ const Register = () => {
           </div>
           <div>
             <label className="registerWords" htmlFor="last_name">Last Name:</label>
+            <br/>
             <input
               type="text"
-              id="lastName"
+              id="last_name"
               className="loginInput"
               name="lname"
               required
@@ -113,7 +122,7 @@ const Register = () => {
         </div>
       </form>
       <TestimonialContainer />
-      {/* <FooterContainer /> */}
+      <FooterContainer />
     </div>
   )
 

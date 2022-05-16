@@ -2,16 +2,23 @@ import React, { useState, useEffect } from 'react';
 import {Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 import request from '../services/api.requests.js';
 import { useGlobalState } from "../context/GlobalState";
-import NewConvoModal from './newConvoModal.js';
+import NewConvoModal from '../components/newConvoModal.js';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Connections({ dog }) {
-    console.log(dog)
+  let navigate = useNavigate();
   const [ state, dispatch ] = useGlobalState();
   const [targetedAcceptedConnections, setTargetedAcceptedConnections] = useState([]);
   const [initializedAcceptedConnections, setInitializedAcceptedConnections] = useState([]);
 
   useEffect(() => {
+    if (state.dogs.length == 0) {
+      console.log('1')
+      return (
+        navigate('/createDogPrompt')
+      )
+    }
     async function getConnections() {
       let options = {
         url: `/connections/?dog_target__user_id=${state.currentUser.user_id}`,
@@ -33,10 +40,12 @@ export default function Connections({ dog }) {
     getConnections()
     getOtherConnections()
 
-    }, []);
+  }, []);
 
 
-return (
+
+
+  return (
     <div className="connectionTextDiv">
         <h1 className="connections">Friends</h1>
         {targetedAcceptedConnections.filter((connection) => connection.is_accepted === true).map((connection) => <TAConnection dog={dog} key={connection.id} connection={connection} setTargetedAcceptedConnections={setTargetedAcceptedConnections} targetedAcceptedConnections={targetedAcceptedConnections} />)}
