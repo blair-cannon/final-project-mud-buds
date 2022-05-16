@@ -99,24 +99,6 @@ export default function AddDogForm({ hidefirst }) {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        const newDogFormData = new FormData();
-       
-
-        newDogFormData.append("name", newDog.name)
-        newDogFormData.append("age", newDog.title)
-        newDogFormData.append("birthday", newDog.description)
-        newDogFormData.append("about_me", newDog.about_me)
-        newDogFormData.append("is_fixed", newDog.is_fixed)
-        newDogFormData.append("has_bitten", newDog.has_bitten)
-        newDogFormData.append("aggression", newDog.aggression)
-        newDogFormData.append("breed", newDog.breed)
-        newDogFormData.append("favorite_park", newDog.favorite_park)
-        newDogFormData.append("gender", newDog.gender)
-        newDogFormData.append("size", newDog.size)
-        newDogFormData.append("socialization", newDog.socialization)
-        newDogFormData.append("user", `${state.currentUser.user_id}`)
-        newDogFormData.append("tags", newDog.tags)
-
 
         try {
             let options = {

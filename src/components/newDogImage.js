@@ -21,8 +21,6 @@ export default function AddDogImage(props) {
         newDogImageFormData.append("image", newDogImage.image);
         newDogImageFormData.append("dog", `${props.thisDogId}`);
 
-        // const params = new URLSearchParams();
-        // params.append(newDogImage);
         try {
             let options = {
               method: "POST",

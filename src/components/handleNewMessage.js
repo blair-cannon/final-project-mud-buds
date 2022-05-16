@@ -24,11 +24,6 @@ export default function HandleNewMessage({ convoId, newConvo, Hide, HideSelf }) 
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        const newMessageFormData = new FormData();
-        newMessageFormData.append("content", newMessage.subject)
-        newMessageFormData.append("conversation", `${convoId}`)
-        newMessageFormData.append("dog_received", `${newConvo.dog_other}`)
-        newMessageFormData.append("dog_sent", `${newConvo.dog_creator}`)
 
         try {
             let options = {
