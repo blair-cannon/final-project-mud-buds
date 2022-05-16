@@ -50,7 +50,7 @@ export default function HandleNewConvo({ Hide }) {
     useEffect(() => {
       async function getToOptions() {
         let options = {
-          url: '/dogs',
+          url: '/dogs/',
           method: 'GET',
     } 
         let resp = await request(options);

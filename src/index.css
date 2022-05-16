@@ -784,3 +784,30 @@ a.nav-link:focus {
     text-align: center;
     font-size: 1.3rem;
 }
+
+.safety-header {
+    color: var(--darkred);
+    font-family: Dokdo;
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.safety-tips {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 0;
+}
+
+.tip {
+    width: 20rem;
+    font-family:'Courier New', Courier, monospace;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+    color: var(--blue);
+    font-weight: bold;
+}
