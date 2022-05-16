@@ -663,7 +663,7 @@ a.nav-link:focus {
     min-height: 100vh;
     flex-direction: column;
     justify-content: flex-start;
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
 }
 
 .notificationPageContainer {
@@ -816,27 +816,27 @@ a.nav-link:focus {
 @media only screen and (max-width: 600px) {
     .dogdisplayHeader {
         margin-top:3.5rem;
-        line-height: 1rem;
+        line-height: 1.5rem;
     }
     .check-and-x {
         height: 3rem;
         margin-top: 14rem;
     }
     .wrapper {
-        margin-bottom:2rem;
+        margin-bottom:6rem;
     }
     .dogCard {
         min-height:none;
         width:17rem;
-        left:3.75rem;
+        left:4.5rem;
         top:11rem;
     }
     .feed-dog-and-image-wrapper {
-        gap:10rem;
+        gap:9.5rem;
         width: 100%;
     }
     .imageSize {
-        height: 38rem;
+        height: 14rem;
     }
     .logo {
         height: 4rem;
