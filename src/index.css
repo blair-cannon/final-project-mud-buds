@@ -920,7 +920,7 @@ a.nav-link:focus {
     }
     .contentCol {
         min-height:max-content;
-        width:55%;
+        min-width:55%;
         margin-left: 2rem;
     }
     .new-convo-btn {
