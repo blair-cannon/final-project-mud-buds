@@ -293,7 +293,7 @@ export default function EditDogModal(props) {
                 </label>
                 <label>
                     Choose some hashtags to spice up your dog's profile!
-                    <select multiple
+                    <select
                         className="editedDogInput"
                         name="tags"
                         onChange={handleChange}

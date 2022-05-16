@@ -300,9 +300,6 @@ a.nav-link:focus {
     margin-bottom: 1rem;
 }
 
-.newMessageInput {
-
-}
 
 .resgisterInput {
     position:absolute;
@@ -739,4 +736,78 @@ a.nav-link:focus {
 .dummydiv {
     height: 3rem;
     width: 100%
+}
+
+.quoteLeft {
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 15rem;
+    font-size: 1.3rem;
+}
+
+.quoteRight {
+    font-family: 'Courier New', Courier, monospace;
+    float: right;
+    margin-right: 15rem;
+    font-size: 1.3rem;
+}
+
+.about-us-header {
+    font-family: Dokdo;
+    color: var(--blue);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-us-image {
+    width: 15rem;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.about-us-div {
+    margin-top: 5rem;
+    padding-bottom: 2rem;
+}
+
+.about-us-header-2 {
+    font-family: Dokdo;
+    color: var(--blue);
+    margin-top: 12rem;
+    text-align: center;
+}
+
+.about-us-mission {
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.safety-header {
+    color: var(--darkred);
+    font-family: Dokdo;
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.safety-tips {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 0;
+}
+
+.tip {
+    width: 20rem;
+    font-family:'Courier New', Courier, monospace;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+    color: var(--blue);
+    font-weight: bold;
 }

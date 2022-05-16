@@ -17,7 +17,8 @@ export default function Notifications() {
       navigate('/createDogPrompt')
     )
   }
-  else {
+}, []);
+
   return (
     <>
       <div className="wrapper">
@@ -34,6 +35,4 @@ export default function Notifications() {
       <FooterContainer />
     </>
   )
-  }
-}, []);
 }

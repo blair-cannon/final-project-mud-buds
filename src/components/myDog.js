@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Card, ListGroup, ListGroupItem, Button, OverlayTrigger, Popover } from 'react-bootstrap';
 import { useGlobalState } from "../context/GlobalState";
 import request from '../services/api.requests';
@@ -29,15 +29,18 @@ const Dog = ({ dog }) => {
   const [readMoreText, setReadMoreText] = useState(ReadMoreEnum["false"]);
   const [className, setClassName] = useState("closed");
 
-    async function getDogImage() {
+  useEffect(() => {
+    async function getMyDogImage() {
       let options = {
         url: `/images/?dog=${dog.id}`,
         method: 'GET',
       } 
       let resp = await request(options)
+      // console.log(resp)
       setDogImage(resp.data[0].image)
     }
-    getDogImage()
+    // getMyDogImage()
+  }, [])
 
     async function deleteDog() {
       try {  

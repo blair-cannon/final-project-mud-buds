@@ -20,7 +20,7 @@ export default function Dogdisplay() {
   useEffect(() => {
     async function getFeed() {
       let options = {
-        url: '/dogs',
+        url: '/dogs/',
         method: 'GET',
       } 
       let resp = await request(options)
@@ -68,7 +68,7 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
         // console.log(resp)
         setDogImage(resp.data[0].image)
       }
-      getDogImage()
+      // getDogImage()
     }, [])
 
 
