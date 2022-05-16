@@ -861,9 +861,11 @@ a.nav-link:focus {
     }
     .navRight {
         float: none;
+        margin-right: auto;
+        margin-left: auto;
     }
     a.nav-link {
-        font-size: 1rem;
+        font-size: 0.97rem;
         padding: 0.5rem;
     }
     .dogTags {
@@ -973,6 +975,33 @@ a.nav-link:focus {
     }
     .about-us-image {
         width: 10rem;
+    }
+    .hero {
+        width: 100%;
+        gap: 1rem;
+        flex-direction: column;
+    }
+    .sloganImage {
+        width:25rem;
+        height:15rem;
+        margin-top:4rem;
+    }
+    .dogHeroImage {
+        width: 27rem;
+        height: 22rem;
+        margin-top: 0;
+    }
+    .steps {
+        flex-direction: column;
+        margin-top:0;
+        width: 100%;
+    }
+    .walkthrough-steps {
+        margin-top: 0;
+    }
+    .example-feed-image {
+        width: 33rem;
+        height: 20rem;
     }
 }
 
