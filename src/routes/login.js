@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import AuthService from "../services/auth.service";
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from "../context/GlobalState";
 import jwtDecode from "jwt-decode";
 import TestimonialContainer from "../components/testimonialContainer";
 import FooterContainer from "../components/footerContainer";
-import LoginImage from "../images/loginImage.png";
 import request from "../services/api.requests";
 
 const Login = () => {

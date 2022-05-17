@@ -9,7 +9,6 @@ export default function AddDogImage(props) {
     })
 
     const handleChangeImage = (event) => {
-      console.log(event.target)
         setNewDogImage({
             image: event.target.files[0],
         });

@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import AuthService from "../services/auth.service";
 import TestimonialContainer from "../components/testimonialContainer";
 import FooterContainer from "../components/footerContainer";
-import RegisterImage from "../images/registerImage.png";
 
 const Register = () => {
   let navigate = useNavigate();

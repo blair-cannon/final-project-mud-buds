@@ -5,9 +5,9 @@ import NewDogImageModal from '../components/newDogImage';
 import {Button} from 'react-bootstrap';
 
 const optionsAggressionSocialization = [
-    {value:1, label:"High"},
+    {value:1, label:"Low"},
     {value:2, label:"Medium"},
-    {value:3, label:"Low"}
+    {value:3, label:"High"}
 ]
 
 const optionsFixed = [
@@ -26,21 +26,74 @@ const optionsGender = [
 ]
 
 const optionsSize = [
-    {value:1, label:"Small"},
-    {value:2, label:"Medium"},
-    {value:3, label:"Large"},
-    {value:4, label:"Extra Large"},
-    {value:5, label:"Extra Small"}
+    {value:1, label:"Extra Small"},
+    {value:2, label:"Small"},
+    {value:3, label:"Medium"},
+    {value:4, label:"Large"},
+    {value:5, label:"Extra Large"}
 ]
 
 const optionsBreed = [
-    {value:1, label:"German Shepherd"},
-    {value:2, label:"Beagle"},
-    {value:3, label:"Australian Shepherd"},
-    {value:4, label:"Huskey"}
+    {
+        value: 1,
+        name: "Huskey"
+    },
+    {
+        value: 2,
+        name: "Australian Shepherd"
+    },
+    {
+        value: 3,
+        name: "German Shepherd"
+    },
+    {
+        value: 4,
+        name: "Beagle"
+    },
+    {
+        value: 5,
+        name: "Lab"
+    },
+    {
+        value: 6,
+        name: "Chihuahua"
+    },
+    {
+        value: 7,
+        name: "Bulldog"
+    },
+    {
+        value: 8,
+        name: "Golden Retriever"
+    },
+    {
+        value: 9,
+        name: "Boxer"
+    },
+    {
+        value: 10,
+        name: "Border Collie"
+    },
+    {
+        value: 11,
+        name: "Poodle"
+    },
+    {
+        value: 12,
+        name: "Shih Tzu"
+    },
+    {
+        value: 13,
+        name: "Pug"
+    },
+    {
+        value: 14,
+        name: "Golden Doodle"
+    }
 ]
 
 const optionsPark = [
+    {value:1, label:"Wellington Park"},
     {value:1, label:"Jacobson Park"},
     {value:2, label:"Lake Reba Park"}
 ]
@@ -48,9 +101,10 @@ const optionsPark = [
 const optionsTags = [
     {value:1, label:"Hyper"},
     {value:2, label:"Swimmer"},
-    {value:3, label:"Kid-friendly"},
-    {value:4, label:"Fast"},
-    {value:5, label:"WallLeaner"},
+    {value:3, label:"WallLeaner"},
+    {value:4, label:"Shedder"},
+    {value:5, label:"Slobber Monster"},
+    {value:6, label:"Cuddler"},
 ]
 
 

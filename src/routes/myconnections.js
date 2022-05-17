@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import request from '../services/api.requests.js';
 import { useGlobalState } from "../context/GlobalState";
 import NewConvoModal from '../components/newConvoModal.js';
@@ -14,7 +14,6 @@ export default function Connections({ dog }) {
 
   useEffect(() => {
     if (state.dogs.length == 0) {
-      console.log('1')
       return (
         navigate('/createDogPrompt')
       )

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Card, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import ExampleDogImage from '../images/luka.jpeg';
 import request from '../services/api.requests.js';
 import { useGlobalState } from "../context/GlobalState";
 import { motion } from 'framer-motion';
@@ -31,13 +30,11 @@ export default function Dogdisplay() {
 }, []);
 
   if (state.dogs.length == 0) {
-    console.log('1')
     return (
       navigate('/createDogPrompt')
     )
   }
   else {
-    console.log('2')
     return (
       <div className="feedDogs">
           {/* filter for all dogs that aren't owned by the logged in user */}
@@ -65,7 +62,6 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
           method: 'GET',
         } 
         let resp = await request(options)
-        // console.log(resp)
         setDogImage(resp.data[0].image)
       }
       getDogImage()
@@ -76,10 +72,8 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
     var leftOccurred = false;
 
   async function checkPlacement(event,  info) {
-    console.log(event, info)
     if(info.offset.x > 0 && !rightOccurred){
         rightOccurred = true;
-      console.log(event)
       // request to be friends and take off screen
       let newFeed = feed.filter((feedDog) => feedDog.id !== dog.id)
       setFeed(newFeed)

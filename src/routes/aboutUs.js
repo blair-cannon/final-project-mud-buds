@@ -23,7 +23,7 @@ export default function Aboutus() {
         </p>
         <h1 className="about-us-header-2">Our Mission</h1>
         <p className="about-us-mission">To connect pets and people through a growing social norm: blind 'dates'.</p>
-        <img className="about-us-image" src={aboutUs} alt="about us picture"></img>
+        <img className="about-us-image" src={aboutUs} alt="about us"></img>
       </div>
     </div>
     <Footer />

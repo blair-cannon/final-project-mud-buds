@@ -1,7 +1,5 @@
 import {useState} from 'react';
-import { Col, Container, Row, Button } from 'react-bootstrap';
-import SideBar from '../components/sidebar';
-import ToggleDog from '../components/toggledogprofile';
+import { Container, Button } from 'react-bootstrap';
 import MyDog from '../components/myDog';
 import NewDogModal from '../components/newDogModal';
 import { Link } from 'react-router-dom';

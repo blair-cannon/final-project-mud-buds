@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import LoadingScreen from "./components/loadingScreen";
 import Feed from "./routes/feed";
 import Notifications from "./routes/notifications";

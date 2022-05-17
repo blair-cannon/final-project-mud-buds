@@ -1,5 +1,4 @@
 import React from 'react';
-import TestimonyCard from './testimonycard';
 import { Container, Card } from 'react-bootstrap';
 import Placeholder1 from '../images/placeholder1.jpg';
 import Placeholder2 from '../images/placeholder2.jpg';

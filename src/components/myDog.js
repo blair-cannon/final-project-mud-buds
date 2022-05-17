@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import {Card, ListGroup, ListGroupItem, Button, OverlayTrigger, Popover } from 'react-bootstrap';
+import {Card, Button } from 'react-bootstrap';
 import { useGlobalState } from "../context/GlobalState";
 import request from '../services/api.requests';
 import EditDogModal from './editDogModal';
-import { useNavigate, Link } from 'react-router-dom';
 
 let ReadMoreEnum = {
   false: "Read More",
@@ -21,7 +20,6 @@ return (
   )
 }
 const Dog = ({ dog }) => {
-  let navigate = useNavigate();
   const [ dogImage, setDogImage ] = useState();
   const [ state, dispatch ] = useGlobalState();
   const [modalShow, setModalShow] = useState(false);
@@ -36,7 +34,7 @@ const Dog = ({ dog }) => {
         method: 'GET',
       } 
       let resp = await request(options)
-      // console.log(resp)
+      console.log(resp)
       setDogImage(resp.data[0].image)
     }
     getMyDogImage()

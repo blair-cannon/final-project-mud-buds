@@ -7,7 +7,6 @@ export default function ConversationPreview({ convo }) {
     return (
       <>
         <div variant="primary" onClick={() => setModalShow(true)}>
-          {/* {console.log(convo)} */}
           <p className="conversationDate">{convo.created_at}</p>
           <p className="conversationSubject">{convo.subject}</p>
           <p className="conversationText">{convo.dog_creator.name}, {convo.dog_other.name}</p>

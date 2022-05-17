@@ -1,9 +1,8 @@
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import TestimonialContainer from './testimonialContainer';
 
 export default function CreateDogPrompt() {
-    let navigate = useNavigate();
   return (
     <>
         <div className="create-dog-prompt">

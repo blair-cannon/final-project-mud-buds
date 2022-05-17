@@ -12,7 +12,6 @@ export default function Notifications() {
 
   useEffect(() => {
   if (state.dogs.length == 0) {
-    console.log('1')
     return (
       navigate('/createDogPrompt')
     )

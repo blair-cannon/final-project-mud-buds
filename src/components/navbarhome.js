@@ -1,16 +1,13 @@
 import React from 'react';
 import { Navbar, Nav, Container, Offcanvas } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import Logo from '../images/doglogo.png';
-import AuthService from '../services/auth.service';
 
 export default function NavBarLoggedIn(props) {
-    let navigate = useNavigate()
     return (
         <Navbar className="nav" expand={false}>
           <Container fluid>
-            <img className="logo" src={Logo} />
+            <img className="logo" src={Logo} alt="company logo" />
             <div className="navRight">
               <LinkContainer to="/login">
                 <Nav.Link className="navlink">Log In</Nav.Link>
