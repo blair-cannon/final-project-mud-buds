@@ -1047,7 +1047,7 @@ a.nav-link:focus {
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 600px) {
     .dogdisplayHeader {
         margin-top:0.5rem;
         line-height: 1.5rem;
@@ -1259,7 +1259,7 @@ a.nav-link:focus {
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
     .dogHeroImage {
         height: 26rem;
     }
@@ -1276,7 +1276,7 @@ a.nav-link:focus {
         margin-bottom: 1rem;
         padding-bottom: 0;
     }
-}
+} */
 
 /* Large devices (laptops/desktops, 992px and up) */
 /* @media only screen and (min-width: 992px) {...} */
