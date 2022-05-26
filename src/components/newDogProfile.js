@@ -221,7 +221,7 @@ export default function AddDogForm({ hidefirst }) {
                     onChange={handleChange}
                 >
                     {optionsFixed.map((option) => (
-                        <option value={option.value}>{option.label}</option>
+                        <option value={option.value} key={option.label}>{option.label}</option>
                     ))}
                 </select>
             </label>
@@ -234,7 +234,7 @@ export default function AddDogForm({ hidefirst }) {
                     onChange={handleChange} 
                 >
                     {optionsBitten.map((option) => (
-                        <option value={option.value}>{option.label}</option>
+                        <option value={option.value} key={option.label}>{option.label}</option>
                     ))}
                 </select>
             </label>
@@ -247,7 +247,7 @@ export default function AddDogForm({ hidefirst }) {
                     onChange={handleChange}
                 >
                     {optionsAggressionSocialization.map((option) => (
-                        <option value={option.value}>{option.label}</option>
+                        <option value={option.value} key={option.label}>{option.label}</option>
                     ))} 
                 </select>
             </label>
@@ -262,7 +262,7 @@ export default function AddDogForm({ hidefirst }) {
                     onChange={handleChange}
                 >
                     {optionsBreed.map((option) => (
-                        <option value={option.value}>{option.label}</option>
+                        <option value={option.value} key={option.label}>{option.label}</option>
                     ))} 
                 </select>
             </label>
@@ -275,7 +275,7 @@ export default function AddDogForm({ hidefirst }) {
                     onChange={handleChange}
                 >
                     {optionsPark.map((option) => (
-                        <option value={option.value}>{option.label}</option>
+                        <option value={option.value} key={option.label}>{option.label}</option>
                     ))}    
                 </select>
             </label>
@@ -289,7 +289,7 @@ export default function AddDogForm({ hidefirst }) {
                     onChange={handleChange}
                 >
                     {optionsGender.map((option) => (
-                        <option value={option.value}>{option.label}</option>
+                        <option value={option.value} key={option.label}>{option.label}</option>
                     ))} 
                 </select>
             </label>
@@ -302,7 +302,7 @@ export default function AddDogForm({ hidefirst }) {
                     onChange={handleChange}
                 >
                     {optionsSize.map((option) => (
-                        <option value={option.value}>{option.label}</option>
+                        <option value={option.value} key={option.label}>{option.label}</option>
                     ))}  
                 </select>
             </label>
@@ -315,7 +315,7 @@ export default function AddDogForm({ hidefirst }) {
                     onChange={handleChange}
                 >
                     {optionsAggressionSocialization.map((option) => (
-                        <option value={option.value}>{option.label}</option>
+                        <option value={option.value} key={option.label}>{option.label}</option>
                     ))}
                 </select>
             </label>
@@ -329,7 +329,7 @@ export default function AddDogForm({ hidefirst }) {
                 >
                     <option disabled selected value> -- select an option -- </option>
                     {optionsTags.map((option) => (
-                        <option value={option.value}>{option.label}</option>
+                        <option value={option.value} key={option.label}>{option.label}</option>
                     ))}
                 </select>
             </label>  

@@ -227,9 +227,9 @@ export default function EditDogModal(props) {
                     >
                         {optionsFixed.map((option) => {
                             if (option.value == !!props.dog.is_fixed || option.value == props.dog.is_fixed) {
-                                return <option value={option.value} selected="selected" >{option.label}</option>
+                                return <option value={option.value} defaultValue="selected" key={option.label}>{option.label}</option>
                             }  
-                            else { return <option value={option.value} >{option.label}</option> }
+                            else { return <option value={option.value} key={option.label}>{option.label}</option> }
                         })}
                     </select>
                 </label>
@@ -242,9 +242,9 @@ export default function EditDogModal(props) {
                     >
                         {optionsBitten.map((option) => {
                             if (option.value == !!props.dog.has_bitten || option.value == props.dog.has_bitten) {
-                                return <option value={option.value} selected="selected" >{option.label}</option>
+                                return <option value={option.value} defaultValue="selected" key={option.label} >{option.label}</option>
                             }  
-                            else { return <option value={option.value} >{option.label}</option> }
+                            else { return <option value={option.value} key={option.label}>{option.label}</option> }
                         })}
                     </select>
                 </label>
@@ -257,9 +257,9 @@ export default function EditDogModal(props) {
                     >
                         {optionsAggressionSocialization.map((option) => {
                             if (option.value == props.dog.aggression.id) {
-                                return <option value={option.value} selected="selected" >{option.label}</option>
+                                return <option value={option.value} defaultValue="selected" key={option.label}>{option.label}</option>
                             }  
-                            else { return <option value={option.value} >{option.label}</option> }
+                            else { return <option value={option.value} key={option.label}>{option.label}</option> }
                         })}
                     </select>
                 </label>
@@ -274,9 +274,9 @@ export default function EditDogModal(props) {
                     >
                         {optionsBreed.map((option) => {
                             if (option.value == props.dog.breed.id) {
-                                return <option value={option.value} selected="selected" >{option.label}</option>
+                                return <option value={option.value} defaultValue="selected" key={option.label}>{option.label}</option>
                             }  
-                            else { return <option value={option.value} >{option.label}</option> }
+                            else { return <option value={option.value} key={option.label}>{option.label}</option> }
                         })}
                     </select>
                 </label>
@@ -289,9 +289,9 @@ export default function EditDogModal(props) {
                     >
                         {optionsPark.map((option) => {
                             if (option.value == props.dog.favorite_park.id) {
-                                return <option value={option.value} selected="selected" >{option.label}</option>
+                                return <option value={option.value} defaultValue="selected" key={option.label}>{option.label}</option>
                             }  
-                            else { return <option value={option.value} >{option.label}</option> }
+                            else { return <option value={option.value} key={option.label}>{option.label}</option> }
                         })}   
                     </select>
                 </label>
@@ -305,9 +305,9 @@ export default function EditDogModal(props) {
                     >
                         {optionsGender.map((option) => {
                             if (option.value == props.dog.gender.id) {
-                                return <option value={option.value} selected="selected" >{option.label}</option>
+                                return <option value={option.value} defaultValue="selected" key={option.label}>{option.label}</option>
                             }  
-                            else { return <option value={option.value} >{option.label}</option> }
+                            else { return <option value={option.value} key={option.label} >{option.label}</option> }
                         })}
                     </select>
                 </label>
@@ -320,9 +320,9 @@ export default function EditDogModal(props) {
                     >
                         {optionsSize.map((option) => {
                             if (option.value == props.dog.size.id) {
-                                return <option value={option.value} selected="selected" >{option.label}</option>
+                                return <option value={option.value} defaultValue="selected" key={option.label}>{option.label}</option>
                             }  
-                            else { return <option value={option.value} >{option.label}</option> }
+                            else { return <option value={option.value} key={option.label}>{option.label}</option> }
                         })} 
                     </select>
                 </label>
@@ -335,9 +335,9 @@ export default function EditDogModal(props) {
                     >
                         {optionsAggressionSocialization.map((option) => {
                             if (option.value == props.dog.socialization.id) {
-                                return <option value={option.value} selected="selected" >{option.label}</option>
+                                return <option value={option.value} defaultValue="selected" key={option.label}>{option.label}</option>
                             }  
-                            else { return <option value={option.value} >{option.label}</option> }
+                            else { return <option value={option.value} key={option.label}>{option.label}</option> }
                         })}
                     </select>
                 </label>
@@ -350,9 +350,9 @@ export default function EditDogModal(props) {
                     >
                         {optionsTags.map((option) => {
                             if (option.label == props.dog.tags) {
-                                return <option value={option.value} selected="selected" >{option.label}</option>
+                                return <option value={option.value} defaultValue="selected" key={option.label}>{option.label}</option>
                             }  
-                            else { return <option value={option.value} >{option.label}</option> }
+                            else { return <option value={option.value} key={option.label}>{option.label}</option> }
                         })}
                     </select>
                 </label>  

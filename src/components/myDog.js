@@ -35,10 +35,19 @@ const Dog = ({ dog }) => {
       } 
       let resp = await request(options)
       console.log(resp)
-      setDogImage(resp.data[0].image)
-    }
+      // if(resp.data[0].image){
+        setDogImage(resp.data[0].image)
+      // }
+      // else if(!resp.data[0].image){     
+      //     const interval  = setInterval(()=>{
+      //         getMyDogImage()
+      //       }, 1000);
+      //       return () => clearInterval(interval);
+      //     }
+        }
     getMyDogImage()
   }, [])
+
 
     async function deleteDog() {
       try {  
