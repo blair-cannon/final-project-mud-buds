@@ -29,12 +29,12 @@ export default function Dogdisplay() {
     getFeed()
 }, []);
 
-  if (state.dogs.length == 0) {
-    return (
-      navigate('/createDogPrompt')
-    )
-  }
-  else {
+  // if (state.dogs.length == 0) {
+  //   return (
+  //     navigate('/createDogPrompt')
+  //   )
+  // }
+  // else {
     return (
       <div className="feedDogs">
           {/* filter for all dogs that aren't owned by the logged in user */}
@@ -42,7 +42,7 @@ export default function Dogdisplay() {
         </div>
       )
   }
-}
+// }
 
 const IndividualDog = ({ dog, feed, setFeed }) => {
   const [isOpen, setIsOpen] = useState(false);

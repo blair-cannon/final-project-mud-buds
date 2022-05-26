@@ -36,59 +36,59 @@ const optionsSize = [
 const optionsBreed = [
     {
         value: 1,
-        name: "Huskey"
+        label: "Huskey"
     },
     {
         value: 2,
-        name: "Australian Shepherd"
+        label: "Australian Shepherd"
     },
     {
         value: 3,
-        name: "German Shepherd"
+        label: "German Shepherd"
     },
     {
         value: 4,
-        name: "Beagle"
+        label: "Beagle"
     },
     {
         value: 5,
-        name: "Lab"
+        label: "Lab"
     },
     {
         value: 6,
-        name: "Chihuahua"
+        label: "Chihuahua"
     },
     {
         value: 7,
-        name: "Bulldog"
+        label: "Bulldog"
     },
     {
         value: 8,
-        name: "Golden Retriever"
+        label: "Golden Retriever"
     },
     {
         value: 9,
-        name: "Boxer"
+        label: "Boxer"
     },
     {
         value: 10,
-        name: "Border Collie"
+        label: "Border Collie"
     },
     {
         value: 11,
-        name: "Poodle"
+        label: "Poodle"
     },
     {
         value: 12,
-        name: "Shih Tzu"
+        label: "Shih Tzu"
     },
     {
         value: 13,
-        name: "Pug"
+        label: "Pug"
     },
     {
         value: 14,
-        name: "Golden Doodle"
+        label: "Golden Doodle"
     }
 ]
 
