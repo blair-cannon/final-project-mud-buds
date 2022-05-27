@@ -9,7 +9,9 @@ export default function NavBarLoggedIn(props) {
     let navigate = useNavigate()
     return (
         <Navbar className="nav" expand={false}>
+          <LinkContainer to="/">
             <img className="logo" src={Logo} alt="company logo" />
+          </LinkContainer>
             <div className="navRight">
               <LinkContainer to="/feed">
                 <Nav.Link className="navlink">Feed</Nav.Link>
