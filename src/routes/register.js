@@ -16,6 +16,18 @@ const Register = () => {
   })
 
   const handleChange = (key, value) => {
+    if (key == 'password' && value.length < 8) {
+      document.querySelector('#helperText1').hidden = false;
+    }
+    else if (key == 'password' && value.length >= 8) {
+      document.querySelector('#helperText1').hidden = true;
+    }
+    else if (key == 'passwordConf' && value !== user.password) {
+      document.querySelector('#helperText2').hidden = false;
+    }
+    else if (key == 'passwordConf' && value == user.password) {
+      document.querySelector('#helperText2').hidden = true;
+    }
     setUser({
       ...user,
       [key]: value
@@ -70,6 +82,7 @@ const Register = () => {
               onChange={(e) => handleChange('password', e.target.value)}
             />
           </div>
+          <p id="helperText1" className="bg-warning text-dark m-auto mt-2" hidden={true}>Password should be a minimum of 8-digits.</p>
           <div>
             <label className="registerWords" htmlFor="passConf">Confirm Password:</label>
             <br/>
@@ -82,6 +95,7 @@ const Register = () => {
               required
               onChange={(e) => handleChange('passwordConf', e.target.value)} />
           </div>
+          <p id="helperText2" className="bg-warning text-dark m-auto mt-2" hidden={true}>Passwords do not match.</p>
           <div>
             <label className="registerWords" htmlFor="first_name">First Name:</label>
             <br/>
