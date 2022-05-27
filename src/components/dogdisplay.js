@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import request from '../services/api.requests.js';
 import { useGlobalState } from "../context/GlobalState";
 import { motion } from 'framer-motion';
+import Checkmark from '../images/checkmark.png';
+import Xmark from '../images/xmark.png';
 
 
 let ReadMoreEnum = {
@@ -29,12 +31,6 @@ export default function Dogdisplay() {
     getFeed()
 }, []);
 
-  // if (state.dogs.length == 0) {
-  //   return (
-  //     navigate('/createDogPrompt')
-  //   )
-  // }
-  // else {
     return (
       <div className="feedDogs">
           {/* filter for all dogs that aren't owned by the logged in user */}
@@ -67,14 +63,7 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
       getDogImage()
     }, [])
 
-
-    var rightOccurred = false;
-    var leftOccurred = false;
-
-  async function checkPlacement(event,  info) {
-    if(info.offset.x > 0 && !rightOccurred){
-        rightOccurred = true;
-      // request to be friends and take off screen
+    async function createConnection(e) {
       let newFeed = feed.filter((feedDog) => feedDog.id !== dog.id)
       setFeed(newFeed)
       setConnectionData(connectionData)
@@ -90,11 +79,42 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
       console.log(error)
       }
     }
-    else if (info.offset.x < 0 && !leftOccurred) {
-      // skip and take off screen
+
+    const nextProfile = (e) => {
       let newFeed = feed.filter((feedDog) => feedDog.id !== dog.id)
       setFeed(newFeed)
       leftOccurred = true;
+    }
+
+    var rightOccurred = false;
+    var leftOccurred = false;
+
+    const checkPlacement = (e,  info) => {
+    if(info.offset.x > 0 && !rightOccurred){
+        rightOccurred = true;
+      // request to be friends and take off screen
+      createConnection()
+      // let newFeed = feed.filter((feedDog) => feedDog.id !== dog.id)
+      // setFeed(newFeed)
+      // setConnectionData(connectionData)
+      // try {
+      //   let options = {
+      //     method: "POST",
+      //     url: '/connections/',
+      //     data: connectionData,
+      //   }
+      //   let resp = await request(options)
+      // }
+      // catch(error) {
+      // console.log(error)
+      // }
+    }
+    else if (info.offset.x < 0 && !leftOccurred) {
+      // skip and take off screen
+      nextProfile()
+      // let newFeed = feed.filter((feedDog) => feedDog.id !== dog.id)
+      // setFeed(newFeed)
+      // leftOccurred = true;
     }
   }
 
@@ -106,42 +126,46 @@ const IndividualDog = ({ dog, feed, setFeed }) => {
   };
 
   return (
-    <motion.div
-    drag="x"
-    onDrag={checkPlacement}
-  >
-    <Card className="dogCard">
-      <Card.Body>
-        <Card.Img className="imageSize" src={dogImage} alt="Card image" />
-        <Card.ImgOverlay>
-          <Card.Title className="dogTitle">{dog.name}, {dog.age}</Card.Title>
-        </Card.ImgOverlay>
-        <Card.Text className="owned-by">
-          Owned By:{dog.user.first_name}
-        </Card.Text>
-        <Card.Text className={`${className}`}>
-          {dog.gender.label}, {dog.breed.name}.
-          <br/>
-          {dog.about_me}
-          <br/>
-          My favorite park is...
-          <br/>
-          {dog.favorite_park.name}
-          <br />
-          Size: {dog.size.label}
-          <br />
-          Aggression level: {dog.aggression.label}
-          <br />
-          Socialization level: {dog.socialization.label}
-          <br />
-          Fixed? {JSON.stringify(dog.is_fixed)}
-        </Card.Text>
-        <Button className="read-more-btn" onClick={handleClick}>{readMoreText}</Button>
-        <Card.Text className="dogTags">
-          #{dog.tags.map((tag) => tag).join(' #')}
-        </Card.Text>
-      </Card.Body>
-    </Card>
-  </motion.div>
+    <div className="feed-dog-and-image-wrapper">
+      <img className="check-and-x" src={Xmark} alt="xmark" onClick={nextProfile} ></img>
+      <motion.div
+      drag="x"
+      onDrag={checkPlacement}
+      >
+        <Card className="dogCard">
+          <Card.Body>
+            <Card.Img className="imageSize" src={dogImage} alt="Card image" />
+            <Card.ImgOverlay>
+              <Card.Title className="dogTitle">{dog.name}, {dog.age}</Card.Title>
+            </Card.ImgOverlay>
+            <Card.Text className="owned-by">
+              Owned By:{dog.user.first_name}
+            </Card.Text>
+            <Card.Text className={`${className}`}>
+              {dog.gender.label}, {dog.breed.name}.
+              <br/>
+              {dog.about_me}
+              <br/>
+              My favorite park is...
+              <br/>
+              {dog.favorite_park.name}
+              <br />
+              Size: {dog.size.label}
+              <br />
+              Aggression level: {dog.aggression.label}
+              <br />
+              Socialization level: {dog.socialization.label}
+              <br />
+              Fixed? {JSON.stringify(dog.is_fixed)}
+            </Card.Text>
+            <Button className="read-more-btn" onClick={handleClick}>{readMoreText}</Button>
+            <Card.Text className="dogTags">
+              #{dog.tags.map((tag) => tag).join(' #')}
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </motion.div>
+      <img className="check-and-x" src={Checkmark} alt="checkmark" onClick={createConnection} ></img>
+    </div>
   )
 }

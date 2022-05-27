@@ -41,11 +41,12 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     justify-content: flex-start;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 
 }
 
 .feedPageContainer {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     padding-bottom: 5rem;
@@ -560,20 +561,6 @@ a.nav-link:focus {
 
 .dogCard {
     margin-top: 0;
-    /* margin-left: auto;
-    margin-right: auto;
-    /* Absolute position */
-    position: absolute;
-    /* top: 10rem; */
-    /* Take full size */
-    /* height: 100rem;
-    width: 80rem; */
-    
-    /* Displayed under the container */
-    /* z-index: -1; */
-    left: 30rem;
-    top: 10rem;
-    
     /* Background and border colors */
     background-color: rgb(255, 255, 255);
     border: 1px solid rgba(0, 0, 0, 0.3);
@@ -584,7 +571,6 @@ a.nav-link:focus {
     width: 23rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 2rem;
-
 }
 
 .feedDogs {
@@ -603,9 +589,10 @@ a.nav-link:focus {
 .feed-dog-and-image-wrapper {
     display: flex;
     justify-content: center;
-    width: 85%;
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
+    top: 2.5rem;
+    left: 6rem;
+    gap: 5rem;
     margin-top: 1.5rem;
     align-items: center;
 }
@@ -874,23 +861,23 @@ a.nav-link:focus {
         font-size:1.2rem;
     }
     .check-and-x {
-        height: 3rem;
-        margin-top: 14rem;
+        height: 6rem;
+        margin-top: 5rem;
     }
     .wrapper {
         margin-bottom:10rem;
     }
     .dogCard {
-        width:15rem;
-        left:6rem;
-        top:6rem;
+        width:13rem;
     }
     .myDogCard {
         width:15rem;
     }
     .feed-dog-and-image-wrapper {
-        gap:8.75rem;
-        width: 100%;
+        gap:1.3rem;
+        left: 0rem;
+        top: 1rem;
+        /* width: 100%; */
     }
     .imageSize {
         height: 14rem;
@@ -931,7 +918,7 @@ a.nav-link:focus {
     .feedPageContainer {
         margin-top: 3.5rem;
         padding-bottom: 2rem;
-        margin-bottom: 0rem;
+        margin-bottom: 6rem;
     }
     .closed {
         line-height: 1rem;
@@ -1084,6 +1071,9 @@ a.nav-link:focus {
     }
     .sentence-and-link {
         flex-direction: column;
+    }
+    .profilePageBox {
+        width: 95%;
     }
 }
 
