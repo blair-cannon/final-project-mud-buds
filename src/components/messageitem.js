@@ -4,7 +4,7 @@ import request from '../services/api.requests.js';
 import { useGlobalState } from '../context/GlobalState.js';
 
 export default function Message({ convo }) {
-  const inputRef = useRef();
+  const inputRef = useRef(null);
   const [state, dispatch] = useGlobalState();
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState({
@@ -55,7 +55,10 @@ const handleSubmit = async(e) => {
     } catch(error) {
       console.log(error)
     }
-    inputRef.current.value = ''; // empties input box
+    setNewMessage({
+      ...newMessage,
+      content: '',
+  }); // empties input box
 }
 
   
@@ -81,8 +84,9 @@ const handleSubmit = async(e) => {
     <Form  onSubmit={handleSubmit} >
           <textarea
               className="newMessageInput"
+              id="newMessageInput"
               ref={inputRef}
-              maxlength="600"
+              maxLength="600"
               name="content"
               type="text"
               value={newMessage.content}

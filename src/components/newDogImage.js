@@ -9,9 +9,14 @@ export default function AddDogImage(props) {
     })
 
     const handleChangeImage = (event) => {
-        setNewDogImage({
-            image: event.target.files[0],
-        });
+      // creating a new object to update state with so that dogdisplay will rerender with image
+      const thisImage = {
+        ...newDogImage,
+        image: event.target.files[0],
+      }
+        setNewDogImage(
+          thisImage
+        );
     }
 
     const handleSubmitImage = async(e) => {

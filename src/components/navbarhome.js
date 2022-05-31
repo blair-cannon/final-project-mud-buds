@@ -7,7 +7,9 @@ export default function NavBarLoggedIn(props) {
     return (
         <Navbar className="nav" expand={false}>
           <Container fluid>
-            <img className="logo" src={Logo} alt="company logo" />
+            <LinkContainer to="/">
+              <img className="logo" src={Logo} alt="company logo" />
+            </LinkContainer>
             <div className="navRight">
               <LinkContainer to="/login">
                 <Nav.Link className="navlink">Log In</Nav.Link>
