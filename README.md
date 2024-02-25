@@ -5,7 +5,7 @@ o Framer-motion package used for the swiping card effect.
 o User Authentication for creating a dog profile and storing information.
 o Live messaging within the website.
 
-Originally hosted on Heroku and has since expired and data was deleted. 
+Originally hosted on Heroku and has since expired and seeded data was deleted. 
 
 ![Home Page](src/images/1.png)
 ![Swiping Ability in UI](src/images/2.png)
