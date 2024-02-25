@@ -1,4 +1,4 @@
-React, Python, Django, CSS, React Bootstrap
+Created in 2022: React, Python, Django, CSS, React Bootstrap
 
 o Tinder clone, find potential Puppy Playmates in your area!
 o Framer-motion package used for the swiping card effect.
