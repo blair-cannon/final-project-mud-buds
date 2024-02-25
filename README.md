@@ -6,3 +6,5 @@ o User Authentication for creating a dog profile and storing information.
 o Live messaging within the website.
 
 Originally hosted on Heroku and has since expired and data was deleted. 
+
+![Swiping Ability in UI](src/images/2.png)
